@@ -48,7 +48,7 @@ import { applyMiddleware, createStore } from 'redux';
 
 * We're going to use this to pass in our `redux-thunk` and `redux-logger` packages.
 
-  ## redux-thunk
+## redux-thunk
 
 * [redux-thunk](https://github.com/gaearon/redux-thunk) is a package that was built by the author of Redux _Dan Abramov_ to handle Async requests in Recux.
 * **What is it?** - `redux-thunk` is a middleware that we can plug into our `createStore()` method when setting up our Redux application.
@@ -94,4 +94,23 @@ function myCleverAction = () => {
 * Our promise resolves here with data in this .then block
 * Now we just call the `dispatch` method which has ben exposed to us through our `thunk` middleware.
 * This looks like a lot of boiler plate, but it's actually quite a controlled, and eloquent solution to a big problem that `cross-site-scripting` and `http` requesting often cause.
-  ## redux-logger
+
+## redux-logger
+
+* [redux-logger](https://github.com/evgenyrodionov/redux-logger) is a logging middleware that allows us to simply put some of the powers of the `redux dev tools` directly into our browser.
+* If you don't want to mess with configuration of Chrome packages etc. this is a really good way to tap into your `store.subscribe()` function.
+* Set up is simple, pass it into the `applyMiddleware()` method along with your `redux-thunk` middleware and you're good to go!
+
+```
+import logger from 'redux-logger';
+
+applyMiddleware(thunk, logger);
+```
+
+* As soon as your app starts dispatching actions, you'll see a very delightful log of these actions in the console :) Feel free to disable this at anytime if logs get to busy or if you just simply prefer to use the dev tools.
+
+## Project
+
+* Your project here is to build a `react-redux` application that will request some data from a 3rd party api.
+* go ahead and run an `npm install` to get what you need installed here.
+* **Start** in `src/index.js`. We'll need to pull in the appropriate packages.
