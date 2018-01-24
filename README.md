@@ -114,3 +114,7 @@ applyMiddleware(thunk, logger);
 * Your project here is to build a `react-redux` application that will request some data from a 3rd party api.
 * go ahead and run an `npm install` to get what you need installed here.
 * **Start** in `src/index.js`. We'll need to pull in the appropriate packages.
+* **Next** after you're all wired up in your `index` lets move over to the `starWarsReducer` and build out our reducer function.
+* **Next** move into our `actions/index.js` file to build out the action that will be sending off the `axios` request to the `SWAPI` api.
+  * Hint - `console.log` will be your best friend here. As soon as you get the right data back, you'll want to make sure you're reducer is ready to receive it... so there may be some back and forth here.
+* **Finally** wire everything up inside of your `components/App.js` and be sure to call your action from within `componentDidMount` to trigger the request.
