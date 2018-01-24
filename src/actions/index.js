@@ -13,14 +13,14 @@ export const ERROR_FETCHING_CHARS = 'ERROR_FETCHING_CHARS';
 // remember that now we have controll over our thunk-based
 
 export const getChars = () => {
-  const chars = axios.get('https://swapi.co/api/people');
+  const chars = axios.get('https://swapi.co/api/people/');
   return dispatch => {
     
     dispatch({ type: 'FETCHING_CHARS'});
     chars
       .then(({ data }) => {
         console.log(data);
-        dispatch({ type: CHARS_RECEIVED, payload: data.people })
+        dispatch({ type: CHARS_RECEIVED, payload: data.results })
         
       }) 
   }

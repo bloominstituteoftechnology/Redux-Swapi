@@ -10,8 +10,6 @@ class App extends Component {
     this.props.getChars();
   }
   render() {
-    const { chars } = this.props;
-    console.log(chars);
     return (
       <div className="App">
         {this.props.fetching ? (
@@ -28,15 +26,16 @@ class App extends Component {
   }
 }
 
-const mapDispatchToProps = state => {
+const mapStateToProps = (state) => {
   console.log(state);
   return {
-    chars: state.chars,
-    fetching: state.fetching,
+    chars: state.charsReducer.chars,
+    fetching: state.charsReducer.fetching,
+    error: state.charsReducer.error
   };
 };
 // our mapDispatchToProps needs to have two properties inherited from state
 // the chars and the fetching boolean
-export default connect(mapDispatchToProps, { getChars
+export default connect(mapStateToProps, { getChars
   /* actions go here */
 })(App);

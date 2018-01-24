@@ -16,12 +16,12 @@ export const charsReducer = (state = initialState, action) => {
     case FETCHING_CHARS:
       return {...state, fetching: true};
     case CHARS_RECEIVED:
-      console.log('people', action.payload);
+      console.log(action.payload);
       return {
         ...state,
         fetched: true,
         fetching: false,
-        chars: Object.keys(action.payload)
+        chars: action.payload
       };
     case ERROR_FETCHING_CHARS:
       return { ...state, fetching: false, error: action.payload };
