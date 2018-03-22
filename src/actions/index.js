@@ -13,11 +13,19 @@ export const FETCHED = "FETCHED";
 export const FETCHING = 'FETCHING';
 export const ERROR = 'ERROR';
 
-export const getChars = (dispatch) => {
-    axios
-        .get('https://swapi.co/api/people').then(response => {
-        dispatch({ type: FETCHED, chars: response.data.results })
-        }).catch(err => {
-        dispatch({ type: ERROR})
-        });
+export function getChars() {
+    return function action(dispatch) {
+      dispatch({ type: FETCHING })
+  
+      const request = axios({
+        method: 'GET',
+        url: 'https://swapi.co/api/people',
+        headers: []
+      });
+      
+      return request.then(
+        response => dispatch({type: FETCHED, chars: response.data.results}),
+        err => dispatch({type: ERROR, errorMessage: 'Woops!'})
+      );
     }
+  }
