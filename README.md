@@ -1,4 +1,4 @@
-# Redux II Mini
+# Redux Swapi
 
 ---
 
