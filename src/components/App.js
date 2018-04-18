@@ -20,8 +20,10 @@ class App extends Component {
           <h1 className="App-title">The FORCE is Strong in Redux</h1>
         </header>
         {this.props.fetching ? (
+          <div>
           <h3>Loading Characters...</h3>
           <img src={logo} className="App-logo" alt="logo" />
+          </div>
         ) : (
           <ul>
             {this.props.chars.map(char => {
