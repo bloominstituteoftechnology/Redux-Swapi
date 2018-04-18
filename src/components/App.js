@@ -12,6 +12,7 @@ class App extends Component {
     this.props.fetchChars();
     // call our action
   }
+
   render() {
     return (
       <div className="App">
@@ -31,6 +32,15 @@ class App extends Component {
 
 // our mapDispatchToProps needs to have two properties inherited from state
 // the chars and the fetching boolean
-export default connect(null, {
+const mapStateToProps = state => {
+  return {
+    chars: state.chars,
+    error: state.error,
+    fetching: state.fetching
+  };
+};
+
+export default connect(mapStateToProps, {
   /* actions go here */
+  fetchChars
 })(App);
