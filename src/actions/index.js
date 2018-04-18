@@ -1,3 +1,7 @@
+export const FETCHING = 'FETCHING';
+export const FETCHED = 'FETCHED';
+export const ERROR = 'ERROR';
+
 // we'll need axios
 
 // we'll need to create 3 different action types here.
