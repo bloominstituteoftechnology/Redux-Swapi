@@ -7,9 +7,13 @@ import logger from "redux-logger";
 
 import "./index.css";
 import { App } from "./components";
-import rootReducer from "./reducers";
+import charsReducer from "./reducers";
 
-const store = createStore(rootReducer, applyMiddleware(thunk, logger));
+const store = createStore(
+	charsReducer,
+	applyMiddleware(thunk, logger),
+	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 ReactDOM.render(
 	<Provider store={store}>
