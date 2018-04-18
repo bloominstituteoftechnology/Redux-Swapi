@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import logo from '../logo.svg';
 import '../styles/App.css';
+import { fetchChars } from '../actions';
+
 // pull in actions from action/index
 
 class App extends Component {
