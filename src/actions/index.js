@@ -9,7 +9,7 @@ export const ERROR = 'ERROR';
 // we'll have to be sure to make our promise resolve within our new "thunk based middlware"
 // the url to fetch characters from is `https://swapi.co/api/people`
 // remember that now we have controll over our thunk-based
-export function getChars() {
+function getChars() {
     return function action(dispatch) {
         dispatch({ type: FETCHING })
 
@@ -25,3 +25,5 @@ export function getChars() {
         );
     }
 }
+
+export default getChars;
