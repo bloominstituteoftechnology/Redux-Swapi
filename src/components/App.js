@@ -1,14 +1,17 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
-import logo from '../logo.svg';
-import '../styles/App.css';
+import logo from "../logo.svg";
+import "../styles/App.css";
 // pull in actions from action/index
+import { fetchChars } from "./actions";
 
 class App extends Component {
   componentDidMount() {
     // call our action
+    this.props.fetchChars();
   }
+
   render() {
     return (
       <div className="App">
