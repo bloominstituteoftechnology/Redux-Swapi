@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import { createStore, applyMiddleware } from 'redux';
-import { charsReducer } from './reducers';
+import {charsReducer} from './reducers/starWarsReducer';
 // needed dependancies
 // applyMiddleware from redux
 // thunk from redux-thunk
