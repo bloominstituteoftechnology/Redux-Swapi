@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import '../styles/App.css';
 // pull in actions from action/index
-import getChars from '../actions';
+import getChars from '../actions/index';
 
 class App extends Component {
   componentDidMount() {
@@ -25,15 +25,14 @@ class App extends Component {
 
 // our mapDispatchToProps needs to have two properties inherited from state
 // the chars and the fetching boolean
-const mapDispatchToProps = state => {
+const mapStateToProps = state => {
   return {
-    fetching: state.fetching,
-    chars: state.chars,
-    error: state.errorMessage
+    chars: state.charsReducer.chars,
+    fetching: state.charsReducer.fetching,
+    error: state.charsReducer.error
   };
-}
+};
 
-export default connect(null, {
+export default connect(mapStateToProps, { getChars
   /* actions go here */
-  mapDispatchToProps, getChars
 })(App);
