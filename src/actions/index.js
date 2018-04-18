@@ -20,7 +20,7 @@ export const getChars = () => {
     dispatch({ type: FETCHING });
     axios.get(`https://swapi.co/api/people/`)
       .then(response => {
-        dispatch({ type: FETCHED, payload: response.data.response });
+        dispatch({ type: FETCHED, payload: response.data.characters });
       })
       .catch( error => {
         dispatch({ type: ERRORS });
