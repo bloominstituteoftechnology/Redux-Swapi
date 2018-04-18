@@ -11,15 +11,15 @@ export const ERROR = "ERROR";
 // remember that now we have controll over our thunk-based
 
 export const asyncFetchChars = () => {
-	const promise = axios.get(`https://swapi.co/api/people`);
+	const promise = axios.get('https://swapi.co/api/people');
 	return dispatch => {
 		// fetching
 		dispatch({ type: FETCHING });
 		// fetched
 		promise
 			.then(response => {
-				dispatch({ type: FETCHED, payload: response.data });
 				console.log(response);
+				dispatch({ type: FETCHED, payload: response.data });
 			}) // error
 			.catch(error => {
 				dispatch({ type: ERROR });
