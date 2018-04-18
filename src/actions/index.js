@@ -11,10 +11,8 @@ export const ERROR = "ERROR";
 // remember that now we have controll over our thunk-based
 
 export const asyncFetchChars = () => {
-	console.log("made it");
 	const promise = axios.get("https://swapi.co/api/people");
 	return dispatch => {
-		console.log(dispatch);
 		// fetching
 		dispatch({ type: FETCHING });
 		// fetched

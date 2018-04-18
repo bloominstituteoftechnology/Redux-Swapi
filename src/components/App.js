@@ -12,7 +12,6 @@ class App extends Component {
   }
 
   render() {
-    console.log("PROPS:", this.props);
     return (
       <div className="App">
         {this.props.fetching ? (
@@ -30,7 +29,6 @@ class App extends Component {
 }
 
 const mapDispatchToProps = state => {
-  console.log("STATE: ", state);
   return {
     chars: state.starWars.chars,
     fetching: state.starWars.fetching
