@@ -1,4 +1,3 @@
-//
 import axios from 'axios';
 
 
@@ -6,8 +5,10 @@ export const GET_CHARS = 'GET_CHARS';
 export const FETCHING_CHARS = 'FETCHING_CHARS';
 export const ERROR_FETCHING_CHARS = 'ERROR_FETCHING_CHARS';
 
+const URL = 'https://swapi.co/api/people';
+
 export const getChars = chars => {
-    const promise = axios.get('https://swapi.co/api/people');
+    const promise = axios.get(`${URL}`);
     return dispatch => {
         dispatch({type: FETCHING_CHARS});
         promise
