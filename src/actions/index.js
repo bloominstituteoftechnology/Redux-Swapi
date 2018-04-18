@@ -14,7 +14,7 @@ export function fetchChars() {
         dispatch({type: "CHARS_FETCHING"})
         axios.get('https://swapi.co/api/people')
         .then((response) => {
-            dispatch({type: "CHARS_FETCHED", payload: response.data})
+            dispatch({type: "CHARS_FETCHED", payload: response.data.results})
         })
         .catch((err) => {
             dispatch({type: "CHARS_FETCH_ERROR", payload: err})
