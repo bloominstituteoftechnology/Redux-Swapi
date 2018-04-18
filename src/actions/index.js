@@ -7,8 +7,12 @@ export const ERROR_FETCHING_CHARS = 'ERROR_FETCHING_CHARS';
 
 const URL = 'https://swapi.co/api/people';
 
-export const getChars = chars => {
-    const promise = axios.get(`${URL}`);
+const getAPI  = () => {
+    return axios.get(`${URL}`);
+};
+
+export const getChars = () => {
+    const promise = getAPI();
     return dispatch => {
         dispatch({type: FETCHING_CHARS});
         promise
