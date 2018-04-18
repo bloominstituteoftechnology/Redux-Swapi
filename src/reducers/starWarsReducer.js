@@ -30,4 +30,4 @@ export const charsReducer = (state = initialState, action) => {
       return state;
     }
 };
-//this is a test
+
