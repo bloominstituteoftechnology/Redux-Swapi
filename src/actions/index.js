@@ -21,7 +21,7 @@ export const asyncFetchChars = () => {
 		promise
 			.then(response => {
 				console.log(response);
-				dispatch({ type: FETCHED, payload: response.data });
+				dispatch({ type: FETCHED, payload: response.data.results });
 			}) // error
 			.catch(error => {
 				dispatch({ type: ERROR });
