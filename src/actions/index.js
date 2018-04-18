@@ -7,3 +7,9 @@
 // we'll have to be sure to make our promise resolve within our new "thunk based middlware"
 // the url to fetch charicters from is `https://swapi.co/api/people/`
 // remember that now we have controll over our thunk-based
+
+export const asyncAction = () => {
+  return dispatch => {
+    
+  };
+};
