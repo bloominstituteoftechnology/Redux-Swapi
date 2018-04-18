@@ -8,9 +8,16 @@ import { fetchChars } from '../actions';
 // pull in actions from action/index
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    console.log(props);
+  }
+
   componentDidMount() {
-    this.props.fetchChars();
     // call our action
+    this.props.fetchChars();
+    console.log(this);
   }
 
   render() {
@@ -40,7 +47,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, {
-  /* actions go here */
-  fetchChars
-})(App);
+export default connect(mapStateToProps, { fetchChars })(App);
