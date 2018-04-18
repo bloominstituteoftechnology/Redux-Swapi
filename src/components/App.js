@@ -9,6 +9,7 @@ import { fetchChars } from '../actions';
 
 class App extends Component {
   componentDidMount() {
+    this.props.fetchChars();
     // call our action
   }
   render() {
