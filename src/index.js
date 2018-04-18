@@ -7,7 +7,7 @@ import logger from 'redux-logger';
 
 import './index.css';
 import { App } from './components';
-import reducers from './reduceres';
+import reducers from './reducers';
 
 // needed dependancies
 // applyMiddleware from redux

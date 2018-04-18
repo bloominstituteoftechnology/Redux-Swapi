@@ -1,8 +1,13 @@
-import /* we need our action types here*/ '../actions';
+import { FETCHING, FETCHED, ERROR } from '../actions';
+
 const initialState = {
   // define a few properties here.
   // Array chars, Boolean fetching, Boolean fetched, null error.
+ dogs: [],
+ fetchingDogs: false ,
+ error: ''
 };
+
 export const charsReducer = (state = initialState, action) => {
   switch (action.type) {
     // Fill me in with the important reducers
