@@ -12,7 +12,7 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.props);
+    console.log("PROPS:", this.props);
     return (
       <div className="App">
         {this.props.fetching ? (
@@ -30,10 +30,10 @@ class App extends Component {
 }
 
 const mapDispatchToProps = state => {
-  // console.log(state);
+  console.log("STATE: ", state);
   return {
-    chars: state.chars,
-    fetching: state.fetching
+    chars: state.starWars.chars,
+    fetching: state.starWars.fetching
   };
 };
 // our mapDispatchToProps needs to have two properties inherited from state
