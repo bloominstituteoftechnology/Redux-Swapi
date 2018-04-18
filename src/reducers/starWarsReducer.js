@@ -28,5 +28,6 @@ export const charsReducer = (state = initialState, action) => {
       });
     default:
       return state;
-  }
+    }
 };
+//this is a test
