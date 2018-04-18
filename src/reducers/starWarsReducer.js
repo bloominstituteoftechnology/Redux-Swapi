@@ -4,6 +4,7 @@ const initialState = {
   // Array chars, Boolean fetching, Boolean fetched, null error.
   chars: [],
   fetching: false,
+  fetched: false,
   error: null
 };
 export const charsReducer = (state = initialState, action) => {
@@ -14,9 +15,9 @@ export const charsReducer = (state = initialState, action) => {
     case FETCHING:
       return {...state, fetching: true}
     case FETCHED:
-      return {...state, chars: action.chars, fetching: false, error: null}
+      return {...state, fetched: true, fetching: false, chars: action.payload}
     case ERROR:
-      return {...state, error: action.errorMessage}
+      return {...state, error: action.payload}
     default:
       return state;
   }
