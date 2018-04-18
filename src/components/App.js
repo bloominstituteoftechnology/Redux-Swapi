@@ -11,13 +11,13 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    console.log(props);
+    // console.log(props);
   }
 
   componentDidMount() {
     // call our action
     this.props.fetchChars();
-    console.log(this);
+    // console.log(this);
   }
 
   render() {
