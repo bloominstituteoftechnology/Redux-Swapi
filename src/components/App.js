@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchChars } from "./actions"
+import { fetchChars } from "../actions"
 
 import logo from '../logo.svg';
 import '../styles/App.css';
@@ -35,7 +35,7 @@ const mapStateToProps = state => {
   return {
     chars: state.chars,
     error: state.error,
-    fetchingChars: state.fetchingChars
+    fetchChars: state.fetchChars
   };
 };
 
