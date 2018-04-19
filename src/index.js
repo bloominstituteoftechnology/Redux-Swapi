@@ -13,11 +13,7 @@ import rootReducer from "./reducers/";
 // logger from redux-logger
 // rootReducer from ./reducers
 
-const store = createStore(
-  rootReducer,
-  applyMiddleware(thunk, logger),
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+const store = createStore(rootReducer, applyMiddleware(thunk, logger));
 
 ReactDOM.render(
   <Provider store={store}>
