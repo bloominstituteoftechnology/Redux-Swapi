@@ -15,11 +15,9 @@ export const fetchChars = () => {
     dispatch({ type: FETCHING });
     promise
       .then(response => {
-        console.log(response);
         dispatch({ type: FETCHED, payload: response.data.results });
       })
       .catch(err => {
-        console.log(err);
         dispatch({ type: ERROR });
       });
   };
