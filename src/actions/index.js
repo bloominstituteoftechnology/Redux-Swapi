@@ -2,7 +2,7 @@ import axios from "axios";
 
 // we'll need to create 3 different action types here.
 // one for fetching, one for fetched and one for errors
-export const FETCHING = "FETCHING_CHARS";
+export const FETCHING = "FETCHING";
 export const FETCHED = "FETCHED";
 export const ERROR = "ERROR";
 // our action creator will be a function that returns a promise
@@ -16,7 +16,7 @@ export const fetchChars = () => {
     promise
       .then(response => {
         console.log(response);
-        dispatch({ type: FETCHED, payload: response.data.message });
+        dispatch({ type: FETCHED, payload: response.data.results });
       })
       .catch(err => {
         console.log(err);
