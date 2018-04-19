@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background: rgb(0, 132, 255);
 }
 
 .App-logo {
@@ -25,4 +26,13 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+body {
+  background: #888888;
+}
+
+li {
+  color: white;
+  border: 1px solid white;
 }

@@ -1,5 +1,5 @@
 // we'll need axios
-import { axios } from 'axios';
+import axios from 'axios';
 
 // we'll need to create 3 different action types here.
 // one for fetching, one for fetched and one for errors
@@ -19,7 +19,7 @@ export function fetchChars() {
             dispatch({type: 'FETCHED_CHARS', payload: response.data.results})
         })
         .catch((error) => {
-            dispatch({type: 'ERROR_FETCHING_CHARS', payload: err})
+            dispatch({type: 'ERROR_FETCHING_CHARS', payload: error})
         })
     }
 }
