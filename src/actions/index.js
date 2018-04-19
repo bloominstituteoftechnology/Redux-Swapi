@@ -15,12 +15,11 @@ export const FETCHED = 'FETCHED';
 export const ERRORS = 'ERRORS';
 
 export const getChars = () => {
-
   return dispatch => {
     dispatch({ type: FETCHING });
     axios.get(`https://swapi.co/api/people/`)
       .then(response => {
-        dispatch({ type: FETCHED, payload: response.data.characters });
+        dispatch({ type: FETCHED, payload: response.data.results });
       })
       .catch( error => {
         dispatch({ type: ERRORS });
