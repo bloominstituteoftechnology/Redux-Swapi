@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 
 import logo from "../logo.svg";
 import "../styles/App.css";
@@ -30,11 +31,24 @@ class App extends Component {
 
 // our mapDispatchToProps needs to have two properties inherited from state
 const mapDispatchToProps = dispatch => {
-  return 
-}
+  return bindActionCreators({ asyncAction: asyncAction }, dispatch);
+};
 
 // the chars and the fetching boolean
-export default connect(null, {
+const mapStateToProps = state => {
+  console.log("something something state", state);
+  return {
+    // our state machine is working for us based on fetching, success, and error. lets make sure our component knows about the state machine
+    chars: state.chars,
+    error: state.error,
+    fetching: state.fetchingChars // pending state, the fetching spinner or loading message etc. for when we're fetching!
+  };
+};
+
+export default connect(
+  null,
+  mapDispatchToProps,
+  mapStateToProps,
   /* actions go here */
-  mapDispatchToProps, 
-})(App);
+  { asyncAction }
+)(App);

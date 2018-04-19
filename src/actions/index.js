@@ -20,9 +20,9 @@ export const asyncAction = () => {
     promise
       // 2nd state: success is dispatched if promise resolves
       .then(response => {
-        dispatch({ type: CHAR_FETCH_SUCCESS, payload: response.data.message });
+        dispatch({ type: CHAR_FETCH_SUCCESS, payload: response.data.name });
       })
-      
+
       // alt 2nd state: reject is dispatched if promise does not go through.
       .catch(err => {
         console.log(err);

@@ -2,7 +2,7 @@ import {
   FETCHING_CHARS,
   CHAR_FETCH_SUCCESS,
   CHAR_FETCH_ERROR
-} from "../actions";
+} from "../actions/";
 
 const initialState = {
   // define a few properties here.
