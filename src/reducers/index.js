@@ -1,9 +1,8 @@
 import { combineReducers } from "redux";
-import charsReducer from "./starWarsReducer";
+import { starWarsReducer } from "./starWarsReducer";
 
 const rootReducer = combineReducers({
-  char: { charsReducer }
-  //not sure if it should be chars: or not
+  starWarsReducer
 });
 
 export default rootReducer;
