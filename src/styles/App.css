@@ -1,6 +1,5 @@
 .App {
   text-align: center;
-  background: rgb(0, 132, 255);
 }
 
 .App-logo {
@@ -29,10 +28,21 @@
 }
 
 body {
-  background: #888888;
+  background: rgb(16,210,209);
+  background: radial-gradient(circle, rgba(16,210,209,1) 0%, rgba(0,0,80,1) 77%);
 }
 
 li {
   color: white;
-  border: 1px solid white;
+  margin-bottom: 8px;
+}
+
+img {
+  height: 400px;
+  margin-left: 50px;
+}
+
+h1 {
+  margin-left: 30px;
+  margin-bottom: 25px;
 }

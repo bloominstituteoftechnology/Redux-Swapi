@@ -13,6 +13,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+      <h1>SW-API</h1>
         {this.props.fetching ? (
           <img src={logo} className="App-logo" alt="logo" />
         ) : (
@@ -22,6 +23,7 @@ class App extends Component {
             })}
           </ul>
         )}
+        <img src="https://vignette.wikia.nocookie.net/starwars/images/b/b2/X-wing_2_Fathead.png/revision/latest?cb=20161004003758" alt="x-wing-fighter"></img>
       </div>
     );
   }
