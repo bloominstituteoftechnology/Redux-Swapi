@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import fetchCharActionCreator from '../actions'
 import logo from '../logo.svg';
 import '../styles/App.css';
-// pull in actions from action/index
+
 
 class App extends Component {
+  constructor(props){
+  super(props)
+
+  }
   componentDidMount() {
-    // call our action
+    this.props.fetchCharActionCreator()
   }
   render() {
+ 
     return (
       <div className="App">
         {this.props.fetching ? (
@@ -25,9 +30,13 @@ class App extends Component {
     );
   }
 }
-
-// our mapDispatchToProps needs to have two properties inherited from state
-// the chars and the fetching boolean
-export default connect(null, {
-  /* actions go here */
-})(App);
+const mapStateToProps =(state) => {
+  console.log("state", state.charsReducer.fetchingChars);
+ return {
+   chars: state.charsReducer.chars,
+   fetchingChars: state.charsReducer.fetchingChars, 
+   fetchedChars: state.charsReducer.fetchedChars,
+   error: state.charsReducer.error
+ }
+}
+export default connect(mapStateToProps, {fetchCharActionCreator})(App);

@@ -1,14 +1,25 @@
-import /* we need our action types here*/ '../actions';
-const initialState = {
-  // define a few properties here.
-  // Array chars, Boolean fetching, Boolean fetched, null error.
+import { FETCHING_CHARACTERS, CHAR_FETCH_SUCCESS, CHAR_FETCH_ERROR} from '../actions';
+import { EHOSTUNREACH } from 'constants';
+
+
+const initialState ={
+
+  chars: [], fetchingChars: false, fetchedChars : false,  error: ''
 };
-export const charsReducer = (state = initialState, action) => {
+  const charsReducer = (state = initialState, action) => {
   switch (action.type) {
-    // Fill me in with the important reducers
-    // action types should be FETCHING, FETCHED, and ERROR
-    // your switch statement should handle all of these cases.
+
+    case FETCHING_CHARACTERS:
+      return Object.assign( {}, state, {fetchingChars: true} )
+
+    case CHAR_FETCH_SUCCESS:
+    return Object.assign({} , state, {chars:[...state.chars ,... action.payload],
+       fetchedChars:true})
+
+    case CHAR_FETCH_ERROR:
+    return Object.assign({}, state, { error:'error fetching ...'})
     default:
       return state;
   }
 };
+ export  {charsReducer} ;
