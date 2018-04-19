@@ -9,13 +9,14 @@ import './index.css';
 import { App } from './components';
 import rootReducer from './reducers/index';
 
+
 // needed dependancies
 // applyMiddleware from redux
 // thunk from redux-thunk
 // logger from redux-logger
 // rootReducer from ./reducers
 
-const store = createStore( rootReducer , applyMiddleware(logger));
+const store = createStore( rootReducer , applyMiddleware(thunk, logger));
 
 ReactDOM.render(
   <Provider store={store}>

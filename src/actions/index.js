@@ -13,17 +13,18 @@ export const ERROR_FETCHING_CHARS = 'ERROR_FETCHING_CHARS';
 // remember that now we have controll over our thunk-based
 
 export const fetchChars = () => {
-    const starWarsChars = axios.get(`https:swapi.co/api/people/`);
+    const starWarsChars = axios.get(`https://swapi.co/api/people/`);
     return dispatch => {
-        dispatch({ type: FETCHING_CHARS })
+        dispatch({ type: FETCHING_CHARS });
         starWarsChars
         .then(response => {
-            dispatch({ type: CHARS_FETCHED, payload: response.data.result});
+            dispatch({ type: CHARS_FETCHED, payload: response.data.results});
+            console.log(response.data.results)
         })
         .catch(err => {
             dispatch({
-                type: ERROR_FETCHING_CHARS,
-                payload: 'Error Fetching Chars'
+                type: ERROR_FETCHING_CHARS
+                // payload: 'Error Fetching Chars'
             });
         });
     };

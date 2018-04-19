@@ -1,4 +1,5 @@
 import { FETCHING_CHARS, CHARS_FETCHED, ERROR_FETCHING_CHARS } from '../actions';
+
 const initialState = {
   chars: [],
   error: null,
@@ -22,7 +23,7 @@ export const charsReducer = (state = initialState, action) => {
     case ERROR_FETCHING_CHARS:
       return Object.assign({}, state, {
         fetching: false,
-        error: action.payload
+        error: 'error'
       })
     // Fill me in with the important reducers
     // action types should be FETCHING, FETCHED, and ERROR
