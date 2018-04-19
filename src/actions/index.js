@@ -1,4 +1,3 @@
-// we'll need axios
 import axios from 'axios';
 
 // we'll need to create 3 different action types here.
@@ -14,10 +13,11 @@ export const ERROR = "ERROR";
 export const fetch = () => {
   const promise = axios.get('https://swapi.co/api/people');
   return dispatch => {
-    dispatch({ type: IS_FETCHING });
+    dispatch({ type: IS_FETCHING }); // pending state
     promise 
       .then(response => {
-        dispatch({ type: SUCCESSFULLY_FETCHED });
+        dispatch({ type: SUCCESSFULLY_FETCHED, payload: response.data.results });
+        console.log(response.data.results);
       })
       .catch(error => {
         console.log(error);
