@@ -32,7 +32,11 @@ body {
   background: radial-gradient(circle, rgba(16,210,209,1) 0%, rgba(0,0,80,1) 77%);
 }
 
+ul{ list-style-type: none; } 
+
 li {
+  font-family: 'Russo One', sans-serif;
+  font-size: 16px;
   color: white;
   margin-bottom: 8px;
 }
@@ -43,6 +47,8 @@ img {
 }
 
 h1 {
+  color: yellow;
   margin-left: 30px;
   margin-bottom: 25px;
+  font-family: 'Russo One', sans-serif;
 }
