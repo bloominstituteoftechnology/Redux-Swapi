@@ -10,16 +10,16 @@ export const CHARS_FETCH_ERR = "CHARS_FETCH_ERR";
 // we'll have to be sure to make our promise resolve within our new "thunk based middlware"
 // the url to fetch charicters from is `https://swapi.co/api/people`
 // remember that now we have control over our thunk-based
-export const fetchChars = () => {
+export const fetchChars = chars => {
     const promise = axios.get(`https://swapi.co/api/people`);
     return dispatch => {
         dispatch({ type: FETCH_CHARS });
         promise
-            .then(response => {
-                dispatch({ type: CHARS_FETCH_YES, payload: response.data.message});
+            .then(({ data }) => {
+                dispatch({ type: CHARS_FETCH_YES, payload: data.results });
             })
             .catch(err => {
-                dispatch({ type: CHARS_FETCH_ERR });
+                dispatch({ type: CHARS_FETCH_ERR, payload: err });
             });
             
     };

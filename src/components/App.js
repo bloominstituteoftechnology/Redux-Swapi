@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchChars } from "../actions"
-
 import logo from '../logo.svg';
 import '../styles/App.css';
 // pull in actions from action/index
+import { fetchChars } from "../actions"
 
 class App extends Component {
   componentDidMount() {
@@ -34,9 +33,8 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     chars: state.chars,
-    error: state.error,
-    fetchChars: state.fetchChars
+    fetching: state.fetching
   };
 };
 
-export default connect(null, (mapStateToProps, { fetchChars }))(App);
+export default connect(mapStateToProps, { fetchChars })(App);
