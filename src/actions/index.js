@@ -9,23 +9,23 @@
 // remember that now we have controll over our thunk-based
 
 import axios from 'axios';
+export const FETCHED = "FETCHED";
+export const FETCHING = 'FETCHING';
+export const ERROR = 'ERROR';
 
-export const FETCHING_PEOPLES = "FETCHING_PEOPLES";
-export const PEOPLE_FETCH_SUCCESS = "PEOPLE_FETCH_SUCCESS";
-export const PEOPLE_FETCH_ERROR = "PEOPLE_FETCH_ERROR"
-
-export const fetchPeoples = () => {
-    const promise = axios.get('https://swapi.co/api/people/');
-    return dispatch => {
-        dispatch({ type: FETCHING_PEOPLES });
-        promise
-            .then(response => {
-                console.log(response);
-                dispatch({ type: PEOPLE_FETCH_SUCCESS, payload: response.data.message });
-            })
-            .catch(err => {
-                console.log(err);
-                dispatch({ type: PEOPLE_FETCH_ERROR });
-            });
+export function getChars() {
+    return function action(dispatch) {
+      dispatch({ type: FETCHING })
+  
+      const request = axios({
+        method: 'GET',
+        url: 'https://swapi.co/api/people',
+        headers: []
+      });
+      
+      return request.then(
+        response => dispatch({type: FETCHED, chars: response.data.results}),
+        err => dispatch({type: ERROR, errorMessage: 'Woops!'})
+      );
     }
 }
