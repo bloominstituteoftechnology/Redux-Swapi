@@ -2,7 +2,12 @@ import { FETCH_CHARS, CHARS_FETCH_YES, CHARS_FETCH_ERR } from '../actions';
 
     // define a few properties here.
     // Array chars, Boolean fetching, Boolean fetched, null error.
-const initialState = { chars: [], fetchChars: false, error: ''};
+const initialState = { 
+  fetching: false, 
+  fetched: false,
+  chars: [],
+  error: null
+};
   
 
 export const charsReducer = (state = initialState, action) => {
@@ -11,17 +16,16 @@ export const charsReducer = (state = initialState, action) => {
     // action types should be FETCHING, FETCHED, and ERROR
     // your switch statement should handle all of these cases.
     case FETCH_CHARS:
-      return Object.assign({}, state, { fetchChars: true });
-    case CHARS_FETCH_YES:
-      return Object.assign({}, state, {
-        chars: [...state.chars, ...action.payload],
-        fetchChars: false
-      });
+      return ( ...state, fetching: true );
     case CHARS_FETCH_ERR:
-      return Object.assign({}, state, {
-        fetchChars: false,
-        error: 'Cannot beam characters down, Scotty'
-      });
+      return ( ...state, fetching: false, error: action.payload );
+    case CHARS_FETCH_YES:
+      return ( 
+        ...state,
+        chars: action.payload,
+        fetching: false,
+        fetched: true
+      );
     default:
       return state;
   }
