@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
 import logo from '../logo.svg';
 import '../styles/App.css';
 // pull in actions from action/index
-import { fetchChars } from "../actions"
+import { fetchChars } from "../actions";
 
 class App extends Component {
   componentDidMount() {
@@ -14,7 +15,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {this.props.error !== null ? <h3>(this.props.error)</h3> : null}
+        {this.props.error !== null ? <h3>{this.props.error}</h3> : null}
         {this.props.fetching ? (
           <img src={logo} className="App-logo" alt="logo" />
         ) : (
