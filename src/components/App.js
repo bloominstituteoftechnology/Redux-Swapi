@@ -14,6 +14,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        {this.props.error !== null ? <h3>(this.props.error)</h3> : null}
         {this.props.fetching ? (
           <img src={logo} className="App-logo" alt="logo" />
         ) : (
@@ -32,8 +33,10 @@ class App extends Component {
 // the chars and the fetching boolean
 const mapStateToProps = state => {
   return {
-    chars: state.chars,
-    fetching: state.fetching
+    chars: state.starWars.chars,
+    error: state.starWars.error,
+    fetching: state.starWars.fetching, 
+    fetched: state.starWars.fetched
   };
 };
 
