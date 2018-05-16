@@ -18,8 +18,8 @@ export const charsReducer = (state = initialState, action) => {
       return Object.assign({}, state, { 
         chars: state.chars.concat(action.payload), fetching: false, fetched: true 
       });
-    // case ERROR: 
-    //   return null;
+    case ERROR: 
+      return {state, fetching: false, error: action.payload};
     default:
       return state;
   }

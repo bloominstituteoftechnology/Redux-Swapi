@@ -1,6 +1,7 @@
 import axios from 'axios' // we'll need axios
 export const FETCHED = 'FETCHED';
 export const FETCHING = 'FETCHING';
+export const ERROR = 'ERROR';
 
 // we'll need to create 3 different action types here.
 // one for fetching, one for fetched and one for errors
@@ -15,13 +16,11 @@ export const fetchChars = () => {
     return function(dispatch) {
       dispatch({ type: FETCHING });
       getChars
-        .then(response => {
-          setTimeout(() => {
+        .then( ({ response }) => {
             dispatch({ type: FETCHED, payload: response.data });
-          }, 1000);
         })
         .catch(err => {
-          console.log(err);
+          dispatch({ type: ERROR, payload: err });
         });
     };
   };
