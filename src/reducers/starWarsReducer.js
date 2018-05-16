@@ -3,7 +3,7 @@ const initialState = {
   starWarsChars: [], 
   fetching: false,
   fetched: false,
-  error: 'Mission Aborted' 
+  error: null 
   // define a few properties here.
   // Array chars, Boolean fetching, Boolean fetched, null error.
 };

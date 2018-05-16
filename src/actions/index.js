@@ -1,4 +1,3 @@
-// we'll need axios
 import axios from 'axios';
 export const FETCHED = 'FETCHED';
 export const FETCHING = 'FETCHING'
@@ -11,3 +10,17 @@ export const ERROR = 'ERROR'
 // we'll have to be sure to make our promise resolve within our new "thunk based middlware"
 // the url to fetch charicters from is `https://swapi.co/api/people/`
 // remember that now we have controll over our thunk-based
+
+export const fetchStarWarsChars = () => {
+    const getStarWarsChars = axios.get('https://swapi.co/api/people');
+    return function(dispatch) {
+        dispatch({type: FETCHING });
+        getStarWarsChars
+            .then(response => {
+                setTimeout(() => {
+                    dispatch({type: FETCHED, payload: response.data})
+                }, 1000)
+            })
+            .catch (err => { dispatch({type: ERROR, payload: 'Mission Aborted'})})
+    }
+}
