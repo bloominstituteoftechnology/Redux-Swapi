@@ -12,7 +12,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {this.props.fetching ? (
+        {/* {this.props.fetching ? (
           <img src={logo} className="App-logo" alt="logo" />
         ) : (
           <ul>
@@ -20,7 +20,7 @@ class App extends Component {
               return <li key={char.name}>{char.name}</li>;
             })}
           </ul>
-        )}
+        )} */}
       </div>
     );
   }
