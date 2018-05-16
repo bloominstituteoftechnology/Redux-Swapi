@@ -4,6 +4,7 @@ const initialState = {
   // define a few properties here.
   // Array chars, Boolean fetching, Boolean fetched, null error.
   characters: [],
+  fetching: false,
   fetched: false,
   error: null
 };
