@@ -1,9 +1,9 @@
-import {FETCHING_CHARS} from '../actions';
+import {FETCHING_CHARS, FETCHED_CHARS, ERROR} from '../actions';
 const initialState = {
   // define a few properties here.
   // Array chars, Boolean fetching, Boolean fetched, null error.
   chars: [],
-  fetching: true,
+  fetching: false,
   fetched: false,
   error: null
 };
@@ -15,8 +15,19 @@ export const charsReducer = (state = initialState, action) => {
     case FETCHING_CHARS:
       return { 
         ...state,
+        fetching: true
+      }
+    case FETCHED_CHARS:
+      return {
+        ...state,
         chars: action.data,
-        fetching: false
+        fetching: false,
+        fetched: true,
+      }
+    case ERROR:
+      return {
+        ...state,
+        error: action.error
       }
     default:
       return state;

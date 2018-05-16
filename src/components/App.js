@@ -10,7 +10,6 @@ class App extends Component {
     this.props.fetchingChars()
   }
   render() {
-    console.log(this.props)
     return (
       <div className="App">
         { this.props.fetching ? (
