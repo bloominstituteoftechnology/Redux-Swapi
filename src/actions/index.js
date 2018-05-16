@@ -2,6 +2,7 @@
 import axios from 'axios';
 export const FETCH_SWAPI = 'FETCH-SWAPI';
 export const FETCHING_SWAPI = 'FETCHING_SWAPI';
+export const ERROR = 'ERROR';
 
 // we'll need to create 3 different action types here.
 // one for fetching, one for fetched and one for errors
@@ -11,7 +12,7 @@ export const FETCHING_SWAPI = 'FETCHING_SWAPI';
 // remember that now we have controll over our thunk-based
 
 export const fetchSwapi = ()  => {
-    getSwapi = axios.get(`https://swapi.co/api/people/`);
+   const getSwapi = axios.get(`https://swapi.co/api/people/`);
     return function (dispatch) {
         dispatch ({ type: FETCHING_SWAPI });
         getSwapi
@@ -22,6 +23,9 @@ export const fetchSwapi = ()  => {
             })
             .catch(err => {
                 console.log(err);
+                dispatch({ type: ERROR, payload: true
+
+                })
             })
     }
 }
