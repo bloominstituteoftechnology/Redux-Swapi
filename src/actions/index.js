@@ -32,7 +32,5 @@ export const fetchCharacters = () => {
           payload: err
         })
       });
-
-    // error
   };
 };
