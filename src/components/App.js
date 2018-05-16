@@ -30,10 +30,10 @@ class App extends Component {
 const mapDispatchToProps = state => {
   console.log(state);
   return {
-    chars: state.charsReducer.chars,
-    fetching: state.charsReducer.fetching,
-    fetched: state.charsReducer.fetched,
-    error: state.charsReducer.error
+    chars: state.chars,
+    fetching: state.fetching,
+    fetched: state.fetched,
+    error: state.error
   }
 }
 
