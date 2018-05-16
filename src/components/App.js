@@ -14,7 +14,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* {this.props.fetching ? (
+        {this.props.fetching ? (
           <img src={logo} className="App-logo" alt="logo" />
         ) : (
           <ul>
@@ -22,7 +22,7 @@ class App extends Component {
               return <li key={char.name}>{char.name}</li>;
             })}
           </ul>
-        )} */}
+        )}
       </div>
     );
   }
@@ -30,8 +30,8 @@ class App extends Component {
 
 const mapDispatchToProps = state => {
   return {
-    chars: state.characters,
-    fetching: state.fetching
+    chars: state.charsReducer.characters,
+    fetching: state.charsReducer.fetching
   }
 };
 

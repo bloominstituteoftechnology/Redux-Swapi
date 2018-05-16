@@ -11,11 +11,11 @@ const initialState = {
 export const charsReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCHING_CHARACTERS:
-      return state;
+      return Object.assign({}, state, { fetching: true });
     case FETCH_CHARACTERS:
-      return state;
+      return Object.assign({}, state, { characters: state.characters.concat(action.payload), fetching: false, fetched: true });
     case ERROR:
-      return state;
+      return Object.assign({}, state, { error: action.payload });
     default:
       return state;
   }

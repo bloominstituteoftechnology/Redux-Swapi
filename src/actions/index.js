@@ -17,17 +17,20 @@ export const fetchCharacters = () => {
   // return dispatch function
   // handles all 3 action types since they are tied to promise
   return (dispatch) => {
-    dispatch({type: FETCH_CHARACTERS}); // fetching
+    dispatch({type: FETCHING_CHARACTERS}); // fetching
 
     getCharacters
       .then(response => {
         dispatch({ // fetched
           type: FETCH_CHARACTERS,
-          payload: response.data
+          payload: response.data.results
         });
       })
       .catch(err => { // error
-        dispatch({type: ERROR})
+        dispatch({
+          type: ERROR,
+          payload: err
+        })
       });
 
     // error
