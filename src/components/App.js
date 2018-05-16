@@ -4,11 +4,12 @@ import { connect } from 'react-redux';
 import logo from '../logo.svg';
 import '../styles/App.css';
 import { FETCH_AVENGERS, FETCHING_AVENGERS } from '../actions'
+import {fetchAvengers} from '../actions'
 // pull in actions from action/index
 
 class App extends Component {
   componentDidMount() {
-    // call our action
+    this.props.fetchAvengers();
   }
   render() {
     return (
@@ -18,7 +19,9 @@ class App extends Component {
         ) : (
           <ul>
             {this.props.avengers.map(char => {
-              return <li key={char}>{char}</li>;
+              {console.log('achar',char.results)}
+              return <li key={char.results.map (item => item.name)}>{char.results.map (item => item.name)} </li>;
+              
             })}
           </ul>
         )}
@@ -38,5 +41,5 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps, {
-  FETCH_AVENGERS, FETCHING_AVENGERS 
+  fetchAvengers 
 })(App);
