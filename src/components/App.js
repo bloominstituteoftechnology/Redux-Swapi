@@ -28,6 +28,13 @@ class App extends Component {
 
 // our mapDispatchToProps needs to have two properties inherited from state
 // the chars and the fetching boolean
+const mapStateToProps = state => {
+  console.log(state);
+  return {
+    chars: state.chars,
+    fetching: state.fetching
+  }
+}
 export default connect(null, {
   /* actions go here */
 })(App);
