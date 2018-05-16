@@ -1,33 +1,40 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-
-import logo from '../logo.svg';
-import '../styles/App.css';
-// pull in actions from action/index
-
-class App extends Component {
-  componentDidMount() {
-    // call our action
-  }
-  render() {
-    return (
-      <div className="App">
-        {this.props.fetching ? (
-          <img src={logo} className="App-logo" alt="logo" />
-        ) : (
-          <ul>
-            {this.props.chars.map(char => {
-              return <li key={char.name}>{char.name}</li>;
-            })}
-          </ul>
-        )}
-      </div>
-    );
-  }
-}
-
-// our mapDispatchToProps needs to have two properties inherited from state
-// the chars and the fetching boolean
-export default connect(null, {
-  /* actions go here */
-})(App);
+ import React, { Component } from 'react'; 
+ import { connect } from 'react-redux'; 
+ import { fetchingSwapi } from "../actions" 
+ import logo from '../logo.svg'; 
+ import '../styles/App.css'; 
+ 
+ 
+ class App extends Component { 
+   componentDidMount() { 
+     this.props.fetchingSwapi(); 
+   } 
+ 
+ 
+   render() { 
+     return ( 
+      <div className="App"> 
+         <h1>Star Wars Characters List</h1> 
+         {this.props.fetching ? ( 
+             <img src={logo} className="App-logo" alt="logo" /> 
+         ) : ( 
+           <ol> 
+             {this.props.chars.map(char => { 
+               return <li key={char.name}>{char.name}</li>; 
+             })} 
+           </ol> 
+         )} 
+       </div> 
+     ); 
+   } 
+ } 
+ 
+ 
+ const mapDispatchToProps = state => { 
+   return { 
+     chars: state.charsReducer.chars, 
+     fetching: state.charsReducer.fetching 
+   } 
+ } 
+ 
+export default connect(mapDispatchToProps, { fetchingSwapi })(App); 
