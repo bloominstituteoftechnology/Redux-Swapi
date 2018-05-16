@@ -27,7 +27,6 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log("Current state:", state);
   return {
     chars: state.charsReducer.chars,
     fetching: state.charsReducer.fetching,
