@@ -1,4 +1,6 @@
-import /* we need our action types here*/ '../actions';
+// import /* we need our action types here*/ '../actions';
+import {} from '../actions';
+
 const initialState = {
   // define a few properties here.
   // Array chars, Boolean fetching, Boolean fetched, null error.
