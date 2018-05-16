@@ -12,15 +12,17 @@ class App extends Component {
     this.props.fetchAvengers();
   }
   render() {
+    console.log('star trek',this.props.avengers)
     return (
+
       <div className="App">
         {this.props.fetching ? (
           <img src={logo} className="App-logo" alt="logo" />
         ) : (
           <ul>
             {this.props.avengers.map(char => {
-              {console.log('achar',char.results)}
-              return <li key={char.results.map (item => item.name)}>{char.results.map (item => item.name)} </li>;
+              {console.log('achar',char)}
+              return <li key={char.name}>{char.name} </li>;
               
             })}
           </ul>

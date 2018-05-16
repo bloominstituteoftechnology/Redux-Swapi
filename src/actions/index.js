@@ -18,7 +18,7 @@ export const fetchAvengers = () => {
     dispatch({ type: FETCHING_AVENGERS });
     getAvengers
       .then(someData => {
-        dispatch({ type: FETCH_AVENGERS, payload: someData.data });
+        dispatch({ type: FETCH_AVENGERS, payload: someData.data.results });
       })
       .catch(err => {
         console.log(err);
