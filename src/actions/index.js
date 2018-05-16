@@ -12,14 +12,14 @@ export const ERROR = 'ERROR'
 // remember that now we have controll over our thunk-based
 
 export const fetchStarWarsChars = () => {
-    const getStarWarsChars = axios.get('https://swapi.co/api/people');
+    const getStarWarsChars = axios.get('https://swapi.co/api/people/');
     return function(dispatch) {
         dispatch({type: FETCHING });
         getStarWarsChars
             .then(response => {
-                setTimeout(() => {
-                    dispatch({type: FETCHED, payload: response.data})
-                }, 1000)
+                dispatch({type: FETCHED, payload: response.data.results})
+               
+                // console.log(response.data)
             })
             .catch (err => { dispatch({type: ERROR, payload: 'Mission Aborted'})})
     }
