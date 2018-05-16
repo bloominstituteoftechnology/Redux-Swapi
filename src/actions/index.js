@@ -16,7 +16,7 @@ export const fetchedChars = () => {
         getChars
             .then(charsData => {
                 setTimeout(() => {
-                    dispatch({ type: FETCHED_CHARS, payload: charsData.data });
+                    dispatch({ type: FETCHED_CHARS, payload: charsData.data.results });
                 }, 1000);
             })
             .catch(err => {
