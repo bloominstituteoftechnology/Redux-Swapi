@@ -14,14 +14,14 @@ export const ERROR = 'ERROR';
 
 
 export const fetchChars = () => {
-    const getChars = axios.get('https://swapi.co.api/people');
+    const getChars = axios.get('https://swapi.co/api/people/');
     return function(dispatch) {
         dispatch({ type: FETCHING });
         getChars.then(charsData => {
-            dispatch({type: FETCHED, payload: charsData.data});
+            dispatch({type: FETCHED, payload: charsData.data.results});
         })
         .catch(err => {
-            console.log(err);
+            console.log(ERROR);
         })
     }
 }
