@@ -20,12 +20,11 @@ export const fetchData = () => {
     getData
       .then(someData => {
         setTimeout(() => {
-          console.log(someData);
           dispatch({ type: FETCHED, payload: someData.data.results });
         }, 1000);
       })
       .catch(err => {
-        console.log(err);
+        dispatch({type: ERROR, payload: err});
       });
   };
 };
