@@ -4,7 +4,7 @@ const initialState = {
   // Array chars, Boolean fetching, Boolean fetched, null error.
   chars: [],
   fetching: false,
-  fetched: false,
+  fetched: true,
   error: null 
 };
 export const charsReducer = (state = initialState, action) => {
