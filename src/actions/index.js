@@ -1,4 +1,8 @@
 // we'll need axios
+import axios from 'axios';
+export const FETCH_STARWARS_CHARS = 'FETCH_STARWAR_CHARS';
+export const FETCHING_STARWARS_CHARS = 'FETCHING_STARWARS_CHARS'
+export const FAILED_FETCH = 'FAILED_FETCH'
 
 // we'll need to create 3 different action types here.
 // one for fetching, one for fetched and one for errors
