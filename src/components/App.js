@@ -45,10 +45,10 @@ class App extends Component {
 // our mapDispatchToProps needs to have two properties inherited from state
 // the chars and the fetching boolean
 const mapStateToProps = ({ foo }) => {
-  console.log(foo);
+  const { chars, fetching } = foo;
   return { 
-    chars: foo.chars,
-    fetching: foo.fetching,
+    chars,
+    fetching,
   };
 };
 
