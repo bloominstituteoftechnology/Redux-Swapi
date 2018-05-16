@@ -32,7 +32,7 @@ export const actionCreator = () => {
         dispatch(fetching());
         getChars
             .then( res => {
-                dispatch(fetched(res.data));
+                dispatch(fetched(res.data.results));
             })
             .catch( err => {
                 dispatch(errors(err));
