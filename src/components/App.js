@@ -1,35 +1,40 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+// actions
 import { fetched } from '../actions';
 
+// presentational
 import logo from '../logo.svg';
 import '../styles/App.css';
-// pull in actions from action/index
 
+// App
 class App extends Component {
   componentDidMount() {
-    // call our action
     this.props.fetched();
   }
 
+  // render
   render() {
+    const { chars, fetching, fetched } = this.props;
+    
     return (
       <div className="App">
         {
-          this.props.fetching
+          (fetching)
           ? (
-            <img src={logo} className="App-logo" alt="logo" />
-            )
+            <img src={ logo } className="App-logo" alt="logo" />
+          )
           : (
             <ul>
               {
-                this.props.chars.map(char => {
-                  return <li key={char.name}>{char.name}</li>;
+                chars.map(char => {
+                  const { name } = char;
+                  return <li key={ name }>{ name }</li>;
                 })
               }
             </ul>
-            )
+          )
         }
       </div>
     );
@@ -38,11 +43,11 @@ class App extends Component {
 
 // our mapDispatchToProps needs to have two properties inherited from state
 // the chars and the fetching boolean
-const mapStateToProps = state => {
+const mapStateToProps = ({ chars, fetching, fetched }) => {
   return {
-    chars: state.chars,
-    fetching: state.fetching,
-    fetched: state.fetched,
+    chars,
+    fetching,
+    fetched,
   };
 };
 
