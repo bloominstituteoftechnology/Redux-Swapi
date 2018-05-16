@@ -1,5 +1,9 @@
-import { FETCH_STARWARS_CHARS, FETCHING_STARWARS_CHARS, FAILED_FETCH } from '../actions';
+import { FETCHING, FETCHED, ERROR} from '../actions';
 const initialState = {
+  starWarsChars: [], 
+  fetching: false,
+  fetched: false,
+  error: 'Mission Aborted' 
   // define a few properties here.
   // Array chars, Boolean fetching, Boolean fetched, null error.
 };
