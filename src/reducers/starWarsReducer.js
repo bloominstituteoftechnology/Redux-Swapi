@@ -3,7 +3,10 @@ import { FETCHING, FETCHED, ERROR  } from  '../actions';
 const initialState = {
   // define a few properties here.
   // Array chars, Boolean fetching, Boolean fetched, null error.
-  chars: [], fetching: false, fetched: false, error: null
+  chars: [{name: 'Luke Skywalker'}], 
+  fetching: false, 
+  fetched: false, 
+  error: null
 };
 export const charsReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -14,29 +17,15 @@ export const charsReducer = (state = initialState, action) => {
       return Object.assign({}, state, { 
         fetching: true, fetched: false 
       });
+      // return {...state, fetching: true, fetched: false }
     case FETCHED:
       return Object.assign({}, state, { 
         chars: state.chars.concat(action.payload), fetching: false, fetched: true 
       });
+      // return {...state, fetching: false, fetched: true }
     case ERROR: 
-      return {state, fetching: false, error: action.payload};
+      return {...state, fetching: false, error: action.payload};
     default:
       return state;
   }
 };
-
-
-// export default (state = { avengers: [], fetching: false }, action) => {
-//   switch (action.type) {
-//     case FETCH_AVENGERS:
-//       return Object.assign({}, state, {
-//         avengers: state.avengers.concat(action.payload),
-//         fetching: false
-//       });
-//     case FETCHING_AVENGERS:
-//       return Object.assign({}, state, { fetching: true });
-//     default:
-//       return state;
-//   }
-// };
-
