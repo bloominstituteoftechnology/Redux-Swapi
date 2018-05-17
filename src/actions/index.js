@@ -11,12 +11,11 @@ export const fetchSwapi = () => {
         dispatch({ type: FETCHING });
         getToons
             .then(someData => {
-                setTimeout(() => {
-                    dispatch({ type: FETCHED, payload: someData.data });
-                }, 1000);
+                console.log("SomeData:", someData)
+                    dispatch({ type: FETCHED, payload: someData.data.results });
             })
             .catch(err => {
-                console.log(err);
+                dispatch({ type: ERROR, payload: err });
             })
     }
 }

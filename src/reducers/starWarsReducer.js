@@ -4,7 +4,7 @@ const initialState = {
   // Array chars, Boolean fetching, Boolean fetched, null error.
   chars: [],
   fetching: false,
-  fetched: true,
+  fetched: false,
   error: null 
 };
 export const charsReducer = (state = initialState, action) => {
@@ -21,7 +21,10 @@ export const charsReducer = (state = initialState, action) => {
           fetched: true
         });
     case ERROR:
-        return null;
+        return Object.assign({}, state, {
+          fetching: false,
+          error: action.payload
+        })
     default:
       return state;
   }
