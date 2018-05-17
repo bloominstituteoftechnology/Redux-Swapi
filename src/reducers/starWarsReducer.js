@@ -1,4 +1,4 @@
-import { FETCHED_SW,  } from '../actions';
+import { FETCHED_SW, FETCHING_SW, ERROR } from '../actions';
 const initialState = {
   // define a few properties here.
   // Array chars, Boolean fetching, Boolean fetched, null error.
@@ -17,6 +17,14 @@ export const charsReducer = (state = initialState, action) => {
         chars: state.chars.concat(action.payload),
         fetching: false
       })
+    case FETCHING_SW:
+      return Object.assign( {}, state, { 
+        fetching: true,
+      })
+    case ERROR:
+      return Object.assign( {}, state, {
+        error: action.payload
+      });      
     default:
       return state;
   }
