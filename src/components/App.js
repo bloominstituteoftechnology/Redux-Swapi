@@ -13,6 +13,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+      <h1>Here are our stars</h1>
         {this.props.fetching ? (
           <img src={logo} className="App-logo" alt="logo" />
         ) : (
@@ -30,8 +31,10 @@ class App extends Component {
 // our mapDispatchToProps needs to have two properties inherited from state
 // the chars and the fetching boolean
 const mapStateToProps = state => {
-  const { pplReducer } = state
-  return pplReducer;
+  return{
+    chars: state.charsReducer.chars,
+    fetching: state.charsReducer.fetching
+  }
 }
 
 export default connect(mapStateToProps, {
