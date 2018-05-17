@@ -16,7 +16,7 @@ import { charsReducer } from './reducers/starWarsReducer';
 
 
 
-const store = createStore(charsReducer, applyMiddleware);
+const store = createStore(charsReducer, applyMiddleware(thunk, logger));
 
 ReactDOM.render(
   <Provider store={store}>
