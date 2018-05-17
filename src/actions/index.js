@@ -11,16 +11,17 @@ export const ERROR = 'ERROR';
 // the url to fetch charicters from is `https://swapi.co/api/people/`
 // remember that now we have controll over our thunk-based
 
-export const fetchChars = () => {
+export const fetchChars = chars => {
     const getChars = axios.get('https://swapi.co/api/people/');
     return function(dispatch) {
       dispatch({ type: FETCHING });
       getChars
-        .then( ({ response }) => {
-            dispatch({ type: FETCHED, payload: response.data });
+        .then( response => {
+            console.log("response:", response)
+            dispatch({ type: FETCHED, payload: response.data.results });
         })
         .catch(err => {
           dispatch({ type: ERROR, payload: err });
         });
     };
-  };
+};
