@@ -10,14 +10,14 @@ class App extends Component {
     this.props.fetchSwapi();
   }
   render() {
-    console.log(this.props)
+    console.log("App.js this.props:", this.props)
     return (
       <div className="App">
         {this.props.fetching ? (
           <img src={logo} className="App-logo" alt="logo" />
         ) : (
           <ul>
-            {this.props.chars.chars.map(char => {
+            {this.props.chars.map(char => {
               return <li key={char.name}>{char.name}</li>;
             })}
           </ul>
@@ -30,11 +30,12 @@ class App extends Component {
 // our mapDispatchToProps needs to have two properties inherited from state
 // the chars and the fetching boolean
 const mapDispatchToProps = state => {
-  console.log("state of charsReducer:", state.charsReducer);
+  console.log("MapDispatchToProps state:", state);
   return {
-    chars: state.charsReducer,
-    fetching: state.fetching,
-    error: state.error
+    chars: state.charsReducer.chars,
+    fetching: state.charsReducer.fetching,
+    fetched: state.charsReducer.fetched,
+    error: state.charsReducer.error
   }
 }
 export default connect(mapDispatchToProps, { fetchSwapi })(App);

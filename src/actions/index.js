@@ -10,9 +10,9 @@ export const fetchSwapi = () => {
     return function(dispatch) {
         dispatch({ type: FETCHING });
         getToons
-            .then(someData => {
-                console.log("SomeData:", someData)
-                    dispatch({ type: FETCHED, payload: someData.data.results });
+            .then(swapiData => {
+                console.log("swapiData:", swapiData)
+                    dispatch({ type: FETCHED, payload: swapiData.data.results });
             })
             .catch(err => {
                 dispatch({ type: ERROR, payload: err });
