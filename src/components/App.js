@@ -3,15 +3,17 @@ import { connect } from 'react-redux';
 
 import logo from '../logo.svg';
 import '../styles/App.css';
-// pull in actions from action/index
+import {fetched} from '../actions';// pull in actions from action/index
 
 class App extends Component {
   componentDidMount() {
     // call our action
+    this.props.fetched();
   }
   render() {
     return (
       <div className="App">
+      <h1>Here are our stars</h1>
         {this.props.fetching ? (
           <img src={logo} className="App-logo" alt="logo" />
         ) : (
@@ -28,6 +30,13 @@ class App extends Component {
 
 // our mapDispatchToProps needs to have two properties inherited from state
 // the chars and the fetching boolean
-export default connect(null, {
-  /* actions go here */
+const mapStateToProps = state => {
+  return{
+    chars: state.charsReducer.chars,
+    fetching: state.charsReducer.fetching
+  }
+}
+
+export default connect(mapStateToProps, {
+  fetched
 })(App);
