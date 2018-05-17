@@ -4,7 +4,7 @@ import { FETCH_SWAPI, FETCHING_SWAPI, ERROR } from '../actions';
 const initialState = {
   // define a few properties here.
   // Array chars, Boolean fetching, Boolean fetched, null error.
-  chars: [], fetching: false, error: null
+  chars: [], fetching: true, error: null
 };
 
     // Fill me in with the important reducers

@@ -14,12 +14,10 @@ export const ERROR = 'ERROR';
 export const fetchSwapi = ()  => {
    const getSwapi = axios.get(`https://swapi.co/api/people/`);
     return function (dispatch) {
-        dispatch ({ type: FETCHING_SWAPI });
         getSwapi
-            .then(swapiData => {
-                setTimeout(() => {
-                    dispatch({ type: FETCH_SWAPI, payload: swapiData.data})
-                }, 1000);
+            .then((response ) => {
+                console.log(response)
+                dispatch({ type: FETCH_SWAPI, payload: response.data.results })
             })
             .catch(err => {
                 console.log(err);
