@@ -14,6 +14,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        {this.props.error ? <h1>{this.props.error}</h1> : null}
         {this.props.fetching ? (
           <img src={logo} className="App-logo" alt="logo" />
         ) : (
