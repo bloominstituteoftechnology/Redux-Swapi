@@ -1,28 +1,20 @@
 import axios from 'axios';
 
-// we'll need to create 3 different action types here.
-// one for fetching, one for fetched and one for errors
-
 export const FETCHING = "FETCHING";
 export const FETCHED = "FETCHED";
 export const ERROR = "ERROR";
 
-// our action creator will be a function that returns a promise
-// we'll have to be sure to make our promise resolve within our new "thunk based middlware"
-// the url to fetch charicters from is `https://swapi.co/api/people/`
-// remember that now we have controll over our thunk-based
-
 export const thingThatFetches = () => {
-  const abbreviate = axios.get(`https://swapi.co/api/people`);
   return function (dispatch) {
-    abbreviate
-      .then( res => {
-	dispatch({ type: FETCHED, payload: res.data.results });
+    axios.get(`https://swapi.co/api/people`)
+      .then( response => {
+	dispatch({ type: FETCHED, payload: response.data.results });
       })
       .catch(error => {
 	dispatch({ type: ERROR, payload: error });
       });
   };
 };
+// I modeled this off of what was in the training kit. My thingThatFetches is the action creator, and dispatch is kind of a middleman that then sends the action off to the reducer. Dispatch is part of thunk and it controls when things get sent to the reducer. This was the biggest change from the Todo project.
 
 export default thingThatFetches;
