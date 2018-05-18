@@ -8,11 +8,15 @@ import { applyMiddleware, createStore } from 'redux';
 // applyMiddleware from redux which I did above in conjunction with createStore
 // thunk from redux-thunk
 import thunk from "redux-thunk";
+
 // logger from redux-logger
 import logger from "redux-logger";
-// rootReducer from ./reducers
 
-const store = createStore( ()=> {}/* rootReducer */,  applyMiddleware(thunk, logger)/* applyMiddleware goes here */);
+// rootReducer from ./reducers which is aliased b/c it was export default with no name
+import rootReducer from './reducer';
+
+
+const store = createStore( rootReducer/* rootReducer */,  applyMiddleware(thunk, logger)/* applyMiddleware goes here */);
 
 ReactDOM.render(
   <Provider store={store}>
