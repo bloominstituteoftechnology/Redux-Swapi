@@ -15,14 +15,14 @@ export const CHARS_FETCHED = 'CHARS_FETCHED';
 // remember that now we have controll over our thunk-based
 
 //applyMiddleware allows us to return the dispatch function instead of an object with type and payload
-ex port const fetchChars = () => {
+export const fetchChars = () => {
     const starWarsChars = axios.get(`https://swapi.co/api/people/`);
     return (dispatch) => {
         dispatch({type: FETCHING_CHARS});
         starWarsChars
             .then(response => {
                 console.log(response)
-                dispatch({ type: CHARS_FETCHED, payload: []});
+                dispatch({ type: CHARS_FETCHED, payload: response.data.results });
             })
             .catch(err => {
                 dispatch({

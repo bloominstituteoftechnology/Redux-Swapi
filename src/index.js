@@ -13,7 +13,7 @@ import thunk from "redux-thunk";
 import logger from "redux-logger";
 
 // rootReducer from ./reducers which is aliased b/c it was export default with no name
-import rootReducer from './reducer';
+import rootReducer from './reducers';
 
 
 const store = createStore( rootReducer/* rootReducer */,  applyMiddleware(thunk, logger)/* applyMiddleware goes here */);
