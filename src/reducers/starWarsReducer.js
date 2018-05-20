@@ -23,9 +23,10 @@ export const charsReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         fetching: false,
         fetched: true,
-        chars: [...state.cahrs, ...action.payload]
+        chars: [...state.chars, ...action.payload]
       });  
     default:
       return state;
   }
 };
+// State swaping but updating in turn, completely immutable
