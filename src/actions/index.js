@@ -1,3 +1,27 @@
+import axios from "axios";
+
+export const FETCHING = "FETCHING";
+//export const FETCHED = "FETCHED";
+export const ERROR = "ERROR";
+
+
+export const fetchingac = () => {
+	const request = axios.get('https://swapi.co/api/people/');	
+  	
+	return (dispatch) => {
+      	request.then(({data}) => {
+      	dispatch({type: FETCHING, names: data.results});
+    })
+
+    	.catch(err => {
+      	dispatch({type: ERROR, error: err});
+
+    });
+  };
+};
+  
+	  
+	 	
 // we'll need axios
 
 // we'll need to create 3 different action types here.
