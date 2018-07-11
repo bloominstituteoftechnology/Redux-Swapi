@@ -14,10 +14,10 @@ export const FETCHED = 'FETCHED';
 export const ERROR = 'ERROR';
 
 export const beginFetch = () => {
-    const promise = axios.get('https://swapi.co/api/people/');
     return dispatch => {
         dispatch({ type: FETCHING });
-        promise
+        axios
+            .get('https://swapi.co/api/people/')
             .then(response => {
                 dispatch({ type: FETCHED, payload: response.data.results });
             })
