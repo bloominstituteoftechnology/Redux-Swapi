@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { fetchData } from '../actions';
 
 import logo from '../logo.svg';
 import '../styles/App.css';
@@ -7,7 +8,7 @@ import '../styles/App.css';
 
 class App extends Component {
   componentDidMount() {
-    // call our action
+    this.props.fetchData();
   }
   render() {
     return (
@@ -17,7 +18,7 @@ class App extends Component {
         ) : (
           <ul>
             {this.props.chars.map(char => {
-              return <li key={char.name}>{char.name}</li>;
+              return <p key={char.name}>{char.name}</p>;
             })}
           </ul>
         )}
@@ -26,8 +27,14 @@ class App extends Component {
   }
 }
 
+const mapDispatchToProps = state => {
+  return {
+    chars: state.chars,
+    fetching: state.fetching,
+  }
+}
 // our mapDispatchToProps needs to have two properties inherited from state
 // the chars and the fetching boolean
-export default connect(null, {
-  /* actions go here */
+export default connect(mapDispatchToProps, {
+  fetchData,
 })(App);
