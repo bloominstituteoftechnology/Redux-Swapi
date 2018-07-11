@@ -27,11 +27,8 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  console.log('in stat props', state.chars.fetching)
-  return {
-    chars: state.chars
-  }
+const mapStateToProps = ({ chars }) => {
+  return { chars }
 }
 
 export default connect(mapStateToProps, { fetching })(App)
