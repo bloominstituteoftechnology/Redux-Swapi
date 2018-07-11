@@ -19,7 +19,7 @@ class App extends Component {
         ) : (
           <ul>
             {this.props.chars.map(char => {
-              return <li key={char.name}>{char.name}</li>;
+              return <p key={char.name}>{char.name}</p>;
             })}
           </ul>
         )}

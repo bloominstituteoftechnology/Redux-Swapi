@@ -21,8 +21,8 @@ export const fetchingData = () => {
         .then(({data}) => {
             dispatch({type:FETCHED, payload: data.results});
         })
-        .catch(err => {
-            dispatch({type:ERROR, payload:err});
+        .catch(error => {
+            dispatch({type:ERROR, payload:error});
         });
 };
 };
