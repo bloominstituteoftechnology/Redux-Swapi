@@ -16,7 +16,7 @@ export const fetch = () => {
       .get("https://swapi.co/api/people")
       .then(function(response) {
         // handle success
-        dispatch({ type: FETCHED });
+        dispatch({ type: FETCHED, payload: response.data.results });
         console.log(response);
       })
       .catch(function(error) {
@@ -24,6 +24,5 @@ export const fetch = () => {
         dispatch({ type: ERROR });
         console.log(error);
       });
-    dispatch({ type: FETCHED });
   };
 };
