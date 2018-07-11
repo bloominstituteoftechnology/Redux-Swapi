@@ -4,7 +4,6 @@ import { fetching } from '../actions/index'
 
 import logo from '../logo.svg'
 import '../styles/App.css'
-import { bindActionCreators } from '../../node_modules/redux'
 
 class App extends Component {
   componentDidMount () {
@@ -35,7 +34,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) =>
-  bindActionCreators({ fetching }, dispatch)
-
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(mapStateToProps, { fetching })(App)
