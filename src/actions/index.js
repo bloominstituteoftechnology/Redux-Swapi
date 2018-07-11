@@ -18,11 +18,11 @@ export const fetchChars = () => {
     return function(dispatch) {
         dispatch({ type: FETCH });
         charsData
-        .then((characterData) => {
-            dispatch({ type: FETCHED, payload: characterData.data.results})
+        .then(({ data }) => {
+            dispatch({ type: FETCHED, payload: data.results })
         })
         .catch(err => {
-            dispatch({ type: ERRORS, payload: console.log(err)});
+            dispatch({ type: ERRORS, payload: console.log(err) });
         })
     };
 };

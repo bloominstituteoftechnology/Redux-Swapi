@@ -33,7 +33,7 @@ class App extends Component {
 const mapDispatchToProps = state => {
   return {
     chars: state.chars,
-    fetching: state.fetching,
+    fetching: state.fetching
   }
 }
 export default connect(mapDispatchToProps, { fetchChars })(App);
