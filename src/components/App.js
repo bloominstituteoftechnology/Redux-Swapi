@@ -12,8 +12,6 @@ class App extends Component {
     this.props.fetchData();
   }
   render() {
-    console.log(this.props);
-    console.log('2');
     return (
       <div className="App">
         {this.props.fetching ? (
@@ -33,8 +31,8 @@ class App extends Component {
 // our mapDispatchToProps needs to have two properties inherited from state
 const mapStateToProps = state => {
   return {
-    chars: state.chars,
-    fetching: state.fetching
+    chars: state.charsReducer.chars,
+    fetching: state.charsReducer.fetching
   }
 }
 // the chars and the fetching boolean
