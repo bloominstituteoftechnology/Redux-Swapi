@@ -13,7 +13,7 @@ export const FETCHING = 'FETCHING';
 export const FETCHED = 'FETCHED';
 export const ERROR = 'ERROR';
 
-export const fetching = chars => {
+export const beginFetch = () => {
     const promise = axios.get('https://swapi.co/api/people/');
     return dispatch => {
         dispatch({ type: FETCHING });

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetching } from '../actions';
+import { beginFetch } from '../actions';
 
 import logo from '../logo.svg';
 import '../styles/App.css';
@@ -8,7 +8,7 @@ import '../styles/App.css';
 
 class App extends Component {
   componentDidMount() {
-    this.props.fetching();
+    this.props.beginFetch();
   }
   render() {
     return (
@@ -37,4 +37,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { fetching })(App);
+export default connect(mapStateToProps, { beginFetch })(App);
