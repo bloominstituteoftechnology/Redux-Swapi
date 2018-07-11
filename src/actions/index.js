@@ -10,30 +10,20 @@ export const ERROR = "ERROR";
 // the url to fetch charicters from is `https://swapi.co/api/people/`
 // remember that now we have controll over our thunk-based
 export const fetch = () => {
-  axios
-    .get("https://swapi.co/api/people")
-    return function(dispatch) {
-        dispatch({ type: FETCHING });
-        setTimeout(() => {
-    .then(function(response) {
-      // handle success
-      dispatch({ type: FETCHED });
-      console.log(response);
-    })
-    .catch(function(error) {
-      // handle error
-      dispatch({ type: ERROR });
-      console.log(error);
-    })
-    // .then(function() {
-    //   // always executed
-    // });
-  
-      // this would be where we handle, the axios request.
-      // then catch.
-      
-      // 
-    }, 2500);
-    // .catch() // handle requestFailur
+  return function(dispatch) {
+    dispatch({ type: FETCHING });
+    axios
+      .get("https://swapi.co/api/people")
+      .then(function(response) {
+        // handle success
+        dispatch({ type: FETCHED });
+        console.log(response);
+      })
+      .catch(function(error) {
+        // handle error
+        dispatch({ type: ERROR });
+        console.log(error);
+      });
+    dispatch({ type: FETCHED });
   };
 };
