@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
 import { charsReducer } from './starWarsReducer';
 
-export default combineReducers({
+/*export default combineReducers({
   charsReducer
-});
+});*/
+
+export default charsReducer
