@@ -4,14 +4,16 @@ import { connect } from 'react-redux';
 import logo from '../logo.svg';
 import '../styles/App.css';
 // pull in actions from action/index
-import {fetchData, fetchingData} from '../actions';
+import {fetchData} from '../actions';
 
 class App extends Component {
   componentDidMount() {
     // call our action...you may need to invoke or return
-    return this.props.fetched;
+    this.props.fetchData();
   }
   render() {
+    console.log(this.props);
+    console.log('2');
     return (
       <div className="App">
         {this.props.fetching ? (
@@ -36,7 +38,4 @@ const mapStateToProps = state => {
   }
 }
 // the chars and the fetching boolean
-export default connect(mapStateToProps, {
-  /* actions go here */
-  fetchData, fetchingData
-})(App);
+export default connect(mapStateToProps, { fetchData })(App);
