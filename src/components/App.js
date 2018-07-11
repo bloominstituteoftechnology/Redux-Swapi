@@ -6,7 +6,7 @@ import { fetchChars } from '../actions/index'
 
 class App extends Component {
   componentDidMount() {
-    this.props.fetchChars()
+    this.props.fetchChars
   }
   render() {
     return (
