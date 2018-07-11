@@ -3,14 +3,20 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import { App } from './components';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-// needed dependancies
-// applyMiddleware from redux
-// thunk from redux-thunk
-// logger from redux-logger
-// rootReducer from ./reducers
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import logger from 'redux-logger';
+import reducer from './reducers';
 
-const store = createStore(/* rootReducer */, /* applyMiddleware goes here */);
+// needed dependancies -- check
+// applyMiddleware from redux -- check
+// thunk from redux-thunk -- check
+// logger from redux-logger  -- check
+// rootReducer from ./reducers -- check (called reducer)
+
+const middleware = applyMiddleware(thunk, logger);
+
+const store = createStore(reducer, middleware);
 
 ReactDOM.render(
   <Provider store={store}>
