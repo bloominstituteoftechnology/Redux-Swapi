@@ -8,12 +8,12 @@ import fetchData from '../actions';
 class App extends Component {
   componentDidMount() {
     // call our action
-    fetchData();
+    this.props.fetchData();
   }
   render() {
     return (
       <div className="App">
-        {/* {this.props.fetching ? (
+        {this.props.fetching ? (
           <img src={logo} className="App-logo" alt="logo" />
         ) : (
           <ul>
@@ -21,7 +21,7 @@ class App extends Component {
               return <li key={char.name}>{char.name}</li>;
             })}
           </ul>
-        )} */}
+        )}
       </div>
     );
   }
@@ -29,9 +29,17 @@ class App extends Component {
 
 // our mapDispatchToProps needs to have two properties inherited from state
 // the chars and the fetching boolean
+const mapStateToProps = state => {
+  console.log(state);
+  return {
+    chars: state.charsReducer.chars,
+    fetching: state.charsReducer.fetching,
+    fetched: state.charsReducer.fetched,
+    error: state.charsReducer.error
+  }
+}
 
-
-export default connect(null, {
+export default connect(mapStateToProps, {
   /* actions go here */
   fetchData
 })(App);

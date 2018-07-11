@@ -10,12 +10,12 @@ export const ERROR = 'ERROR';
 export default () => {
     const request = axios.get(`https://swapi.co/api/people/`);
     return (dispatch) => {
-        dispatch({type: FETCHING});
+        dispatch({type: FETCHING});      
         request.then(response => {
-            dispatch({type: FETCHING, payload: response.data.results})
+            dispatch({type: FETCHED, payload: response.data.results})
         })
         .catch(error => {
-            dispatch({type: ERROR, payload: error})
+            dispatch({type: ERROR, error: error})
         });
     }
 }
