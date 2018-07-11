@@ -1,7 +1,18 @@
-// we'll need axios
+import axios from 'axios'
 
-// we'll need to create 3 different action types here.
-// one for fetching, one for fetched and one for errors
+export const FETCHING = 'FETCHING'
+export const FETCHED = 'FETCHED'
+export const ERROR = 'ERROR'
+export const fetching = () => {
+  const url = `https://swapi.co/api/people/`
+  const request = axios.get(url)
+  return (dispatch) => {
+    dispatch({ type: FETCHING })
+    request
+      .then((res) => dispatch({ type: FETCHED, payload: res.data.results }))
+      .catch((error) => dispatch({ type: ERROR, payload: error }))
+  }
+}
 
 // our action creator will be a function that returns a promise
 // we'll have to be sure to make our promise resolve within our new "thunk based middlware"
