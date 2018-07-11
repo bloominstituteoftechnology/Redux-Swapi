@@ -4,16 +4,16 @@ import './index.css';
 import { App } from './components';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import { thunk } from 'redux-thunk';
-import { logger } from 'redux-logger';
-import { rootReducer } from './reducers';
+import  Thunk from 'redux-thunk';
+import  logger from 'redux-logger';
+import rootReducer  from './reducers';
 // needed dependancies
 // applyMiddleware from redux
 // thunk from redux-thunk
 // logger from redux-logger
 // rootReducer from ./reducers
 
-const store = createStore(rootReducer, applyMiddleware);
+const store = createStore(rootReducer, applyMiddleware(Thunk, logger));
 
 ReactDOM.render(
   <Provider store={store}>
