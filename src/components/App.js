@@ -1,15 +1,13 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-
 import logo from "../logo.svg";
 import "../styles/App.css";
-import { getPeople } from "../actions/index";
-// pull in actions from action/index
+import { connect } from "react-redux";
+
+import { getPeople } from "../actions";
 
 class App extends Component {
   componentDidMount() {
     this.props.getPeople();
-    // call our action
   }
   render() {
     return (
@@ -28,18 +26,13 @@ class App extends Component {
   }
 }
 
-const mapDispatchToProps = state => {
+const mapStateToProps = state => {
   return {
     chars: state.chars,
     fetching: state.fetching
   };
 };
-
-// our mapDispatchToProps needs to have two properties inherited from state
-// the chars and the fetching boolean
 export default connect(
-  null,
-  {
-    getPeople
-  }
+  mapStateToProps,
+  { getPeople }
 )(App);

@@ -12,25 +12,11 @@ export const FETCHING = "FETCHING";
 export const FETCHED = "FETCHED";
 export const ERROR = "ERROR";
 
-/*export const getPeople = chars => {
+export const getPeople = () => {
   return function(dispatch) {
     dispatch({ type: FETCHING });
-    return axios
-      .get("https://swapi.co/api/people")
-      .then(({ data }) => {
-        dispatch({ type: FETCHED, payload: data.results });
-      })
-      .catch(err => {
-        dispatch({ type: ERROR, payload: err });
-      });
-  };
-};*/
-
-export const getPeople = chars => {
-  const promise = axios.get("https://swapi.co/api/people");
-  return dispatch => {
-    dispatch({ type: FETCHING });
-    promise
+    axios
+      .get("https://swapi.co/api/people/")
       .then(({ data }) => {
         dispatch({ type: FETCHED, payload: data.results });
       })
