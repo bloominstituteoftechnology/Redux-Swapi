@@ -19,8 +19,8 @@ export const getChars = () => {
         dispatch({
             type: FETCHING,
         })
-        request.then(({data}) => {
-            dispatch({ type: FETCHED, payload: data.results})
+        request.then((response) => {
+            dispatch({ type: FETCHED, payload: response.data.results})
         })
         .catch(err => {
             dispatch({type: ERROR, error: err});

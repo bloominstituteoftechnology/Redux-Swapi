@@ -5,7 +5,7 @@ const initialState = {
   chars: [{name: 'Bill'}],
   fetching: false,
   fetched: false,
-  error: null
+  error: null,
 };
 export const charsReducer = (state = initialState, action) => {
   switch (action.type) {
