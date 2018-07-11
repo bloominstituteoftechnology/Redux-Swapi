@@ -1,4 +1,9 @@
 // we'll need axios
+import axios from 'axios';
+
+export const FETCH = 'FETCH';
+export const FETCHED = 'FETCHED';
+export const ERRORS = 'ERRORS';
 
 // we'll need to create 3 different action types here.
 // one for fetching, one for fetched and one for errors
