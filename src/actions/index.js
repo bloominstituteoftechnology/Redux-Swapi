@@ -17,7 +17,7 @@ export const reqFetching = () => {
         dispatch({type: FETCHING});
         req.then(({data}) => {
             console.log(data);
-            dispatch({type: FETCHED, payload: data});
+            dispatch({type: FETCHED, payload: data.results});
         })
         .catch(err => {
             console.log(err);
