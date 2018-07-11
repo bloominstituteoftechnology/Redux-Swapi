@@ -4,12 +4,12 @@ import { beginFetch } from '../actions';
 
 import logo from '../logo.svg';
 import '../styles/App.css';
-// pull in actions from action/index
 
 class App extends Component {
   componentDidMount() {
     this.props.beginFetch();
   }
+
   render() {
     return (
       <div className="App">
@@ -27,8 +27,6 @@ class App extends Component {
   }
 }
 
-// our mapDispatchToProps needs to have two properties inherited from state
-// the chars and the fetching boolean
 
 const mapStateToProps = state => {
   return {
