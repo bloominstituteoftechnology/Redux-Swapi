@@ -41,7 +41,7 @@ const mapStateToProps = state => {
 };
 
 export default connect(
-  fetchChars,
+  mapStateToProps,
   {
     fetchChars
   }
