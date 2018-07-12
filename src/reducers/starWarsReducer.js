@@ -7,6 +7,7 @@ const initialState = {
   fetched: false,
   error: null
 };
+
 export const charsReducer = (state = initialState, action) => {
   switch (action.type) {
     // Fill me in with the important reducers
@@ -15,9 +16,10 @@ export const charsReducer = (state = initialState, action) => {
     case FETCHING:
       return Object.assign( {}, state, { fetching: true } );
     case FETCHED:
-      return Object.assign( {}, state, { fetched: true, fetching: false } );
+      console.log(action.payload);
+      return Object.assign( {}, state, { fetched: true, fetching: false, chars: action.payload } );
     case ERROR:
-      return Object.assign( {}, state, { fetched: false, fetching: false, error: true} );
+      return Object.assign( {}, state, { fetched: false, fetching: false, error: action.payload } );
     default:
       return state;
   }

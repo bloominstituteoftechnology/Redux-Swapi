@@ -26,13 +26,13 @@ const errors = (err) => {
     }
 }
 
-export const actionCreator = () => {
+export const fetchData = () => {
     const getChars = axios.get('https://swapi.co/api/people/');
     return function(dispatch) {
         dispatch(fetching());
         getChars
             .then( res => {
-                dispatch(fetched(res.data));
+                dispatch(fetched(res.data.results));
             })
             .catch( err => {
                 dispatch(errors(err));
