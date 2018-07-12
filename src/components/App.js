@@ -9,7 +9,7 @@ import { fetchChars } from '../actions';
 class App extends Component {
   componentDidMount() {
     // call our action
-    this.props.fetchChars;
+    this.props.fetchChars();
   }
   render() {
     return (
@@ -23,6 +23,7 @@ class App extends Component {
             })}
           </ul>
         )} */}
+        {console.log(this.props.chars)}
       </div>
     );
   }
@@ -30,13 +31,13 @@ class App extends Component {
 
 // our mapDispatchToProps needs to have two properties inherited from state
 // the chars and the fetching boolean
-const mapDispatchToProps = (state) => {
+const mapStateToProps = (state) => {
   return{
     chars: state.chars,
-    fetching: state.fetching
+    fetching: state.fetching,
   }
 }
-export default connect(mapDispatchToProps, {
+export default connect(mapStateToProps, {
   /* actions go here */
   fetchChars
 })(App);

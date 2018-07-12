@@ -14,13 +14,13 @@ export const charsReducer = (state = initialState, action) => {
     // action types should be FETCHING, FETCHED, and ERROR
     // your switch statement should handle all of these cases.
     case FETCHING:
-    return Object.assign({}, state, {Fetching: true })
+    return Object.assign({}, state, {fetching: true })
 
     case FETCHED:
     return Object.assign({}, state, {
+      chars: action.payload,
       fetching: false,
-      fetched: true,
-      chars: action.payload
+      fetched: true
 
     })
 

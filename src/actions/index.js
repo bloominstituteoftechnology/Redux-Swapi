@@ -14,16 +14,14 @@ export const ERROR = "ERROR";
 
 export const fetchChars = () => {
     // create axios promises here.
-    const charData = axios.get("https://swapi.co/api/people");
+    const charData = axios.get("https://swapi.co/api/people/");
     return function(dispatch) {
       dispatch({ type: FETCHING });
-      setTimeout(() => {
-        charData.then(({data}) => {
+      charData.then(({data}) => {
         dispatch({ type: FETCHED, payload: data.results });
         })
         .catch(
         dispatch({ type: ERROR }));
-      }, 2500);
+      }
 
     };
-  };
