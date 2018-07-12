@@ -1,4 +1,5 @@
 import { CHARS_FETCHED, CHARS_FETCHING, FETCH_ERROR } from '../actions';
+import { Object } from 'core-js';
 const initialState = {
   // define a few properties here.
   chars: [],
@@ -10,11 +11,26 @@ const initialState = {
 export const charsReducer = (state = initialState, action) => {
   switch (action.type) {
     case CHARS_FETCHED: 
-    return console.log('fetched');
+    return Object.assign({}, state, {
+      fetching: false,
+      fetched: true,
+      error: null,
+      chars: action.payload
+      
+    })
     case CHARS_FETCHING:
-    return console.log('fetching');
+    return Object.assign({}, state, {
+      fetching: true,
+      fetched: false,
+      error: null,
+  })
     case FETCH_ERROR:
-    return console.log('fetch error');
+    return Object.assign({}, state, {
+      fetching: false,
+      fetched: false,
+      error: action.payload
+
+    })
 
     // Fill me in with the important reducers
     // action types should be FETCHING, FETCHED, and ERROR

@@ -13,13 +13,13 @@ export const FETCH_ERROR = 'FETCH_ERROR';
 export const fetchChars = () => {
     const promise = axios.get('https://swapi.co/api/people/');
     return function (dispatch) {
-        dispatch({type: FETCHING_CHARS});
+        dispatch({type: CHARS_FETCHING});
         promise.then(response => {
-            console.log(response);
-            dispatch({type: CHARS_FETCHED, payload: response.data})
+            console.log('MY RESPONSE',response);
+            dispatch({type: CHARS_FETCHED, payload: response.data.results})
         })
         .catch(err => {
-            dispatch({ type: FETCH_ERROR,  'error fetching characters'})
+            dispatch({ type: FETCH_ERROR,  payload:'error fetching characters'})
         })
     }
 }
