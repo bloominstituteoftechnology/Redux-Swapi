@@ -24,6 +24,7 @@ class App extends Component {
             })}
           </ul>
         )}
+        {this.props.error !== null ? <div>{this.props.error}</div> : null}
       </div>
     );
   }
