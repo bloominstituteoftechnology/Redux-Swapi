@@ -1,17 +1,17 @@
-import { FETCHED, FETCHING, FETCH_ERROR } from '../actions';
+import { CHARS_FETCHED, CHARS_FETCHING, FETCH_ERROR } from '../actions';
 const initialState = {
   // define a few properties here.
   chars: [],
   fetching: false,
-  fetch: false,
+  fetched: false,
   error: null,
   // Array chars, Boolean fetching, Boolean fetched, null error.
 };
 export const charsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCHED: 
+    case CHARS_FETCHED: 
     return console.log('fetched');
-    case FETCHING:
+    case CHARS_FETCHING:
     return console.log('fetching');
     case FETCH_ERROR:
     return console.log('fetch error');
