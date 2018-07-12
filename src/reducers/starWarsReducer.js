@@ -20,10 +20,11 @@ export const charsReducer = (state = initialState, action) => {
         chars: action.payload
       })
     case ERROR:
-      return Obejct.assign({}, state, {
+      return Object.assign({}, state, {
         fetching: false,
         error: action.payload
       })
       default:
         return state;
     }
+  }
