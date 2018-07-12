@@ -27,7 +27,7 @@ class App extends Component {
   }
 }
 
-const mapDispatchToProps = state => {
+const mapStateToProps = state => {
   return {
     chars: state.chars,
     fetching: state.fetching,
