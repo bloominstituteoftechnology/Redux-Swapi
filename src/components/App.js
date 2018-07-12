@@ -19,7 +19,7 @@ class App extends Component {
           <ul>
             {this.props.chars.map((char) => {
               console.log(char.name)
-              return <li key={Date.now()}>{char.name}</li>
+              return <li key={Date.now() + char.name}>{char.name}</li>
             })}
           </ul>
         )}

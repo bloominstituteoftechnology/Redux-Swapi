@@ -10,7 +10,10 @@ export const fetching = () => {
   return (dispatch) => {
     dispatch({ type: FETCHING, payload: true })
     request
-      .then((res) => dispatch({ type: FETCHED, payload: res.data.results }))
+      .then((res) => {
+        dispatch({ type: FETCHED, payload: res.data.results })
+        dispatch({ type: FETCHING, payload: false })
+      })
       .catch((error) => dispatch({ type: ERROR, payload: error }))
   }
 }

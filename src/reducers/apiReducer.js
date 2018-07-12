@@ -1,13 +1,11 @@
-import { FETCHING, ERROR, FETCHED } from '../actions/index'
+import { FETCHING, ERROR } from '../actions/index'
 
-const initialState = { fetching: true, error: false, fetched: false }
+const initialState = { fetching: true, error: false }
 
 export const apiReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCHING:
       return { ...state, fetching: action.payload }
-    case FETCHED:
-      return { ...state, fetched: true, fetching: false }
     case ERROR:
       return { ...state, error: action.payload }
     default:

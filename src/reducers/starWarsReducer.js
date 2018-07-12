@@ -7,7 +7,7 @@ const initialState = {
 export const charsReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCHED:
-      return [ ...state, action.payload ]
+      return [ ...state, ...action.payload ]
     default:
       return state
   }
