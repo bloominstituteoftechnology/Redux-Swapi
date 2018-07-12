@@ -8,7 +8,7 @@ export const fetching = () => {
   const url = `https://swapi.co/api/people/`
   const request = axios.get(url)
   return (dispatch) => {
-    dispatch({ type: FETCHING })
+    dispatch({ type: FETCHING, payload: true })
     request
       .then((res) => dispatch({ type: FETCHED, payload: res.data.results }))
       .catch((error) => dispatch({ type: ERROR, payload: error }))

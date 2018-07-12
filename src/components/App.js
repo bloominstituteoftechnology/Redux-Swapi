@@ -10,15 +10,16 @@ class App extends Component {
     this.props.fetching()
   }
   render () {
-    console.log(this.props.chars)
+    console.log('in render', this.props.api.fetching)
     return (
       <div className='App'>
-        {this.props.chars.fetching ? (
+        {this.props.api.fetching ? (
           <img src={logo} className='App-logo' alt='logo' />
         ) : (
           <ul>
-            {this.props.chars.chars.map((char) => {
-              return <li key={char.name}>{char.name}</li>
+            {this.props.chars.map((char) => {
+              console.log(char.name)
+              return <li key={Date.now()}>{char.name}</li>
             })}
           </ul>
         )}
@@ -27,8 +28,8 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = ({ chars }) => {
-  return { chars }
+const mapStateToProps = ({ chars, api }) => {
+  return { chars, api }
 }
 
 export default connect(mapStateToProps, { fetching })(App)
