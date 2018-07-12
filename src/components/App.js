@@ -14,7 +14,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* {this.props.fetching ? (
+         {this.props.fetching ? (
           <img src={logo} className="App-logo" alt="logo" />
         ) : (
           <ul>
@@ -22,7 +22,7 @@ class App extends Component {
               return <li key={char.name}>{char.name}</li>;
             })}
           </ul>
-        )} */}
+        )}
       </div>
     );
   }
@@ -33,8 +33,8 @@ class App extends Component {
 const mapStateToProps = state => {
   console.log(state);
   return{
-    chars: state.chars,
-    fetching: state.fetching,
+    chars: state.charsReducer.chars,
+    fetching: state.charsReducer.fetching,
   }
 };
 
