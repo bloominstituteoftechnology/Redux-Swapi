@@ -20,8 +20,9 @@ export const fetchChars = () => {
       charData.then(({data}) => {
         dispatch({ type: FETCHED, payload: data.results });
         })
-        .catch(
-        dispatch({ type: ERROR }));
+            .catch(error => {
+                dispatch({type: ERROR})
+            })
       }
 
     };
