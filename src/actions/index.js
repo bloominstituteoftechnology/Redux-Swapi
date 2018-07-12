@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const RECEIVING_DATA = 'RECEIVING_DATA';
 export const ON_DATA_RECEIVED = 'ON_DATA_RECEIVED';
-export const ON_DATA_ERROR= 'ON_DATA_ERROR';
+export const ON_DATA_ERROR = 'ON_DATA_ERROR';
 
 export const fetchData = () => {
   return function(dispatch) {
