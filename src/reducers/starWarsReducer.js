@@ -1,4 +1,4 @@
-import { RECEIVING_DATA, ON_DATA_RECEIVED, ON_DATA_ERROR } from '../actions';
+import { FETCHING_DATA, ON_DATA_FETCHED, ON_DATA_ERROR } from '../actions';
 
 const initialState = {
   chars: [],
@@ -9,9 +9,9 @@ const initialState = {
 
 export const charsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case RECEIVING_DATA:
+    case FETCHING_DATA:
       return Object.assign({}, state, { fetching: true });
-    case ON_DATA_RECEIVED:
+    case ON_DATA_FETCHED:
       return Object.assign({}, state, { 
         chars: action.payload.results,
         fetching: false,
