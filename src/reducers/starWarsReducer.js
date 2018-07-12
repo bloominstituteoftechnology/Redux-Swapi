@@ -2,6 +2,10 @@ import {FETCHING,FETCHED,ERROR} from '../actions';
 const initialState = {
   // define a few properties here.
   // Array chars, Boolean fetching, Boolean fetched, null error.
+  chars : [],
+  fetching: false,
+  fetched: false,
+  error: null
 };
 export const charsReducer = (state = initialState, action) => {
   switch (action.type) {
