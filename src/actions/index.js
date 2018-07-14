@@ -6,7 +6,7 @@ import { axios } from 'axios';
 // one for fetching, one for fetched and one for errors
 export const FETCHED_CHAR = 'FETCHED_CHAR';
 export const FETCHING_CHAR = 'FETCHING_CHAR'
-export const ERROR = 'ERROR'
+export const ERROR_FETCHING_CHAR = 'ERROR_FETCHING_CHAR'
 // our action creator will be a function that returns a promise
 // we'll have to be sure to make our promise resolve within our new "thunk based middlware"
 // the url to fetch charicters from is `https://swapi.co/api/people/`
@@ -20,7 +20,7 @@ export const getChar = chars => {
                 dispatch({ type : FETCHED_CHAR, payload : data.results})
             })
             .catch(err =>{
-                dispatch({ type : ERROR , payload : err})
+                dispatch({ type : ERROR_FETCHING_CHAR , payload : err})
             })
     }
 }
