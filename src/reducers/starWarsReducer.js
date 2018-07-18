@@ -1,4 +1,4 @@
-import { FETCHING, FETCHED, ERRORS } '../actions';
+import { FETCHING, FETCHED, ERRORS } from '../actions';
 
 const initialState = {
   // define a few properties here.
@@ -35,8 +35,7 @@ export const charsReducer = (state = initialState, action) => {
         fetched: false,
         error: action.payload
       });
-      }
     default:
-      return state;
-  }
+      return state;      
+  };
 };
