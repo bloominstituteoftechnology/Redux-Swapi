@@ -8,7 +8,7 @@ import { createStore } from 'redux';
 // applyMiddleware from redux
 // thunk from redux-thunk
 // logger from redux-logger
-// rootReducer from ./reducers
+// rootReducer from ./reducers !
 
 const store = createStore(/* rootReducer */, /* applyMiddleware goes here */);
 
