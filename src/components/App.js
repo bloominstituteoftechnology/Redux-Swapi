@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import logo from '../logo.svg';
 import '../styles/App.css';
 // pull in actions from action/index
 
@@ -13,7 +12,7 @@ class App extends Component {
     return (
       <div className="App">
         {this.props.fetching ? (
-          <img src={logo} className="App-logo" alt="logo" />
+          <h1> Loading... </h1>
         ) : (
           <ul>
             {this.props.chars.map(char => {

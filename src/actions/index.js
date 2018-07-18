@@ -4,7 +4,6 @@ export const FETCHED = 'FETCHED';
 export const ERRORS = 'ERRORS';
 
 
-
 export const fetching = () => ({
     type: 'FETCHING'
 });
