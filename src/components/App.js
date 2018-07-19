@@ -4,12 +4,12 @@ import { connect } from 'react-redux';
 import logo from '../logo.svg';
 import '../styles/App.css';
 // pull in actions from action/index
-import { fetching } from '../actions';
+import { fetchingChars } from '../actions';
 
 class App extends Component {
   componentDidMount() {
     // call our action
-    this.props.fetching();
+    this.props.fetchingChars();
   }
   render() {
     return (
@@ -43,5 +43,5 @@ const mapStateToProps = (state) => {
 
 export default connect(
   mapStateToProps,
-  { fetching }
+  { fetchingChars }
 )(App);

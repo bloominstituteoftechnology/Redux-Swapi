@@ -17,14 +17,14 @@ export const ERROR = 'ERROR';
 
 //action creator is a function that returns our action object
 
-export const fetching = () => {
-  return function(dispatch) {
+export const fetchingChars = () => {
+  return (dispatch) => {
     dispatch({ type: FETCHING });
     axios
-      .get(`https://swapi.co/api/people`)
-      .then(({ response }) => dispatch({ type: FETCHED, payload: response.results }))
+      .get('https://swapi.co/api/people')
+      .then(({ data }) => dispatch({ type: FETCHED, payload: data.results }))
       .catch((error) => {
-        dispatch({ type: ERROR });
+        dispatch({ type: ERROR, payload: error });
       });
   };
 };

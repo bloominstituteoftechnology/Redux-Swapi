@@ -7,6 +7,7 @@ const initialState = {
   fetched: false,
   error: null
 };
+
 export const charsReducer = (state = initialState, action) => {
   switch (action.type) {
     // Fill me in with the important reducers
@@ -16,10 +17,8 @@ export const charsReducer = (state = initialState, action) => {
       return { ...state, fetching: true }; // no state
     // until data comes back fetching will be true
     case FETCHED:
-      return Object.assign({}, state, {
-        chars: [...state.chars, ...action.payload],
-        fetching: false
-      });
+      return Object.assign({}, state, { fetching: false, fetched: true, chars: action.payload });
+    //chars array is set to what comes back from axios
     case ERROR:
       return Object.assign({}, state, {
         fetching: false,
