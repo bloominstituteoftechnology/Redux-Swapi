@@ -9,6 +9,7 @@ import { fetching } from '../actions';
 class App extends Component {
   componentDidMount() {
     // call our action
+    this.props.fetching();
   }
   render() {
     return (
