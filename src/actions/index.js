@@ -20,11 +20,11 @@ export const ERROR = 'ERROR';
 export const fetching = () => {
   return function(dispatch) {
     dispatch({ type: FETCHING });
+    axios
+      .get(`https://swapi.co/api/people`)
+      .then((response) => dispatch({ type: FETCHED }))
+      .catch((error) => {
+        dispatch({ type: ERROR });
+      });
   };
-  axios
-    .get(`https://swapi.co/api/people`)
-    .then((response) => dispatch({ type: FETCHED }))
-    .catch((error) => {
-      dispatch({ type: ERROR });
-    });
 };

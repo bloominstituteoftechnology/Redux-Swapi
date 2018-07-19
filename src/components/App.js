@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import logo from '../logo.svg';
 import '../styles/App.css';
 // pull in actions from action/index
+import { fetching } from '../actions';
 
 class App extends Component {
   componentDidMount() {
@@ -29,7 +30,7 @@ class App extends Component {
 // our mapDispatchToProps needs to have two properties inherited from state
 // the chars and the fetching boolean
 
-mapStateToProps = (state) => {
+const mapStateToProps = (state) => {
   return {
     chars: state.chars,
     fetching: state.fetching
