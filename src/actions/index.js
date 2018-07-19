@@ -6,7 +6,7 @@ export const FETCHING = 'FETCHING';
 export const FETCHED = 'FETCHED';
 export const ERROR = 'ERROR';
 
-export const fetchingChars = () => {
+export const fetchChars = () => {
   return (
     dispatch => {
       dispatch({ type: FETCHING });
