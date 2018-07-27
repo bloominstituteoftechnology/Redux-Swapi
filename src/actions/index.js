@@ -14,11 +14,11 @@ export const ERROR = "ERROR";
 
 export const getChars = () => {
     const promise = axios.get(`https://swapi.co/api/people/`);
-    return function(dispatch) {
+    return dispatch => {
         dispatch({type:FETCHING});  // first state of "fetching" is dispatched
         promise
             .then(response => {
-                dispatch({type:FETCHED, payload: response.data}) //2nd state is FETCHED if the promise resolves
+                dispatch({type:FETCHED, payload: response.data.results[0]}) //2nd state is FETCHED if the promise resolves
             })
             .catch(err => {
                 console.log(err);
