@@ -5,6 +5,9 @@ import { App } from './components';
 import { Provider } from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
 import thunk from 'redux-thunk';
+import combineReducers from './reducers/index';
+import logger from 'redux-logger';
+
 
 // needed dependancies
 // applyMiddleware from redux
@@ -22,7 +25,7 @@ import thunk from 'redux-thunk';
 // async functions by granting them the ability to return 
 // 'functions' instead of plain objects.
 
-const store = createStore(/* rootReducer */, /* applyMiddleware goes here */);
+const store = createStore(combineReducers, applyMiddleware(thunk, logger));
 
 // Instead of passing our initial state directly to our 
 // createStore() function, we can pass it applyMiddleware
