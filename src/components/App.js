@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getChars} from '../actions/index';
+import { getChars} from '../actions/index'; //don't need index here because node reads the index by default
 
 import logo from '../logo.svg';
 import '../styles/App.css';
@@ -9,7 +9,7 @@ import '../styles/App.css';
 
 class App extends Component {
   componentDidMount() {
-    // this.props.getChars();
+    this.props.getChars();
     
   }
   render() {
