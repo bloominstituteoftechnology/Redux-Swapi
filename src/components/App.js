@@ -43,10 +43,6 @@ const mapStateToProps = state => {
   };
 };
 
-// export default connect(null, {
-//   /* actions go here */
-  
-// })(App);
 
 export default connect(mapStateToProps, {
     /* actions go here */

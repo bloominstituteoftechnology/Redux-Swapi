@@ -18,7 +18,8 @@ export const getChars = () => {
         dispatch({type:FETCHING});  // first state of "fetching" is dispatched
         promise
             .then(response => {
-                dispatch({type:FETCHED, payload: response.data.results[0]}) //2nd state is FETCHED if the promise resolves
+                console.log("AJAX RESPONSE: ", response)
+                dispatch({type:FETCHED, payload: response.data.results}) //2nd state is FETCHED if the promise resolves
             })
             .catch(err => {
                 console.log(err);
@@ -26,3 +27,7 @@ export const getChars = () => {
             })
     }
 }
+
+
+
+
