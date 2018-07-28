@@ -30,7 +30,7 @@ export const charsReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         fetching: false,
         fetched: false, 
-        error: "ERROR FETCHING CHARS!"
+        error: action.payload
       })
     default:
       return state;

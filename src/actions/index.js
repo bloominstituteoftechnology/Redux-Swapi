@@ -23,7 +23,7 @@ export const getChars = () => {
             })
             .catch(err => {
                 console.log(err);
-                dispatch({type:ERROR}); // 2nd state is ERROR is promise doesn't resolve
+                dispatch({type:ERROR, payload: "error fetching!!!!"}); // 2nd state is ERROR is promise doesn't resolve
             })
     }
 }
