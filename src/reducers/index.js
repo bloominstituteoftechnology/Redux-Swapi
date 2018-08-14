@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
-import { charsReducer } from './starWarsReducer';
+import { charsReducer, isFetching } from './starWarsReducer';
 
 export default combineReducers({
-  charsReducer
+  charsReducer,
+  isFetching
 });
