@@ -17,9 +17,9 @@ export const ERRORS = 'ERRORS';
 export const action = () => {
     const request = axios.get('https://swapi.co/api/people/');
     return(dispatch) =>{
-        request.then(({response}) => {
+        request.then((response) => {
             dispatch({type: FETCHED, payload: response.data})
-            console.log(response.data)
+            console.log(response)
         })
         .catch(error => {
             dispatch({type:ERRORS, payload: error})
