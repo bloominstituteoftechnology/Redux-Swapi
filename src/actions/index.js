@@ -19,9 +19,11 @@ export const action = () => {
     return(dispatch) =>{
         request.then(({response}) => {
             dispatch({type: FETCHED, payload: response.data})
+            console.log(response.data)
         })
         .catch(error => {
             dispatch({type:ERRORS, payload: error})
+            console.log(error)
         });
     };
 };
