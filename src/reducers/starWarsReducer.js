@@ -8,6 +8,7 @@ const initialState = {
   hasError: false
 };
 export const charsReducer = (state = initialState, action) => {
+  console.log("CHARREDUCER", action.payload);
   switch (action.type) {
     // Fill me in with the important reducers
     // action types should be FETCHING, FETCHED, and ERROR
@@ -28,7 +29,8 @@ export const charsReducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: false,
-        isFetched: true
+        isFetched: true,
+        chars: action.payload.data.results
       };
     case FETCH_FAILURE:
       return {

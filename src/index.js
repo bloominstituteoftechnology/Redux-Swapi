@@ -8,7 +8,11 @@ import rootReducer from "./reducers";
 import thunk from "redux-thunk";
 import logger from "redux-logger";
 
-const store = createStore(rootReducer, applyMiddleware(logger, thunk));
+const store = createStore(
+  rootReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  applyMiddleware(logger, thunk)
+);
 console.log("Initial State", store.getState());
 console.log("store", store);
 ReactDOM.render(

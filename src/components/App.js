@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import "../styles/App.css";
+import logo from "../logo.svg";
+
 // pull in actions from action/index
 import { fetchCharData } from "../actions";
 class App extends Component {
@@ -12,7 +14,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* {this.props.fetching ? (
+        {this.props.fetching ? (
           <img src={logo} className="App-logo" alt="logo" />
         ) : (
           <ul>
@@ -20,7 +22,7 @@ class App extends Component {
               return <li key={char.name}>{char.name}</li>;
             })}
           </ul>
-        )} */}
+        )}
         <p>Hey</p>
       </div>
     );
