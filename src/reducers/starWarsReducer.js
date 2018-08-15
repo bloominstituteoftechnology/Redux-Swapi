@@ -15,10 +15,10 @@ export const charsReducer = (state = initialState, action) => {
         isFetching: true
       });
     case SUCCESS:
+        //console.log(action.payload)
       return Object.assign({}, state, {
         chars: action.payload,
         isFetching: false,
-        isLoggedIn: true
       });
     case FAILURE:
       return Object.assign({}, state, {

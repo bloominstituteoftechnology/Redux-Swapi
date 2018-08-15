@@ -14,7 +14,7 @@ class App extends Component {
     console.log(this.props)
     return (
       <div className="App">
-        {this.props.isFetching ? (
+        {/* {this.props.isFetching ? (
           <img src={logo} className="App-logo" alt="logo" />
         ) : (
           <ul>
@@ -22,22 +22,30 @@ class App extends Component {
               return <li key={char.name}>{char.name}</li>;
             })}
           </ul>
-        )}
+        )} */}
       </div>
     );
   }
 }
 
 // our mapDispatchToProps needs to have two properties inherited from state
+
 const mapStateToProps = state => {
-  console.log(this.props)
+  //console.log(state);
   return {
     chars: state.chars,
     isFetching: state.isFetching,
     hasErrors: state.hasErrors
   };
 };
-// the chars and the fetching boolean
-export default connect(mapStateToProps, {
-  getCharacters
-})(App);
+
+const mapDispatchToProps = dispatch => ({
+  getCharacters: () => {
+    dispatch(getCharacters());
+  }
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);

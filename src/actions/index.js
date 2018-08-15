@@ -11,7 +11,6 @@ export const getCharacters = () => {
     // axios call would go here with a .then()
     axios.get(`https://swapi.co/api/people/`)
       .then(response => {
-        console.log(response.data.results);
         dispatch({ type: SUCCESS, payload: response.data.results })
       })
       .catch(response => {
