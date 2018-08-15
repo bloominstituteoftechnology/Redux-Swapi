@@ -13,13 +13,14 @@ class App extends Component {
     return (
       <div className="App">
         {this.props.loading ? (
-          <img src={logo} className="App-logo" alt="logo" />
+          <i class="fas fa-spinner fa-pulse"></i>
         ) : (
-          <ul>
+          <div className="chars">
+          <h1>CoooOOoOl Characterz</h1>
             {this.props.chars.map(char => {
-              return <li key={char.name}>{char.name}</li>;
+              return <div className="char" key={char.name}><p>{char.name}</p></div>;
             })}
-          </ul>
+          </div>
         )}
       </div>
     );
