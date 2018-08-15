@@ -4,7 +4,7 @@ import '../styles/App.css';
 
 class App extends Component {
   state = {
-    next: 2
+    next: 1
   };
 
   componentDidMount() {
@@ -14,12 +14,15 @@ class App extends Component {
   fetchNewData = () => {
     const nextVal = this.state.next < 9 ? this.state.next + 1 : 1;
     this.setState({ next: nextVal });
-    console.log(nextVal);
     this.props.fetchData(`https://swapi.co/api/people/?page=${nextVal}`);
   }
 
   render() {
-    console.log(this.props.chars)
+    if (this.props.err != null) {
+      return (
+        <h2 className="error">There was a problem fetching the data.</h2>
+      );
+    }
     return (
       <div className="App">
         {this.props.isFetching ? (

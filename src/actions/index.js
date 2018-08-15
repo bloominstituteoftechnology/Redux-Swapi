@@ -12,7 +12,6 @@ const fetchData = URL => dispatch => {
 			dispatch({ type: FETCH_SUCCESS, payload: res.data.results });
 		})
 		.catch(err => {
-			console.log(err);
 			dispatch({ type: FETCH_FAILURE, payload: err });
 		});
 };
