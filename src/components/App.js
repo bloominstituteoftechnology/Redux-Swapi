@@ -12,9 +12,10 @@ class App extends Component {
     this.props.fetchCharData();
   }
   render() {
+    console.log("FETCHING APP PROPS", this.props);
     return (
       <div className="App">
-        {this.props.fetching ? (
+        {this.props.isFetching ? (
           <img src={logo} className="App-logo" alt="logo" />
         ) : (
           <ul>
@@ -23,7 +24,6 @@ class App extends Component {
             })}
           </ul>
         )}
-        <p>Hey</p>
       </div>
     );
   }
