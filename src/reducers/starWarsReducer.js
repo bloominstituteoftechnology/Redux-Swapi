@@ -17,7 +17,8 @@ export const charsReducer = (state = initialState, action) => {
       return [
         ...state,
         {
-          fetching: true
+          fetching: true,
+          chars: action.payload
         }        
       ]
 
@@ -34,7 +35,7 @@ export const charsReducer = (state = initialState, action) => {
      return[
        ...state,
        {
-         error: err
+         error: action.error
        }
      ]
     default:
