@@ -15,6 +15,7 @@ class App extends Component {
     console.log(this.props)
     let chars; 
     this.props.chars ?  chars = this.props.chars :   chars = []; 
+    console.log(chars)
     return (
       <div className="App">
         {this.props.fetching ? (
