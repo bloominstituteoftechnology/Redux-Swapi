@@ -15,13 +15,14 @@ export const charsReducer = (state = initialState, action) => {
         });
     case FETCHED:
       return Object.assign({}, state, {
+        chars: action.payload,
         fetching: false,
         fetched: true
         });
     case ERROR:
       return Object.assign({}, state, {
         fetching: false,
-        error: state.error
+        error: action.payload,
         });
     default:
       return state;

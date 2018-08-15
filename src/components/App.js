@@ -6,7 +6,7 @@ import {getData} from '../actions';
 
 class App extends Component {
   componentDidMount() {
-    this.props.getData;
+    this.props.getData();
   }
   render() {
     return (
@@ -25,12 +25,11 @@ class App extends Component {
   }
 }
 
-const mapDispatchToProps = state => ({
+const mapDispatchToProps = state => {
+  return{
     chars : state.chars,
     fetching: state.fetching,
-});
-// our mapDispatchToProps needs to have two properties inherited from state
-// the chars and the fetching boolean
-export default connect(null, {
-  mapDispatchToProps, getData
-})(App);
+  }
+};
+
+export default connect(mapDispatchToProps, {getData})(App);
