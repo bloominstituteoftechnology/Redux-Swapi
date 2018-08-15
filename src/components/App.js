@@ -14,7 +14,7 @@ class App extends Component {
   render() {
     console.log(this.props)
     let chars; 
-    this.props.chars ?  chars = this.props.chars :   chars = []; 
+    this.props.chars.length ?  chars = this.props.chars :   chars = []; 
     console.log(chars)
     console.log(this.props.fetching)
     console.log(this.props.fetched)
