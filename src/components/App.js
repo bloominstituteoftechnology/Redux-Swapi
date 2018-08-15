@@ -8,11 +8,9 @@ import { fetchCharData } from "../actions";
 class App extends Component {
   componentDidMount() {
     // call our action
-    console.log("COMPONENT DID MOUNT", this.props.fetchCharData);
     this.props.fetchCharData();
   }
   render() {
-    console.log("FETCHING APP PROPS", this.props);
     return (
       <div className="App">
         {this.props.isFetching ? (
@@ -31,8 +29,6 @@ class App extends Component {
 
 // our mapDispatchToProps needs to have two properties inherited from state
 const mapStateToProps = state => {
-  console.log("MapsStatetoProps state CHARS", state.charsReducer.chars);
-  console.log("MapsStatetoProps state FETCHED", state.charsReducer.isFetching);
   return {
     chars: state.charsReducer.chars,
     isFetching: state.charsReducer.isFetching
