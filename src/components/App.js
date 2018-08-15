@@ -35,8 +35,8 @@ const mapStateToProps = state => {
   }
 }
 
-const mapActionsToProps = state => ({
-  fetchCharacters
-})
+const mapActionsToProps = state => {
+  return {fetchCharacters}
+}
 
-export default connect(mapStateToProps, mapActionsToProps)(App);
+export default connect(mapStateToProps, {fetchCharacters})(App);
