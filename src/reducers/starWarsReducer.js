@@ -30,7 +30,7 @@ export const charsReducer = (state = initialState, action) => {
         ...state,
         isFetching: false,
         isFetched: true,
-        chars: action.payload.data.results
+        chars: action.payload
       };
     case FETCH_FAILURE:
       return {
