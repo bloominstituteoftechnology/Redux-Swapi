@@ -35,7 +35,8 @@ export const charsReducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: true,
-        isFetched: false
+        isFetched: false,
+        hasError: action.payload
       };
 
     default:
