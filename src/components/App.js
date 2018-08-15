@@ -25,11 +25,11 @@ class App extends Component {
   }
 }
 
-const mapDispatchToProps = state => {
+const mapStateToProps = state => {
   return{
-    chars : state.chars,
-    fetching: state.fetching,
+    chars : state.charsReducer.chars,
+    fetching: state.charsReducer.fetching,
   }
 };
 
-export default connect(mapDispatchToProps, {getData})(App);
+export default connect(mapStateToProps, {getData})(App);
