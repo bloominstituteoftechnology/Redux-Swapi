@@ -16,14 +16,16 @@ class App extends Component {
     let chars; 
     this.props.chars ?  chars = this.props.chars :   chars = []; 
     console.log(chars)
+    console.log(this.props.fetching)
+    console.log(this.props.fetched)
     return (
       <div className="App">
-        {this.props.fetching ? (
+        {this.props.fetching ?  (
           <img src={logo} className="App-logo" alt="logo" />
         ) : (
           <ul>
-            {chars.map(char => {
-              return <li key={char.name}>{char.name}</li>;
+            {chars.map((char, i) => {
+              return <li key={i}>{char.name}</li>;
             })}
           </ul>
         )}
@@ -37,7 +39,7 @@ class App extends Component {
 
 const mapStateToProps = state => ({
   chars: state.charsReducer.chars,
-  fetching: state.charsReducer.chars,
+  fetching: state.charsReducer.fetching,
   fetched: state.charsReducer.fetched,
   error: state.charsReducer.error,
 })
