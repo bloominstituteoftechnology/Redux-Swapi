@@ -14,7 +14,7 @@ export const FETCHED = 'FETCHED';
 export const ERRORS = 'ERRORS'; 
 
 
-export const reducer = () => {
+export const action = () => {
     const request = axios.get('https://swapi.co/api/people/');
     return(dispatch) =>{
         request.then(({response}) => {
