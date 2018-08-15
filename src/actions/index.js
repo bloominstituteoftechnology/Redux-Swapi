@@ -19,24 +19,14 @@ export const fetching = () => {
   return (dispatch) => {
     dispatch({type: FETCHING});
     axios.get('https://swapi.co/api/people/')
-    .then(({data}) => {
-      dispatch(fetched(data));
+    .then((response) => {
+      dispatch({type: FETCHED, payload: response.data.results});
     })
     .catch(error => {
-      dispatch(error(error));
+        console.log(error);
+      dispatch({type: ERROR});
     });
   };
 };
 
-export const fetched = (data) => ({
-    type: FETCHED,
-    payload: data,
-    loading: false
-});
-
-
-export const error = (error) => ({
-    type: ERROR,
-    error
-})
 
