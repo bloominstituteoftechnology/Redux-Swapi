@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import '../styles/App.css';
+import logo from '../logo.svg'
 // pull in actions from action/index
 
 class App extends Component {
