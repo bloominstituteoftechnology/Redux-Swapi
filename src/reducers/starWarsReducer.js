@@ -4,7 +4,7 @@ import {FETCHING, FETCHED, ERRORS} from '../actions'
 const initialState = {
   // define a few properties here.
   // Array chars, Boolean fetching, Boolean fetched, null error.
-  chars: {},
+  chars: [],
   isFetching: false,
   isFetched: false,
   errors: [],
@@ -20,6 +20,7 @@ export const charsReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         isFetching: false,
         isFetched: true,
+        chars: action.payload.results
       })
     case ERRORS:
       return Object.assign({}, state, {

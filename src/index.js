@@ -11,10 +11,10 @@ import thunk from 'redux-thunk';
 // thunk from redux-thunk
 import logger from 'redux-logger';
 // logger from redux-logger
-import rootReducer from './reducers'
+import reducer from './reducers';
 // rootReducer from ./reducers
 
-const store = createStore(rootReducer, applyMiddleware(thunk, logger));
+const store = createStore(reducer, applyMiddleware(thunk, logger));
 
 ReactDOM.render(
   <Provider store={store}>

@@ -92,7 +92,7 @@ function myCleverAction = () => {
 
 * This is an `http` request, and at this point in time, it is a promise.
 * Our promise resolves here with data in this `.then` block
-* Now we just call the `dispatch` method which has ben exposed to us through our `thunk` middleware.
+* Now we just call the `dispatch` method which has been exposed to us through our `thunk` middleware.
 * This looks like a lot of boiler plate, but it's actually a controlled, and eloquent solution to big problems often caused by `cross-site-scripting` and making `http` requests.
 
 ## redux-logger
