@@ -17,7 +17,9 @@ export const charsReducer = (state = initialState, action) => {
     case REQUEST_SUCCESS:
       return Object.assign({}, state, {
         fetched:true,
-        isFetching:false});
+        isFetching:false,
+        characters: action.payload
+      })
     case REQUEST_FAILURE:
         return Object.assign({}, state, {
           fetched: false,

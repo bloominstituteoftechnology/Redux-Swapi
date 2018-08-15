@@ -12,13 +12,12 @@ export const REQUEST_FAILURE = 'REQUEST_FAILURE'; //errors
 
 
 
-export const userREQUEST = () => {
-    console.log("test");
+export const userRequest = () => {
     return function(dispatch) {
       dispatch({ type: REQUEST_FETCHING });
       axios.get(`https://swapi.co/api/people/`)
         .then(function(response){
-             dispatch({type: REQUEST_SUCCESS, payload: response.data })
+             dispatch({type: REQUEST_SUCCESS, payload: response.data.results })
         })
         .catch(function(error){
             console.log(error)
