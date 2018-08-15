@@ -6,14 +6,14 @@ import { userREQUEST } from '../actions';
 
 class App extends Component {
   componentDidMount() {
-    // call our action
+    // this.props.
   }
   render() {
     console.log(this.props);
       if (!this.props.chars){
       return (
         <div className="App">
-          <button onClick={()=> this.userREQUEST()}>Strong with you, the Force is</button>
+          <button onClick={()=> this.props.userREQUEST()}>Strong with you, the Force is</button>
         </div>
       )
     } else if (this.props.isFetching){
@@ -23,13 +23,15 @@ class App extends Component {
         </div>
       )
     } else {
-      <div className="App">
+      return (
+        <div className="App">
         <ul>
           {this.props.chars.map(char => {
             return <li key={char.name}>{char.name}</li>;
           })}
         </ul>
       </div>
+      )
     }
   }
 }
@@ -42,6 +44,6 @@ const mapStateToProps= (state)=> {
 }
 // our mapDispatchToProps needs to have two properties inherited from state
 // the chars and the fetching boolean
-export default connect(mapStateToProps, {
-  /* actions go here */
+export default connect(mapStateToProps, { 
+  userREQUEST 
 })(App);
