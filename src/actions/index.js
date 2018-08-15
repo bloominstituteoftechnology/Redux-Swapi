@@ -3,25 +3,23 @@ import axios from 'axios';
 // one for fetching, one for fetched and one for errors
 export const FETCHING = 'FETCHING';
 export const FETCHED = 'FETCHED';
-export const ERRORS = 'ERRORS';
+export const ERROR = 'ERROR';
 // our action creator will be a function that returns a promise
 // we'll have to be sure to make our promise resolve within our new "thunk based middlware"
 // the url to fetch charicters from is `https://swapi.co/api/people/`
 // remember that now we have controll over our thunk-based
-export const fetching = () => {
-    return {
-        type: 'FETCHING',
-    }
-}
-
-export const fetched = () => {
-    return {
-        type: 'FETCHED',
-    }
-}
-
-export const errors = () => {
-    return {
-        type: 'ERRORS',
-    }
-}
+export const getData = () => {
+    return function(dispatch) {
+        dispatch({ type: FETCHING});
+        axios
+            .get('https://swapi.co/api/people/')
+            .then(response =>{
+                setTimeout(() => {
+                    if(response.error){
+                        dispatch({type: ERROR, payload: response.error})
+                    } else{
+                        dispatch({type:FETCHED, payload: response.data})
+                    }
+                }), 1500});
+    };
+};
