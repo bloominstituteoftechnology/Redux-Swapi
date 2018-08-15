@@ -1,6 +1,5 @@
 // we'll need axios
 import axios from 'axios';
-
 export const FETCHING_CHARS = 'FETCHING_CHARS';
 export const ERROR_FETCHING_CHARS = 'ERROR_FETCHING_CHARS';
 export const CHARS_FETCHED = 'CHARS_FETCHED';
@@ -14,10 +13,10 @@ export const CHARS_FETCHED = 'CHARS_FETCHED';
 // remember that now we have controll over our thunk-based
 
 export const fetchChars = () => {
-    const starWarsChars = axios.get(`https://swapi.co/api/people/`);
+    const StarWarsCharacters = axios.get(`https://swapi.co/api/people/`);
     return (dispatch) => {
         dispatch({type: FETCHING_CHARS});
-        starWarsChars
+        StarWarsCharacters
             .then(response => {
                 console.log(response)
                 dispatch({

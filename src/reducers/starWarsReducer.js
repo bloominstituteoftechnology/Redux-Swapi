@@ -24,19 +24,19 @@ export const charsReducer = (state = initialState, action) => {
     };
 
     case ERROR_FETCHING_CHARS:
-    return [
-      ...state, {
+    return {
+      ...state, 
         fetching: false,
         error: action.payload
-      }];
+      };
 
     case CHARS_FETCHED:
-    return [
-      ...state, {
+    return {
+      ...state, 
           fetching: false,
           fetched: true,
           chars: [...state.chars, ...action.payload]
-      }];
+      };
 
     default:
       return state;
