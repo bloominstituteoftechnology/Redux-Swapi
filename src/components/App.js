@@ -3,13 +3,11 @@ import { connect } from 'react-redux';
 
 import logo from '../logo.svg';
 import '../styles/App.css';
-// pull in actions from action/index
+import { userRequest } from "../actions";
 
 class App extends Component {
-  componentDidMount() {
-    // call our action
-  }
   render() {
+
     return (
       <div className="App">
         {this.props.fetching ? (
