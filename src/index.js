@@ -3,14 +3,20 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import { App } from './components';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
 // needed dependancies
-// applyMiddleware from redux
+// applyMiddleware from redux which I did above in conjunction with createStore
 // thunk from redux-thunk
-// logger from redux-logger
-// rootReducer from ./reducers
+import thunk from "redux-thunk";
 
-const store = createStore(/* rootReducer */, /* applyMiddleware goes here */);
+// logger from redux-logger
+import logger from "redux-logger";
+
+// rootReducer from ./reducers which is aliased b/c it was export default with no name
+import rootReducer from './reducers';
+
+
+const store = createStore( rootReducer/* rootReducer */,  applyMiddleware(thunk, logger)/* applyMiddleware goes here */);
 
 ReactDOM.render(
   <Provider store={store}>
