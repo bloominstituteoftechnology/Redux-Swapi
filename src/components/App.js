@@ -30,7 +30,8 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    chars: state.chars
+    chars: state.charsReducer.chars,
+    fetching: state.charsReducer.isFetching
   }
 }
 
@@ -38,5 +39,5 @@ const mapStateToProps = state => {
 // the chars and the fetching boolean
 export default connect(mapStateToProps, {
   /* actions go here */
-  fetchChars
+    fetchChars
 })(App);

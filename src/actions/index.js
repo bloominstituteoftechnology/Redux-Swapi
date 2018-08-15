@@ -13,15 +13,16 @@ export const ERROR = "ERROR";
 // remember that now we have controll over our thunk-based
 export const fetchChars = () => {
     return function(dispatch) {
-      dispatch({ type: FETCHING });
-      axios
-      .get('https://swapi.co/api/people')
-      .then(response => {
-        if (response.error) {
-            dispatch({ type: ERROR, payload: response.error})
-          } else {
-            dispatch({ type: FETCHED, payload: response.data })
-          }
-      })
-    };
-  };
+        dispatch({ type: FETCHING });
+        axios
+        .get(`https://swapi.co/api/people/`)
+        .then(response => {
+            console.log(response);
+            console.log(response.data);
+            dispatch({ type: FETCHED, payload: response.data.results });
+        })
+        .catch(error => {
+            dispatch({ type: ERROR, payload: error });
+        })
+   }
+}
