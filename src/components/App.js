@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import "../styles/App.css";
 import logo from "../logo.svg";
+import { fetchCharData } from "../actions";
 
 // pull in actions from action/index
-import { fetchCharData } from "../actions";
 class App extends Component {
   componentDidMount() {
     // call our action
