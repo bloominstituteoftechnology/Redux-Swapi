@@ -4,7 +4,7 @@ const initialState = {
   chars: [],
   isFetching: false,
   isFetched: false,
-  err: null,
+  err: null
 };
 
 export const charsReducer = (state = initialState, action) => {
@@ -13,7 +13,7 @@ export const charsReducer = (state = initialState, action) => {
       return Object.assign({}, ...state, { isFetching: true });
     case FETCH_SUCCESS:
       return Object.assign({}, ...state, {
-        chars: action.payload, 
+        chars: action.payload,
         isFetching: false, 
         isFetched: true 
       });
