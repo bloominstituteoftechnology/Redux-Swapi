@@ -25,6 +25,8 @@ class App extends Component {
             })}
           </ul>
         )}
+        {(this.props.isFetching) ?  (<div>this.props.isFetching</div>) : null}
+        {(this.props.isFetched) ?  (<div>this.props.isFetched</div>) : null}
       </div>
     );
   };
@@ -43,7 +45,11 @@ const mapStateToProps = state => {
 
 // our mapDispatchToProps needs to have two properties inherited from state
 // the chars and the fetching boolean
+
+const mapDispatchToProps = {
+    getData
+};
+
 export default connect(
-  mapStateToProps,
-  {getData}
+  mapStateToProps, mapDispatchToProps
 )(App);

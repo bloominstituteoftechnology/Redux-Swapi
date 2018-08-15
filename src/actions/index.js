@@ -12,12 +12,15 @@ export const getData = () => {
   console.log('getData envoked')
   return function(dispatch) {
     dispatch({type: FETCHING});
+    setTimeout(() => {
     axios.get(url).then(res => {
         dispatch({type: FETCHED, payload: res.data})
       }).catch(err => {
         console.log('err')
         dispatch({type: ERRORS, payload: err})
       })//catch;
+    }, 2000)
+
 
   }//return
 }
