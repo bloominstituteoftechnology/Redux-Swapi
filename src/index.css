@@ -1,5 +1,14 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+  margin: auto;
+  padding: 15px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 25px;
+  background-image: url("https://c.wallhere.com/photos/9b/0e/2560x1600_px_BB_8_robot_science_fiction_Star_Wars_Star_Wars_The_Force_Awakens-622737.jpg!d");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+ul li {
+  padding: 10px;
+  text-shadow: 3px 3px 6px #00BFFF;
 }
