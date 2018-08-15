@@ -1,4 +1,5 @@
-import { FETCHING, FETCHED, ERROR } '../actions';
+import { FETCHING, FETCHED, ERROR } from '../actions';
+
 const initialState = {
   chars: [],
   isFetching: false,

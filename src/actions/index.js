@@ -12,7 +12,7 @@ export const fetchChars = () => {
   return function(dispatch) {
     dispatch({ type: FETCHING });
 
-    axios.get('http://swapi.co/api/people')
+    axios.get('https://swapi.co/api/people')
           .then( res => dispatch({ type: FETCHED, payload: res.results }))
           .catch( err => dispatch({ type: ERROR, payload: err })
     );
