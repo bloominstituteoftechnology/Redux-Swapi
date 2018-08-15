@@ -20,12 +20,15 @@ export const fetchChars = () => {
         starWarsChars
             .then(response => {
                 console.log(response)
-                dispatch({ type: CHARS_FETCHED, payload: []});
+                dispatch({
+                    type: CHARS_FETCHED,
+                    payload: response.data.results
+                });
             })
-            .catch(err => {
+            .catch(error => {
                 dispatch({
                     type: ERROR_FETCHING_CHARS,
-                    payload: 'Error Fetching Chars'
+                    payload: 'Error Fetching Chars..............'
                 });
             });
     };
