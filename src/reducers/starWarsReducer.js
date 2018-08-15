@@ -1,4 +1,4 @@
-import { FETCHING } from "../actions";
+import { FETCHING, FETCH_SUCCESS, FETCH_FAILURE } from "../actions";
 const initialState = {
   // define a few properties here.
   // Array chars, Boolean fetching, Boolean fetched, null error.
@@ -24,6 +24,19 @@ export const charsReducer = (state = initialState, action) => {
         isFetching: true,
         isFetched: false
       };
+    case FETCH_SUCCESS:
+      return {
+        ...state,
+        isFetching: false,
+        isFetched: true
+      };
+    case FETCH_FAILURE:
+      return {
+        ...state,
+        isFetching: false,
+        isFetched: false
+      };
+
     default:
       return state;
   }
