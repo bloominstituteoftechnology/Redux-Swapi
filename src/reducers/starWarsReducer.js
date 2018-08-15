@@ -1,13 +1,22 @@
-import /* we need our action types here*/ '../actions';
+import { FETCHING, IS_FETCHED, ERR_FETCHED } from '../actions';
+import { Object } from 'core-js';
+
 const initialState = {
-  // define a few properties here.
-  // Array chars, Boolean fetching, Boolean fetched, null error.
+  people: [],
+  isFetching: false,
+  isFetched: false,
+  isError: false,
+  error: null
 };
+
 export const charsReducer = (state = initialState, action) => {
   switch (action.type) {
-    // Fill me in with the important reducers
-    // action types should be FETCHING, FETCHED, and ERROR
-    // your switch statement should handle all of these cases.
+    case FETCHING:
+      return Object.assign({}, state, {isFetching: true});
+    case IS_FETCHED:
+      return Object.assign({}, state, {isFetching: false, isFetched: true}, {people: action.people});
+    case ERR_FETCHED:
+      return Object.assign({}, state, {isFetching: false, isError: true});
     default:
       return state;
   }
