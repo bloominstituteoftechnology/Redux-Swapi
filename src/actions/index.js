@@ -6,7 +6,7 @@ export const fetchingData = () => {
     return (dispatch) =>{
         dispatch({type: 'FETCHING_DATA'})
         request.then(({data}) => {
-            dispatch({type: 'FETCHED_DATA', payload: data});
+            dispatch({type: 'FETCHED_DATA', payload: data.results});
         }).catch(err => {
             dispatch({type:"ERROR_FETCHING", payload: err})
         })
