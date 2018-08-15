@@ -21,7 +21,7 @@ export const reducer = () => {
             dispatch({type: FETCHED, payload: response.data})
         })
         .catch(error => {
-            dispatch({type:ERROR, payload: error})
+            dispatch({type:ERRORS, payload: error})
         });
     };
 };
