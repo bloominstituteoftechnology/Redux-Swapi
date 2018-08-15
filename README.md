@@ -1,7 +1,7 @@
 # Redux Swapi
 
 ---
-
+-for PR
 ## Topics
 
 * Middleware and applyMiddleware
