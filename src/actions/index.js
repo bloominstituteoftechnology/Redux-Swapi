@@ -18,6 +18,9 @@ export const fetch = () => {
         request.then(({data})=> {
             dispatch({type: FETCHING, payload: data.results})
         })
+        .then(()=>{
+            dispatch({type: FETCHED})
+        })
         .catch(err=> {
             dispatch({type: ERROR, error: err})            
         });
