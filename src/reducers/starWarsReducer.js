@@ -1,7 +1,7 @@
 import {FETCHING, FETCHED, ERROR} from '../actions';
 
 const initialState = {
-  chars: ['Dan Abramov', 'Michael Boegner', 'Chewie', 'Luke Skywalker', 'r2d2(the DJ)'],
+  chars: [ ],
   isFetching: false,
   isFetched: false,
   error: null
@@ -16,7 +16,8 @@ export const charsReducer = (state = initialState, action) => {
       });
     case FETCHED:
       return Object.assign({}, state, {
-        isFetched: true
+        isFetched: true,
+        chars: action.payload
       });
     case ERROR:
       return Object.assign({}, state, {
