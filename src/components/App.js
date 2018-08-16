@@ -1,13 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import { fetchChars } from '../actions/index.js';
 import logo from '../logo.svg';
 import '../styles/App.css';
 // pull in actions from action/index
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      chars:[]
+    }
+  }
+
   componentDidMount() {
-    // call our action
+    // console.log(this.props);
+    this.props.fetchChars();
+    
   }
   render() {
     return (
@@ -16,7 +25,9 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
         ) : (
           <ul>
-            {this.props.chars.map(char => {
+            {
+              this.props.chars.map((char, i) => {
+                  console.log(this.props.chars)
               return <li key={char.name}>{char.name}</li>;
             })}
           </ul>
@@ -26,8 +37,17 @@ class App extends Component {
   }
 }
 
+export const mapDispatchToProps = (state) => {
+  console.log("state in mapDis", state);
+  
+  return {
+    chars: state.charsReducer.chars,
+    fetching: state.charsReducer.fetching,
+  }
+}
 // our mapDispatchToProps needs to have two properties inherited from state
 // the chars and the fetching boolean
-export default connect(null, {
-  /* actions go here */
+export default connect(mapDispatchToProps, {
+  fetchChars
 })(App);
+// charsReducer.chars[""0""]
