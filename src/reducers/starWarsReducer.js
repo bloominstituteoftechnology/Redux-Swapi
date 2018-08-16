@@ -32,7 +32,7 @@ export const charsReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         isFetching: false,
         errors: [...state.errors, ...action.payload.errors],
-        hasErrors: true;
+        hasErrors: true,
       });
 
     default:
