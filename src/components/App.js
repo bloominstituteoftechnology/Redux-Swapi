@@ -42,6 +42,4 @@ const mapStatetoProps = state => {
   };
 };
 
-export default connect(mapStatetoProps, {
-  fetchChars
-})(App);
+export default connect(mapStatetoProps, {fetchChars})(App);

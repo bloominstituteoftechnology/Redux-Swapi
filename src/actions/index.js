@@ -26,7 +26,7 @@ export const ERROR = 'ERROR';
 //   };
 
 export const fetchChars = () => {
-    return function (dispatch) {
+    return dispatch => {
         dispatch({ type: FETCHING }); // first state of 'fetching' is dispatched
         axios
             .get('https://swapi.co/api/people/')
