@@ -12,13 +12,13 @@ export const ERRORS = 'ERRORS'
 export const recieveChars = chars =>{
     const promise = axios.get('https://swapi.co/api/people/')
     return dispatch => {
-        dispatch({type: "FETCHING", payload: "fetching data"}); 
+        dispatch({type: "FETCHING"}); 
         promise
             .then(({ data }) => {
-                dispatch ({type: "FETCHED", payload: "data has been Fetched"}); 
+                dispatch ({type: "FETCHED", payload: data.results}); 
             })
             .catch(err =>{
-                dispatch({type: "ERRORS", payload:"Erros came up"}); 
+                dispatch({type: "ERRORS", payload: err}); 
             });
         }; 
 };
