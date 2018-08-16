@@ -14,7 +14,8 @@ class App extends Component {
     console.log(this.props)
     return (
       <div className="App">
-        {/* {this.props.isFetching ? (
+      <h1>hello</h1>
+        {this.props.isFetching ? (
           <img src={logo} className="App-logo" alt="logo" />
         ) : (
           <ul>
@@ -22,7 +23,7 @@ class App extends Component {
               return <li key={char.name}>{char.name}</li>;
             })}
           </ul>
-        )} */}
+        )}
       </div>
     );
   }
