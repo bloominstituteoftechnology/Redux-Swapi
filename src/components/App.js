@@ -14,15 +14,26 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <div className='title'>
+          <h1>Star Wars App</h1>
+        </div>
         {
           this.props.fetching ? (
             <img src={logo} className="App-logo" alt="logo" />
           ) : (
-            <ul>
+            <div className='char-container'>
             {this.props.chars.map(char => {
-              return <li key={char.name}>{char.name}</li>;
+              return (
+                <div className='char' key={char.created}>
+                  <h2>{char.name}</h2>
+                  <p>Appears in {char.films.length} movies</p>
+                  <p>Birth year {char.birth_year}</p>
+                  <p>{char.height}cm tall, {char.mass}kg</p>
+                  <p>Eye color: {char.eye_color}, Hair color: {char.hair_color}</p>
+                </div>
+              );
             })}
-            </ul>
+            </div>
           )
         }
       </div>

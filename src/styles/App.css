@@ -1,5 +1,13 @@
 .App {
   text-align: center;
+  background-image: url('https://images.alphacoders.com/726/726264.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  min-height: 100vh;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .App-logo {
@@ -23,6 +31,23 @@
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.char-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fee6c3;
+  width: 55%;
+}
+
+.char {
+  border-bottom: 1px solid brown;
+  width: 80%
 }
