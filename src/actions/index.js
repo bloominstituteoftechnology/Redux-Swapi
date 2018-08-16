@@ -27,7 +27,7 @@ export const userRequest = () => {
                 console.log(error)
                 dispatch({
                     types: REQUEST_FAILURE,
-                    error         });
+                    error});
             })
     }
 }

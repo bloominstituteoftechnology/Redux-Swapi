@@ -35,7 +35,6 @@ class App extends Component {
 
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return({
     chars: state.charsReducer.characters,
     isFetching: state.isFetching
