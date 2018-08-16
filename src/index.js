@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import { App } from './components';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
+import thunk from 'redux-thunk';
 // needed dependancies
 // applyMiddleware from redux
 // thunk from redux-thunk
