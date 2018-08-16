@@ -16,6 +16,7 @@ class App extends Component {
   componentDidMount() {
     // console.log(this.props);
     this.props.fetchChars();
+    
   }
   render() {
     return (
@@ -24,7 +25,9 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
         ) : (
           <ul>
-            {this.props.chars.map(char => {
+            {
+              this.props.chars.map((char, i) => {
+                  console.log(this.props.chars)
               return <li key={char.name}>{char.name}</li>;
             })}
           </ul>
@@ -35,6 +38,7 @@ class App extends Component {
 }
 
 export const mapDispatchToProps = (state) => {
+  console.log("state in mapDis", state);
   
   return {
     chars: state.charsReducer.chars,
@@ -46,3 +50,4 @@ export const mapDispatchToProps = (state) => {
 export default connect(mapDispatchToProps, {
   fetchChars
 })(App);
+// charsReducer.chars[""0""]

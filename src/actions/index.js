@@ -21,8 +21,8 @@ export const fetchChars = () => {
         dispatch({type: FETCHING});
         promise
             .then((response) => {
-                console.log(response.data);
-                dispatch({type: FETCHED, payload: response.data})
+                console.log(response.data.results);
+                dispatch({type: FETCHED, payload: response.data.results})
             })
             .catch((err)=>{
                 console.log(err);

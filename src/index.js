@@ -8,6 +8,7 @@ import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import rootReducer from './reducers/index.js';
 
+// console.log(rootReducer());
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 

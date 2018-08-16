@@ -18,13 +18,16 @@ export const charsReducer = (state = initialState, action) => {
       return Object.assign({},
         state,
         {
-          chars: [...state.chars, action.payload]
+          fetching: false,
+          fetched: true,
+          chars: [...state.chars, ...action.payload]
         }
       )
       case ERROR: 
         return Object.assign({},
         state,
-        { fetching: false, 
+        { 
+          fetching: false, 
           error: "Where tha characterz? Cuz, theys ain't heya."
         }
       )
