@@ -14,7 +14,7 @@ import combineReducers from './reducers';
 // logger from redux-logger
 // rootReducer from ./reducers
 
-const store = createStore(combineReducers ,applyMiddleware(thunk, logger));
+const store = createStore(combineReducers ,applyMiddleware(thunk,logger));
 
 ReactDOM.render(
   <Provider store={store}>

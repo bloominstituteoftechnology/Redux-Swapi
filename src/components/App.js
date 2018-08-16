@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {fetching} from '../actions';
+import {getCharacters} from '../actions';
 import '../styles/App.css';
 // pull in actions from action/index
 
 class App extends Component {
   componentDidMount() {
     // call our action
-    this.props.fetching();
+    
+    this.props.getCharacters();
   }
   render() {
     return (
@@ -28,13 +29,10 @@ class App extends Component {
 
 // our mapDispatchToProps needs to have two properties inherited from state
 // the chars and the fetching boolean
-const mapDispatchToProps=state=>{
-  return{
-    chars:state.chars,
-    fetching: state.fetching
-  }
+const mapStateToProps=state=>{
+    return {
+      chars:state.charsReducer.chars,
+    fetching:state.charsReducer.fetching
+    };
 }
-export default connect(mapDispatchToProps,{
-  /* actions go here */
-  fetching
-})(App);
+export default connect(mapStateToProps,{getCharacters})(App);
