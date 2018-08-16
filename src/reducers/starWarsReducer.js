@@ -15,7 +15,7 @@ export const charsReducer = (state = initialState, action) => {
       case "DATA_FETCHED":
         return {
         ...state,
-        chars: action.payload,
+        characters: action.payload,
         fetching: false,
         fetched: true
       };
