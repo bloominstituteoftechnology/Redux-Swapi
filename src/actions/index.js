@@ -12,7 +12,7 @@ export const FETCH_ERROR = 'FETCH_ERROR'
 // the url to fetch charicters from is `https://swapi.co/api/people/`
 // remember that now we have controll over our thunk-based
 
-const url = "`https://swapi.co/api/people/`"
+const url = `https://swapi.co/api/people/`
 
 export const fetchCharacters = () => {
   return function(dispatch) {
