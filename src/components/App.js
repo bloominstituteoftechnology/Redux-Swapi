@@ -9,6 +9,7 @@ import { fetchingData } from "../actions";
 class App extends Component {
   componentDidMount() {
     // call our action
+    this.props.fetchingData();
   }
   render() {
     return (
@@ -22,6 +23,7 @@ class App extends Component {
             })}
           </ul>
         )}
+
       </div>
     );
   }
@@ -29,10 +31,11 @@ class App extends Component {
 
 // our mapDispatchToProps needs to have two properties inherited from state
 // the chars and the fetching boolean
-const mapStateToProps = state => ({
-  fetching: state.isFetching,
-  fetched: state.isFetched,
-  hasErrors: state.hasErrors,
-});
+const mapStateToProps = state => {
+  return {
+  fetching: state.charsReducer.isFetching,
+  chars: state.charsReducer.chars,
+  };
+};
 
-export default connect(null, mapStateToProps, { fetchingData })(App);
+export default connect(mapStateToProps, { fetchingData })(App);

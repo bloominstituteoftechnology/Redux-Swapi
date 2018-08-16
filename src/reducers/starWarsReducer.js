@@ -7,9 +7,8 @@ import {
 const initialState = {
   isFetched: false,
   isFetching: false,
-  // user: null;
-  errors: [],
-  hasErrors: false,
+  chars: [],
+  error: null,
 };
 
 export const charsReducer = (state = initialState, action) => {
@@ -26,13 +25,14 @@ export const charsReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         isFetching: false,
         isFetched: true,
+        chars: action.payload,
       });
 
     case ERROR:
       return Object.assign({}, state, {
         isFetching: false,
-        errors: [...state.errors, ...action.payload.errors],
-        hasErrors: true,
+        isFetched: false,
+        error: action.payload,
       });
 
     default:

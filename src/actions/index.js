@@ -1,4 +1,4 @@
-import { axios } from 'axios';
+import axios from 'axios';
 // we'll need axios
 
 // we'll need to create 3 different action types here.
@@ -16,14 +16,13 @@ export const ERROR = 'ERROR';
 export const fetchingData = () => {
     const request = axios.get('https://swapi.co/api/people');
     return (dispatch) => {
-        request.then(({data}) => {
-            dispatch({ type: FETCHING });
+        dispatch({ type: FETCHING });
 
-            if (response.error) {
-                dispatch({ type: ERROR, payload: response.error })
-            } else {
-                dispatch({ type: FETCHED, payload: data })
-            }
-        });
+        request.then(({data}) => {
+            dispatch({ type: FETCHED, payload: data.results })
+        })
+        .catch(err => {
+            dispatch({ type: ERROR, payload: err })
+        })
     }
 }
