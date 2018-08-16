@@ -13,12 +13,12 @@ export const ERRORS = "ERRORS";
 // remember that now we have controll over our thunk-based
 
 export const fetchStuff = () => {
-    const promise = axios.get(`https://swapi.co/api/people/`);
-    return dispatch => {
+    const request = axios.get(`https://swapi.co/api/people/`);
+    return(dispatch) => {
         dispatch({ type: FETCHING })
-        promise
+        request
             .then(response => {
-                dispatch({ type: FETCHED, payload: response.data.message })
+                dispatch({ type: FETCHED, payload: response.data.results })
             })
             .catch(err => {
                 console.log(err);
