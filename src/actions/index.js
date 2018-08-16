@@ -7,6 +7,7 @@ import axios from 'axios';
 export const FETCHING = 'FETCHING';
 export const FETCHED = 'FETCHED';
 export const ERROR = 'ERROR';
+
 // our action creator will be a function that returns a promise
 // we'll have to be sure to make our promise resolve within our new "thunk based middlware"
 // the url to fetch charicters from is `https://swapi.co/api/people/`
@@ -25,25 +26,25 @@ export const ERROR = 'ERROR';
 //   };
 
 export const fetchChars = () => {
-    const promise = axios.get('https://swapi.co/api/people/');
-    return dispatch => {
-      dispatch({ type: FETCHING}); // first state of 'fetching' is dispatched
-      promise
-        .then(response => {
-          dispatch({ type: FETCHED, payload: response.data }); // 2nd state of success is dispatched IF the promise resolves
-        })
-        .catch(err => {
-          console.log(err);
-          dispatch({ type: ERROR }); // our other 2nd state of 'rejected' will be dispatched here.
-        });
+    return function (dispatch) {
+        dispatch({ type: FETCHING }); // first state of 'fetching' is dispatched
+        axios
+            .get('https://swapi.co/api/people/')
+            .then(response => {
+                dispatch({ type: FETCHED, payload: response.data.results }); // 2nd state of success is dispatched IF the promise resolves
+            })
+            .catch(err => {
+                console.log(err);
+                dispatch({ type: ERROR, payload: err }); // our other 2nd state of 'rejected' will be dispatched here.
+            });
     };
-  };
+};
 
 // export function addMovie(movie) {
 //     return function(dispatch) {
 //       // we can now place logic here and decide when to call dispatch
 //       dispatch({ type: FECH_MOVIES_STARTED });
-  
+
 //       return axios // not sure if the return is needed here
 //         .get(url)
 //         .then(({ data }) => {
@@ -57,11 +58,11 @@ export const fetchChars = () => {
 //         });
 //     };
 //   }
-  
+
 //   const addMovie = movie => dispatch => {
 //     // we can now place logic here and decide when to call dispatch and what action to dispatch
 //     dispatch({ type: FECH_MOVIES_STARTED });
-  
+
 //     axios
 //       .get(url)
 //       .then(({ data }) => {

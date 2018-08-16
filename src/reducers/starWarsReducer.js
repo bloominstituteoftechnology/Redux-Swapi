@@ -1,5 +1,4 @@
 import { FETCHING, FETCHED, ERROR } from '../actions';
-import { Object } from 'core-js';
 
 const initialState = {
   // define a few properties here.
@@ -7,7 +6,7 @@ const initialState = {
   chars: [],
   isFetching: false,
   isFetched: false,
-  hasError: ''
+  hasErrors: null
 
 };
 export const charsReducer = (state = initialState, action) => {
@@ -21,14 +20,14 @@ export const charsReducer = (state = initialState, action) => {
       });
     case FETCHED:
       return Object.assign({}, state, {
-        chars: [...state.chars, action.payload],
+        chars: action.payload,
         isFetched: true,
         isFetching: false
       })
     case ERROR:
       return Object.assign({}, state, {
         isFetching: false,
-        hasError: "Error fetching data"
+        hasErrors: true
       })
     default:
       return state;

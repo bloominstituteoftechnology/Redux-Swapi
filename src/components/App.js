@@ -27,7 +27,6 @@ class App extends Component {
               })}
             </ul>
           )}
-        {this.props.error !== "" ? <h4>{this.this.props.error}</h4> : null}
       </div>
     );
   }
@@ -38,11 +37,10 @@ class App extends Component {
 
 const mapStatetoProps = state => {
   return {
-    chars: state.chars,
-    error: state.error,
-    fetching: state.isFetching
-  }
-}
+    chars: state.charsReducer.chars,
+    fetching: state.charsReducer.isFetching
+  };
+};
 
 export default connect(mapStatetoProps, {
   fetchChars
