@@ -13,3 +13,20 @@ import axios from 'axios';
 export const FETCHING = 'FETCHING';
 export const FETCHED = 'FETCHED';
 export const ERROR = 'ERROR';
+const URL = `https://swapi.co/api/people/`;
+
+export const fetchChars = () => {
+    const promise = axios.get(URL);
+    return (dispatch) => {
+        dispatch({type: FETCHING});
+        promise
+            .then((response) => {
+                console.log(response.data);
+                dispatch({type: FETCHED, payload: response.data})
+            })
+            .catch((err)=>{
+                console.log(err);
+                dispatch({type: ERROR})
+            })
+    }
+}
