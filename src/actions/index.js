@@ -21,15 +21,13 @@ export const userRequest = () => {
             .then((response) => {
                 dispatch({
                     type: REQUEST_SUCCESS, 
-                    payload: response.data.results
-                });
+                    payload: response.data.results});
             })
             .catch((error)=> {
                 console.log(error)
                 dispatch({
                     types: REQUEST_FAILURE,
-                    error
-                });
+                    error         });
             })
     }
 }
