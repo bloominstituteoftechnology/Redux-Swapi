@@ -15,18 +15,18 @@ export const charsReducer = (state = initialState, action) => {
     // your switch statement should handle all of these cases.
     
     case FETCHING:
-    return Object.assign({}, state,{
-      isFetching: true
-    } )
-    case FETCHED: 
-    return Object.assign({}, state,{
-      isFetched: false
-    })
-    case ERRORS: 
-    return Object.assign({}, state, {
-      errors: null
-    })
-    default:
-      return state;
-  }
+    return { ...state, isFetching: true };
+  case ERRORS:
+    return { ...state, isFetching: false, error: action.payload };
+  case FETCHED:
+    console.log(action.payload);
+    return {
+      ...state,
+      chars: action.payload,
+      isFetching: false,
+      isFetched: true
+    };
+  default:
+    return state;
+}
 };

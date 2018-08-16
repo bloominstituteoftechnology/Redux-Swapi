@@ -31,7 +31,7 @@ class App extends Component {
 // the chars and the fetching boolean
 const mapStateToProps = state => {
   return{
-    chars:state.charsReducer.chars, 
+    chars: state.charsReducer.chars, 
     isFetching: state.isFetching
   }
 }
