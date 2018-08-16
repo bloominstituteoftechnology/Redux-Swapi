@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import logo from '../logo.svg';
 import '../styles/App.css';
 // pull in actions from action/index
-import {recieveChars} from '../actions/index'; 
+import { recieveChars } from '../actions/index'; 
 
 class App extends Component {
   componentDidMount() {
@@ -31,11 +31,8 @@ class App extends Component {
 // the chars and the fetching boolean
 const mapStateToProps = state =>{
   return{
-    chars: state.chars, 
+    chars: state.charsReducer.chars, 
     isFetching: state.isFetching
   }
 }
-export default connect(mapStateToProps, {
-  /* actions go here */
-  recieveChars
-})(App);
+export default connect(mapStateToProps, { recieveChars })(App);
