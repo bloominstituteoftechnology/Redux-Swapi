@@ -27,7 +27,7 @@ class App extends Component {
   }
 }
 
-const mapDispatchToProps = (state) => {
+const mapStateToProps = (state) => {
   const { people, isFetching } = state.charsReducer;
   return {
     people: people,
@@ -35,4 +35,4 @@ const mapDispatchToProps = (state) => {
   };
 }
 
-export default connect(mapDispatchToProps, { fetchPeople, FETCHING, ERR_FETCHED, IS_FETCHED })(App);
+export default connect(mapStateToProps, { fetchPeople, FETCHING, ERR_FETCHED, IS_FETCHED })(App);
