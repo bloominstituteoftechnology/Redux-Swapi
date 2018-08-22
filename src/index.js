@@ -14,7 +14,9 @@ import { rootReducer } from './reducers';
 // logger from redux-logger
 // rootReducer from ./reducers
 
-const store = createStore(rootReducer, applyMiddleware);
+const rootReducer = combineReducers({ fetching, fetched, error });
+const MiddlewareQueue = applyMiddleware(logger, reduxThunk);
+const store = createStore(rootReducer, MiddlewareQueue);
 
 ReactDOM.render(
   <Provider store={store}>
