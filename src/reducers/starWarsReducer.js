@@ -1,4 +1,4 @@
-import /* we need our action types here*/ '../actions';
+import { FETCHING_DATA, DATA_FETCH_SUCCESS, DATA_FETCH_ERROR } from '../actions';
 const initialState = {
   // define a few properties here.
   // Array chars, Boolean fetching, Boolean fetched, null error.
