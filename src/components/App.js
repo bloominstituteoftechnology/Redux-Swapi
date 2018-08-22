@@ -1,29 +1,41 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getTheData } from "../actions";
+import styled from 'styled-components'
 
 import logo from "../logo.svg";
 import "../styles/App.css";
-// pull in actions from action/index
+
+const AppContainer = styled.div`
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  height: 100vh;
+`
+const Character = styled.li`
+  list-style: none;
+  padding: 10px;
+`
 
 class App extends Component {
   componentDidMount() {
     // call our action
     this.props.getTheData();
+    console.log('the data mounted, brah.')
   }
   render() {
     return (
-      <div className="App">
+      <AppContainer>
         {this.props.isFetching ? (
           <img src={logo} className="App-logo" alt="logo" />
         ) : (
           <ul>
             {this.props.chars.map(char => {
-              return <li key={char.name}>{char.name}</li>;
+              return <Character key={char.name}>{char.name}</Character>
             })}
           </ul>
         )}
-      </div>
+      </AppContainer>
     );
   }
 }
