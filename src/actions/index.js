@@ -9,30 +9,25 @@ export const ERROR = 'ERROR';
 // we'll need to create 3 different action types here.
 // one for fetching, one for fetched and one for errors
 
-export const fetching = () => {
-    return {
-        type: FETCHING,
-        payload: axios
-            .get('https://swapi.co/api/people/')
-    };
-};
 
-export const fetched = () => {
-    return {
-        type: FETCHED,
-        payload: axios
+export const fetchingChar = () => {
+    return dispatch => {
+        dispatch({
+            type: FETCHING
+        })
+        axios
+            .get(`https://swapi.co/api/people/`)
             .then(response => {
-                this.setState(() => ({ chars: response.data }));
+                dispatch({
+                    type: FETCHED,
+                    payload: response.data.results
+                });
             })
-    };
-};
-
-export const error = () => {
-    return {
-        type: ERROR,
-        payload: axios
             .catch(error => {
-                console.error(error);
+                dispatch({
+                    type: ERROR,
+                    payload: 'error'
+                })
             })
     };
 };
