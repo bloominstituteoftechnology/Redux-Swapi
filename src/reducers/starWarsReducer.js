@@ -1,4 +1,8 @@
-import { FETCHING_CHARS, ERROR_FETCHING_CHARS, CHARS_FETCHED } from "../actions";
+import {
+  FETCHING_CHARS,
+  ERROR_FETCHING_CHARS,
+  CHARS_FETCHED
+} from "../actions";
 const initialState = {
   chars: [],
   error: null,
@@ -8,11 +12,18 @@ const initialState = {
 export const charsReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCHING_CHARS:
-      return Object.assign({}, state, { fetching: true });
+      return Object.assign({}, state, { fetching: true, fetched: false });
     case ERROR_FETCHING_CHARS:
-      return Object.assign({}, state, { fetching: false});
+      return Object.assign({}, state, {
+        fetching: false,
+        error: action.payload
+      });
     case CHARS_FETCHED:
-      return Object.assign({}, state, { fetching: false });
+      return Object.assign({}, state, {
+        fetching: false,
+        fetched: true,
+        chars: [...state.chars, ...action.payload]
+      });
     default:
       return state;
   }
