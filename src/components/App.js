@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { getTheData } from '../actions'
 
 import logo from '../logo.svg';
 import '../styles/App.css';
@@ -25,9 +26,17 @@ class App extends Component {
     );
   }
 }
-
+const mapStateToProps = state => {
+  chars: state.charsReducer.chars,
+  isFetching: state.charsReducer.isFetching,
+  isFetched: state.charsReducer.isFetched,
+  errors: state.charsReducer.erros
+}
 // our mapDispatchToProps needs to have two properties inherited from state
 // the chars and the fetching boolean
+const mapDispatchToProps = {
+  getTheData
+}
 export default connect(null, {
-  /* actions go here */
+  mapStateToProps, mapDispatchToProps
 })(App);
