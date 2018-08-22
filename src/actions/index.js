@@ -10,18 +10,18 @@ export const ERRORS = 'ERRORS';
 // we'll have to be sure to make our promise resolve within our new "thunk based middlware"
 // the url to fetch charicters from is `https://swapi.co/api/people/`
 // remember that now we have controll over our thunk-based
-function getTheData = () => {
+export const getTheData = () => {
     console.log('our get data function was invoked')
     const request = axios.get('https://swapi.co/api/people');
     return (dispatch) => {
         dispatch( {type: FETCHING });
         setTimeout(() => {
             request.then(({data}) => {
-                dispatch({type: FETCHED, payload: data.things});
+                dispatch({type: FETCHED, payload: data.results});
             })
             .catch(err => {
             dispatch({type: ERRORS, payload: err });
             });
-        }, 2500);
+        }, 1000);
     };
   };
