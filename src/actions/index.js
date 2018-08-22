@@ -6,25 +6,34 @@ export const ERROR = 'ERROR';
 
 
 // we'll need axios
-
 // we'll need to create 3 different action types here.
 // one for fetching, one for fetched and one for errors
 
 export const fetching = () => {
     return {
-        type: FETCHING
+        type: FETCHING,
+        payload: axios
+            .get('https://swapi.co/api/people/')
     };
 };
 
 export const fetched = () => {
     return {
-        type: FETCHED
+        type: FETCHED,
+        payload: axios
+            .then(response => {
+                this.setState(() => ({ chars: response.data }));
+            })
     };
 };
 
 export const error = () => {
     return {
-        type: ERROR
+        type: ERROR,
+        payload: axios
+            .catch(error => {
+                console.error(error);
+            })
     };
 };
 
