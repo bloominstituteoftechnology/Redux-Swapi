@@ -1,13 +1,16 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
-import logo from '../logo.svg';
-import '../styles/App.css';
+
+import logo from "../logo.svg";
+import "../styles/App.css";
+
+import { fetchChar } from "../actions";
 // pull in actions from action/index
 
 class App extends Component {
   componentDidMount() {
-    // call our action
+    this.props.fetchChar();
   }
   render() {
     return (
@@ -28,6 +31,16 @@ class App extends Component {
 
 // our mapDispatchToProps needs to have two properties inherited from state
 // the chars and the fetching boolean
-export default connect(null, {
-  /* actions go here */
-})(App);
+const mapStateToProps = state => {
+  return {
+    chars: state.charsReducer.chars
+    // fetching: state.charsReducer.isFetching
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  {
+    fetchChar
+  }
+)(App);
