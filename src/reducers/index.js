@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 import { charsReducer } from './starWarsReducer';
 
 const rootReducer = combineReducers({
-  chars: charsReducer
+  charsReducer: charsReducer,
+
 });
  export default rootReducer;
