@@ -26,8 +26,16 @@ class App extends Component {
   }
 }
 
-// our mapDispatchToProps needs to have two properties inherited from state
+// our mapDispatchToProps needs wto have two properties inherited from state
 // the chars and the fetching boolean
-export default connect(null, {
-  /* actions go here */
-})(App);
+
+const mapStateToProps = state => {
+  return {
+    chars: state.chars,
+    fetching: state.fetching
+  };
+};
+
+
+
+export default connect(mapStateToProps, {/* actions go here */})(App);
