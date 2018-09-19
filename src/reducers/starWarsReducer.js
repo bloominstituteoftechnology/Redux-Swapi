@@ -2,6 +2,14 @@ import /* we need our action types here*/ '../actions';
 const initialState = {
   // define a few properties here.
   // Array chars, Boolean fetching, Boolean fetched, null error.
+  chars: [
+    {
+      "name": "Luke Skywalker", 
+  }, 
+  ],
+  fetchingPeople: false,
+  fetched: false,
+  error: null
 };
 export const charsReducer = (state = initialState, action) => {
   switch (action.type) {
