@@ -32,7 +32,7 @@ class App extends Component {
 							return (
 								<div key = { i } className = 'char-card-div'>
 									<Card className = 'char-card'>
-										<CardHeader tag="h3">{ char.name }</CardHeader>
+										<CardHeader tag="h3" className = 'char-card-header'>{ char.name }</CardHeader>
 										
 										<CardBody>
 											<CardTitle>Born { char.birth_year }</CardTitle>
