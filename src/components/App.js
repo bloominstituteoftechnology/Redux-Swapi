@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import logo from '../logo.svg';
 import '../styles/App.css';
 // pull in actions from action/index
-
+import { getChars } from '../actions';
 class App extends Component {
   componentDidMount() {
     // call our action
