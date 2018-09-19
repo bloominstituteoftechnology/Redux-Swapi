@@ -32,17 +32,15 @@ class App extends Component {
 // the chars and the fetching boolean
 
 const mapStateToProps = state => {
+  console.log(state);
   return {
-    // our state machine is working for us based on fetching, success, and error. lets make sure our component knows about the state machine
-    chars: state.chars, /
-    fetchingChars: state.fetchingChars 
+    chars: state.charsReducer.chars,
+    fetching: state.charsReducer.fetching,
+    error: state.charsReducer.error
   };
 };
 
 export default connect(
   mapStateToProps,
-  {
-    /* actions go here */
-    fetchChars
-  }
+  { fetchChars }
 )(App);
