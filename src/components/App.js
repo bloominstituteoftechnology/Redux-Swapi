@@ -4,10 +4,11 @@ import { connect } from 'react-redux';
 import logo from '../logo.svg';
 import '../styles/App.css';
 // pull in actions from action/index
+import { fetch } from '../actions';
 
 class App extends Component {
   componentDidMount() {
-    // call our action
+    this.props.fetch();
   }
   render() {
     return (
