@@ -7,14 +7,18 @@ export const ERROR = 'ERROR'
 // we'll need to create 3 different action types here.
 // one for fetching, one for fetched and one for errors
 export const fetchChars = () => {
-  console.log(dispatch);
-  return dispatch({ type: FETCHING });
-  axios
-    .get('https://swapi.co/api/people')
-    .then(response => {
-      console.log(response);
-    })
+  return dispatch => {
+    dispatch({type: FETCHING})
+      axios
+        .get('https://swapi.co/api/people')
+        .then(response => {
+          console.log(response) })
+  }
 }
+//   // console.log(dispatch);
+//   return ({ type: FETCHING });
+//     })
+// }
 // our action creator will be a function that returns a promise
 // we'll have to be sure to make our promise resolve within our new "thunk based middlware"
 // the url to fetch charicters from is `https://swapi.co/api/people/`

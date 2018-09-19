@@ -14,20 +14,20 @@ class App extends Component {
   render() {
     console.log('App Props');
     console.log(this.props);
-    console.log(this.props.state.chars);
-    fetchChars()
+    console.log(this.props.chars);
+    // fetchChars()
     return (
       <div className="App">
         {this.props.fetching ? (
           <img src={logo} className="App-logo" alt="logo" />
         ) : (
           <ul>
-            {this.props.state.chars.map(char => {
-              return <li key={char.name}>{char.name}</li>;
-            })}
-            {/* {this.props.chars.map(char => {
+            {/* {this.props.state.chars.map(char => {
               return <li key={char.name}>{char.name}</li>;
             })} */}
+            {this.props.chars.map(char => {
+              return <li key={char.name}>{char.name}</li>;
+            })}
           </ul>
         )}
       </div>
@@ -39,17 +39,11 @@ class App extends Component {
 // the chars and the fetching boolean
 const mapStatetoProps = state => {
   return {
-     state: state.charsReducer
+     chars: state.charsReducer.chars
 
   }
 }
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators({
-      myAction
-    }, dispatch)
-  };
-}
+
 export default connect(mapStatetoProps, { fetchChars
   /* actions go here */
 })(App);
