@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 
 import logo from '../logo.svg';
 import '../styles/App.css';
-import { fetching } from '../actions/index';
+import { isFetch } from '../actions/index';
 
 class App extends Component {
   componentDidMount() {
-    this.props.fetching();
+    this.props.isFetch();
   }
   render() {
     return (
@@ -29,12 +29,13 @@ class App extends Component {
 // our mapDispatchToProps needs to have two properties inherited from state
 // the chars and the fetching boolean
 const mapStateToProps = state => {
+  console.log(state);
   return {
-    name: state.name,
-    fetching: state.fetching
+    name: state.charsReducer.name,
+    fetching: state.charsReducer.fetching
   };
 };
 export default connect(
   mapStateToProps,
-  { fetching }
+  { isFetch }
 )(App);
