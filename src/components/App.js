@@ -5,6 +5,7 @@ import logo from '../logo.svg';
 import '../styles/App.css';
 // pull in actions from action/index
 import { fetchPeople } from '../actions'
+import Character from './Character';
 
 class App extends Component {
   componentDidMount() {
@@ -15,12 +16,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {this.props.fetching ? (
+        {this.props.fetchingPeople ? (
           <img src={logo} className="App-logo" alt="logo" />
         ) : (
           <ul>
             {this.props.chars.map(char => {
-              return <li key={char.name}>{char.name}</li>;
+              return <Character key={char.name} char={char} />;
             })}
           </ul>
         )}

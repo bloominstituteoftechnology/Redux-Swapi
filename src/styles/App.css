@@ -26,3 +26,20 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.App ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+li {
+  list-style-position: inside;
+}
+
+.character {
+  width: 30%;
+  background: dodgerblue;
+  color: azure;
+  margin: 10px 1%;
+  padding: 5px 0;
+}
