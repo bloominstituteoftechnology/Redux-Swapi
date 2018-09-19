@@ -8,8 +8,12 @@ import PropTypes from 'prop-types';
 // Actions
 import { fetchSwapi } from '../actions';
 
-// Styles and Assets
+// Styles
 import '../styles/App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Card, Button, CardHeader, CardFooter, CardBody, CardTitle, CardText } from 'reactstrap';
+
+// Assets
 import logo from '../logo.svg';
 
 class App extends Component {
@@ -18,15 +22,30 @@ class App extends Component {
 	}
 
 	render() {
-		console.log('app props', this.props)
+		console.log(this.props)
 		return (
 			<div className = 'App'>
 				{ this.props.fetching ? (
 					<img src = { logo } className = 'App-logo' alt = 'logo' />
 				) : (
 					<ul>
-						{ this.props.chars.map(char => {
-							return <li key = { char.name }>{ char.name }</li>;
+						{ this.props.chars.map((char, i) => {
+							return (
+								<div key = { i } className = 'char-card-div'>
+									<Card className = 'char-card'>
+										<CardHeader tag="h3">{ char.name }</CardHeader>
+										
+										<CardBody>
+											<CardTitle>Born { char.birth_year }</CardTitle>
+
+											<CardText>Height: { char.height }</CardText>
+											<CardText>Mass: { char.mass }</CardText>
+											<CardText>Hair color: { char.hair_color }</CardText>
+											<CardText>Skin color: { char.skin_color }</CardText>
+										</CardBody>
+									</Card>
+								</div>
+							);
 						}) }
 					</ul>
 				)}
