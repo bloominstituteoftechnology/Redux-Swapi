@@ -3,7 +3,10 @@ import { connect } from 'react-redux'
 
 import '../styles/App.css'
 // pull in actions from actions/index
-import { fetchingData } from '../actions'
+import { fetchingData,
+  fetchedData,
+  // fetchingError 
+} from '../actions'
 
 class App extends Component {
   componentDidMount() {
@@ -38,5 +41,7 @@ const mapStateToProps = (state, props) => ({
 // the chars and the fetching boolean
 export default connect(mapStateToProps, {
   /* actions go here */
-  fetchingData
+  fetchingData,
+  fetchedData,
+  // fetchingError
 })(App)

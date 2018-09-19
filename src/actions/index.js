@@ -5,7 +5,7 @@ import axios from 'axios'
 // one for fetching, one for fetched and one for errors
 export const FETCHING_DATA = 'FETCHING_DATA'
 // export const FETCHING_ERROR = 'FETCHING_ERROR'
-// export const FETCHED_DATA = 'FETCHED_DATA'
+export const FETCHED_DATA = 'FETCHED_DATA'
 
 // our action creator will be a function that returns a promise
 // we'll have to be sure to make our promise resolve within our new "thunk based middleware"
@@ -13,17 +13,25 @@ export const FETCHING_DATA = 'FETCHING_DATA'
 // remember that now we have controll over our thunk-based
 
 export const fetchingData = () => (dispatch) => {
+  dispatch({
+    type: FETCHING_DATA,
+  })
+
   axios
-  .get('https://swapi.co/api/people/')
-  .then(res => 
-    dispatch({
-      type: FETCHING_DATA,
-      payload: res.data.results
-    })
-  )
-  .catch(err => console.log(err))
+    .get('https://swapi.co/api/people/')
+    .then(res =>
+      dispatch(fetchedData(res.data.results)),
+      dispatch({ type: FETCHING_DATA }),
+    )
+    .catch(err => console.log(err))
 }
 
 // export const fetchingError = () => (dispatch) => {}
 
-// export const fetchedData = () => (dispatch) => {}
+export const fetchedData = (results) => (dispatch) => {
+  console.log("from fetchedData", results)
+  dispatch({
+    type: FETCHED_DATA,
+    payload: results
+  })
+}

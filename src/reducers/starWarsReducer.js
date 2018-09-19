@@ -1,7 +1,7 @@
 import /* we need our action types here*/ { 
   FETCHING_DATA, 
   // FETCHING_ERROR, 
-  // FETCHED_DATA 
+  FETCHED_DATA
 } from '../actions';
 
 const initialState = {
@@ -21,12 +21,17 @@ export const charsReducer = (state = initialState, action) => {
     case FETCHING_DATA:
       return {
         ...state,
-        chars: action.payload
+        fetching: !state.fetching
       }
 
     // case FETCHING_ERROR:
     
-    // case FETCHED_DATA:
+    case FETCHED_DATA:
+      return {
+        ...state,
+        chars: action.payload,
+        fetched: !state.fetched
+      }
 
     default:
       return state;
