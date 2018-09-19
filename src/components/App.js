@@ -11,7 +11,7 @@ import { fetchSwapi } from '../actions';
 // Styles
 import '../styles/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Card, Button, CardHeader, CardFooter, CardBody, CardTitle, CardText } from 'reactstrap';
+import { Card, CardHeader, CardBody, CardTitle, CardText } from 'reactstrap';
 
 // Assets
 import logo from '../logo.svg';
