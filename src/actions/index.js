@@ -23,7 +23,7 @@ export const fetchChars = () => {
         dispatch({ type: CHAR_FETCH_SUCCESS, payload: response.data.results });
       })
       .catch(err => {
-        console.lod(err);
+        console.log(err);
         dispatch({ type: CHAR_FETCH_ERROR });
       })
   };
