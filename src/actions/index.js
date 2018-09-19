@@ -11,7 +11,7 @@ export const ERROR = 'ERROR';
 // we'll have to be sure to make our promise resolve within our new "thunk based middlware"
 // the url to fetch charicters from is `https://swapi.co/api/people/`
 // remember that now we have controll over our thunk-based
-export const fetchChar = () => dispatch => {
+export const fetchChars = () => dispatch => {
 	dispatch({ type: FETCHING });
 
 	axios
