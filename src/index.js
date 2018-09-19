@@ -14,8 +14,8 @@ import { App } from './components';
 
 import './index.css';
 
-const store = createStore(charsReducer, applyMiddleware(thunk, logger));
-
+const store = createStore(charsReducer, applyMiddleware(thunk));
+// , logger
 ReactDOM.render(
   <Provider store={store}>
     <App />
