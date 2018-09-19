@@ -1,14 +1,12 @@
-import {fetchingData} from '../actions';
+
+import {FETCHING_DATA, FETCHED_DATA, ERROR_FETCHING} from '../actions';
 
 
 const initialState = {
   characters:[],
   fetchingData: false,
-   dataFetched: false,
+  dataFetched: false,
   error:null
-  
-  // define a few properties here.
-  // Array chars, Boolean fetching, Boolean fetched, null error.
 };
 export const charsReducer = (state = initialState, action) => {
   switch (action.type) {
