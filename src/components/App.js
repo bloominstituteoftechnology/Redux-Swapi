@@ -9,10 +9,10 @@ import { fetchPeople } from '../actions'
 class App extends Component {
   componentDidMount() {
     // call our action
+    this.props.fetchPeople();
   }
 
   render() {
-    console.log(this.props.chars)
     return (
       <div className="App">
         {this.props.fetching ? (
@@ -30,9 +30,8 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state)
   return {
-    chars: this.state.charsReducer.chars,
+    chars: state.charsReducer.chars,
     error: state.charsReducer.error,
     fetchingPeople: state.charsReducer.fetchingPeople
   }
