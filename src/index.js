@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import { App } from './components';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
@@ -11,7 +10,7 @@ import logger from 'redux-logger';
 import rootReducer from './reducers';
 import './index.css';
 
-const store = createStore(rootReducer , applyMiddleware(logger, thunk));
+const store = createStore(rootReducer, applyMiddleware(logger, thunk));
 
 ReactDOM.render(
   <Provider store={store}>
