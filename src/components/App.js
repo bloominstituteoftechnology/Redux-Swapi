@@ -33,4 +33,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(null, { fetchData })(App);
+export default connect(mapStateToProps, { fetchData })(App);
