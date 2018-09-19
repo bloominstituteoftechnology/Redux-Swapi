@@ -1,9 +1,25 @@
-// we'll need axios
+import axios from 'axios';
 
-// we'll need to create 3 different action types here.
-// one for fetching, one for fetched and one for errors
+export const SWAPI_FETCH_IN_PROGRESS = "SWAPI_FETCH_IN_PROGRESS";
+export const SWAPI_FETCH_SUCCESSFUL = "SWAPI_FETCH_SUCCESSFUL";
+export const SWAPI_FETCH_FAILURE = "SWAPI_FETCH_FAILURE";
 
-// our action creator will be a function that returns a promise
-// we'll have to be sure to make our promise resolve within our new "thunk based middlware"
-// the url to fetch charicters from is `https://swapi.co/api/people/`
-// remember that now we have controll over our thunk-based
+export const fetchSwapi = () => {
+  return dispatch => {
+    dispatch({type: SWAPI_FETCH_IN_PROGRESS});
+    axios.get('https://swapi.co/api/people/')
+         .then(resp => {
+           dispatch({
+             type: SWAPI_FETCH_SUCCESSFUL,
+             payload: resp.data.results
+            })
+         })
+         .catch(err => {
+           console.log(err);
+           dispatch({
+             type: SWAPI_FETCH_FAILURE,
+             payload: err
+           })
+         })
+  }
+}
