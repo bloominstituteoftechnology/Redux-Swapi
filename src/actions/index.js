@@ -13,11 +13,11 @@ export const FETCHED_DATA = 'FETCHED_DATA'
 // remember that now we have controll over our thunk-based
 
 export const fetchingData = () => (dispatch) => {
+  dispatch({ type: FETCHING_DATA })
   axios
     .get('https://swapi.co/api/people/')
     .then(res =>
       dispatch(fetchedData(res.data.results)),
-      dispatch({ type: FETCHING_DATA })
     )
     .catch(err => 
       dispatch(fetchingError(err))
