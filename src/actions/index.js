@@ -15,9 +15,10 @@ export const fetchChars = () => {
   return dispatch => {
     dispatch({ type: FETCHING_CHARS });
     axios 
-      .get(`https://swapi.co/api/people/`)
+      .get('https://swapi.co/api/people/')
       .then(response => {
-        dispatch({ type: CHARS_FETCH_SUCCESS, payload: response.data.message });
+        console.log(response.data);
+        dispatch({ type: CHARS_FETCH_SUCCESS, payload: response.data.results });
       })
       .catch(err => {
         console.log(err);
