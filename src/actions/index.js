@@ -17,12 +17,12 @@ export const fetchChar = () => {
         dispatch({type: FETCHING});
         axios
             .get('https://swapi.co/api/people/')
-            .then(response => {
-                dispatch({ type: FETCHED, payload: response.data.message});
+            .then(( {response} ) => {
+                dispatch({ type: FETCHED, payload: response.results});
             })
             .catch(err => {
                 console.log(err);
-                dispatch({type: ERROR});
+                dispatch({type: ERROR, payload:err});
             });
     };
 };
