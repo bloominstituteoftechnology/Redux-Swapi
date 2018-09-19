@@ -5,7 +5,7 @@ const initialState = {
 	chars: [],
 	fetching: false,
 	fetched: false,
-	eorr: null
+	error: null
 };
 export const charsReducer = (state = initialState, action) => {
 	switch (action.type) {
@@ -27,7 +27,7 @@ export const charsReducer = (state = initialState, action) => {
 			return {
 				...state,
 				fetching: false,
-				error: 'Error fetching characters: ' + err
+				error: 'Error fetching characters: ' + action.err
 			};
 
 		default:
