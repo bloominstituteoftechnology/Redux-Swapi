@@ -29,7 +29,7 @@ export const charsReducer = (state = initialState, action) => {
 			return {
 				...state,
 				fetching: false,
-				error: 'Error fetching characters: ' + action.err
+				error: `Fetch Characters ${action.err}`
 			};
 
 		default:

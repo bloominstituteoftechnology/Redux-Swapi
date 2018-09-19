@@ -15,7 +15,13 @@ class App extends Component {
 		return (
 			<div className="App">
 				{this.props.fetching ? (
-					<img src={logo} className="App-logo" alt="logo" />
+					<img
+						src={
+							'https://d2t1xqejof9utc.cloudfront.net/screenshots/pics/bac2c4c7f9ba55c08102fd886a5ddb55/large.png'
+						}
+						className="App-logo"
+						alt="logo"
+					/>
 				) : (
 					<ul>
 						{this.props.chars.map(char => {
