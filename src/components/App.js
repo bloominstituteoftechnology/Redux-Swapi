@@ -1,12 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-
+import logo from '../logo.svg'
 import '../styles/App.css'
 // pull in actions from actions/index
-import { fetchingData,
-  fetchedData,
-  // fetchingError 
-} from '../actions'
+import { fetchingData } from '../actions'
 
 class App extends Component {
   componentDidMount() {
@@ -16,7 +13,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* {this.props.fetching ? (
+        {this.props.fetching ? (
           <img src={logo} className="App-logo" alt="logo" />
         ) : (
           <ul>
@@ -24,17 +21,17 @@ class App extends Component {
               return <li key={char.name}>{char.name}</li>
             })}
           </ul>
-        )} */}
+        )}
       </div>
     )
   }
 }
 
-const mapStateToProps = (state, props) => ({
+const mapStateToProps = (state) => ({
   chars: state.charsReducer.chars,
   fetching: state.charsReducer.fetching,
-  fetched: state.charsReducer.fetching,
-  null: state.charsReducer.fetching,
+  fetched: state.charsReducer.fetched,
+  null: state.charsReducer.error,
 })
 
 // our mapDispatchToProps needs to have two properties inherited from state
@@ -42,6 +39,4 @@ const mapStateToProps = (state, props) => ({
 export default connect(mapStateToProps, {
   /* actions go here */
   fetchingData,
-  fetchedData,
-  // fetchingError
 })(App)
