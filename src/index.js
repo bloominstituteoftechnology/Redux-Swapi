@@ -3,9 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import { App } from './components';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
 import thunk from 'redux-thunk';
-import applyMiddleware from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import logger from 'redux-logger';
 import rootReducer from './reducers';
 // needed dependancies
@@ -14,7 +13,7 @@ import rootReducer from './reducers';
 // logger from redux-logger
 // rootReducer from ./reducers
 
-const store = createStore(rootReducer, applyMiddleware(thunk));
+const store = createStore(rootReducer, applyMiddleware(thunk, logger));
 
 ReactDOM.render(
   <Provider store={store}>
