@@ -24,7 +24,11 @@ export const charsReducer = (state = initialState, action) => {
 			};
 
 		case ERROR:
-			return { ...state, fetching: false, error: 'Error fetching characters' };
+			return {
+				...state,
+				fetching: false,
+				error: 'Error fetching characters: ' + err
+			};
 
 		default:
 			return state;
