@@ -20,9 +20,9 @@ class App extends Component {
             <img src={logo} className="App-logo" alt="logo" />
           ) : (
             <ul>
-              {/* {this.props.chars.map((char) => {
-              return <li key={char.name}>{char.name}</li>;
-            })} */}
+              {this.props.chars.map((char) => {
+                return <li key={char.name}>{char.name}</li>;
+              })}
             </ul>
           )}
         </div>
@@ -33,10 +33,11 @@ class App extends Component {
 
 // our mapDispatchToProps needs to have two properties inherited from state
 const mapStateToProps = (state) => {
+  console.log(state);
   return {
-    chars: state.chars,
-    error: state.error,
-    fetching: state.fetching,
+    chars: state.charsReducer.chars,
+    error: state.charsReducer.error,
+    fetching: state.charsReducer.fetching,
   };
 };
 
