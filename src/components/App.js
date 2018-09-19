@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-// pull in actions from action/index
 // Actions
 import { fetchSwapi } from '../actions';
 
@@ -12,7 +11,6 @@ import logo from '../logo.svg';
 
 class App extends Component {
 	componentDidMount() {
-		// call our action
 		this.props.fetchSwapi();
 	}
 
@@ -44,8 +42,6 @@ const mapStateToProps = state => {
 	}
 };
 
-// our mapDispatchToProps needs to have two properties inherited from state
-// the chars and the fetching boolean
 export default connect(mapStateToProps, {
 	fetchSwapi
 })(App);

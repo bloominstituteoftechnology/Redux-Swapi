@@ -19,17 +19,10 @@ import rootReducer from './reducers';
 // Styles
 import './index.css';
 
-// needed dependancies
-// applyMiddleware from redux
-// thunk from redux-thunk
-// logger from redux-logger
-// rootReducer from ./reducers
-
-// const store = createStore(/* rootReducer */, /* applyMiddleware goes here */);
 const store = createStore(rootReducer, applyMiddleware(thunk, logger));
 
 ReactDOM.render(
-	<Provider store={store}>
+	<Provider store = { store }>
 		<App />
 	</Provider>,
 	document.getElementById('root')
