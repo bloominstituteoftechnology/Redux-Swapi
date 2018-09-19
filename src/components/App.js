@@ -23,6 +23,7 @@ class App extends Component {
 						})}
 					</ul>
 				)}
+				{this.props.error ? <p>{this.props.error}</p> : null}
 			</div>
 		);
 	}
@@ -33,7 +34,8 @@ class App extends Component {
 const mapStateToProps = state => {
 	return {
 		chars: state.charsReducer.chars,
-		fetching: state.fetching
+		fetching: state.charsReducer.fetching,
+		error: state.charsReducer.error
 	};
 };
 
