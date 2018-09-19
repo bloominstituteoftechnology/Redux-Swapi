@@ -5,7 +5,7 @@ import { App } from './components';
 import { Provider } from 'react-redux';
 // needed dependancies
 // applyMiddleware from redux
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 // thunk from redux-thunk
 import thunk from 'redux-thunk';
 // logger from redux-logger
@@ -14,9 +14,9 @@ import logger from 'redux-logger';
 // rootReducer from ./reducers
 import rootReducer from './reducers/';
 
-// const reduxDevToolsHook = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
+const reduxDevToolsHook = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 /* rootReducer ,  applyMiddleware goes here */
-const store = createStore(rootReducer, applyMiddleware(thunk, logger));
+const store = createStore(rootReducer, compose(applyMiddleware(thunk, logger), reduxDevToolsHook) );
 
 ReactDOM.render(
   <Provider store={store}>
