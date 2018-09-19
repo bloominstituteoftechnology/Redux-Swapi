@@ -8,24 +8,30 @@ import {fetchData} from '../actions';
 
 class App extends Component {
   componentDidMount() {
+    // this.props.fetchData();
+  }
+
+  handleFetchClick =()=>{
     this.props.fetchData();
   }
+
   render() {
-    console.log(this.state);
     return (
       <div className="App">
+        <button className="fetch-button"
+                onClick={ this.handleFetchClick}>Fetch</button>
         { this.props.fetching ? ( <img src={logo} className="App-logo" alt="logo" />
                                 ) 
-                              : ( <ul>
+                              : ( <div>
                                     {/* { console.log(this.props.chars)} */}
                                     { this.props.chars.map(char => {
-                                      return (<div key={char.name}>
-                                                <li >{char.name}</li>
-                                                <li >{char.height}</li>
+                                      return (<div key={char.name} className="charCard">
+                                                <li >Name: {char.name}</li>
+                                                <li >Height: {char.height}</li>
                                               </div>
                                              );
                                     })}
-                                  </ul>
+                                  </div>
                                 )}
       </div>
     );
@@ -35,7 +41,7 @@ class App extends Component {
 // our mapDispatchToProps needs to have two properties inherited from state
 // the chars and the fetching boolean
 const mapStateToProps = state => {
-  console.log(state);
+  // console.log(state);
   return {
     chars: state.charsReducer.chars, 
     fetching: state.fetching,
@@ -47,4 +53,5 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps, {
   /* actions go here */
   fetchData
+  // startFetch
 })(App);

@@ -36,7 +36,7 @@ import {FETCHING, FETCHED, ERROR} from '../actions';
                                 // }
                               ], 
                         fetched: false,
-                        fetching: true, 
+                        fetching: false, 
                         error: null};
   
 export const charsReducer = (state = initialState, action) => {
@@ -52,12 +52,14 @@ export const charsReducer = (state = initialState, action) => {
       return Object.assign({}, 
                           state, 
                           { chars: [...state.chars, ...action.payload], 
-                            fetching: false});
+                            fetching: false,
+                            fetched: true});
     case ERROR:
       return Object.assign({}, 
                           state,
-                          { fetchingDogs: false, 
-                            error: "Error fetching Dogs"});
+                          { fetching: false, 
+                            error: "Error fetching Star Wars data"});
+
     default:
       return state;
   }
