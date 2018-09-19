@@ -8,7 +8,7 @@ export const charsReducer = (state = initialState, action) => {
       return Object.assign({}, state, { fetching: true });
     case FETCHED:
       return Object.assign({}, state, {
-        name: [action.payload],
+        name: action.payload,
         fetching: false
       });
     case ERRORS:
