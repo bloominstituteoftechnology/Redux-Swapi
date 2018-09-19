@@ -11,7 +11,7 @@ export const DATA_FETCH_ERROR = 'DATA_FETCH_ERROR';
 // the url to fetch charicters from is `https://swapi.co/api/people/`
 // remember that now we have controll over our thunk-based
 
-export const fetchData = () => {
+export const getData = () => {
   return (dispatch) => {
     dispatch({ type: FETCHING_DATA });
     axios
