@@ -5,6 +5,7 @@ const initialState = {
     // Array chars, Boolean fetching, Boolean fetched, null error.
     chars: [],
     fetchingChars: false,
+    fetchedChars: false,
     error: ''
 };
 
@@ -18,11 +19,13 @@ export const charsReducer = (state = initialState, action) => {
     case FETCHED:
 	return Object.assign({}, state, {
 	    chars: [...state.chars, ...action.payload],
-	    fetchingChars: false
+	    fetchingChars: false,
+	    fetchedChars: true
 	});
     case ERROR:
 	return Object.assign({}, state, {
 	    fetchingChars: false,
+	    fetchedChars: false,
 	    error: 'Error in the reducer!'
 	});
     default:
