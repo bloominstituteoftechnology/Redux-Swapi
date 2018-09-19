@@ -4,8 +4,8 @@ import axios from 'axios';
 // we'll need to create 3 different action types here.
 // one for fetching, one for fetched and one for errors
 
-export const FETCHING_DATA = 'FETCHING_DATA';
-export const FETCHED_DATA = 'FETCHED_DATA';
+export const FETCHING_CHAR = 'FETCHING_CHAR';
+export const FETCHED_CHAR = 'FETCHED_CHAR';
 export const ERROR = 'ERROR';
 
 // our action creator will be a function that returns a promise
@@ -15,11 +15,12 @@ export const ERROR = 'ERROR';
 
 export const fetchChars = () => {
     return dispatch => {
-        dispatch({ type: FETCHING_DATA })
+        dispatch({ type: FETCHING_CHAR })
         axios
             .get(`https://swapi.co/api/people/`)
             .then(response => {
-                dispatch({ type: FETCHED_DATA, payload: response.data.message });
+                console.log(response)
+                dispatch({ type: FETCHED_CHAR, payload: response.data.results });
             })
             .catch(err => {
                 console.log(err);
