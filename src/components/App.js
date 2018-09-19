@@ -35,6 +35,4 @@ const mapDispatchToProps = (dispatch) => {
     fetching: dispatch.charsReducer.fetching
   }
 }
-export default connect(null, {
-  /* actions go here */
-})(App);
+export default connect(mapDispatchToProps, { getChars })(App);
