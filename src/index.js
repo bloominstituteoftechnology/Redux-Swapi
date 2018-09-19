@@ -9,12 +9,12 @@ import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 
 // rootReducer from ./reducers
-import { reducer } from './reducers/index';
+import charsReducer from './reducers/index';
 import { App } from './components';
 
 import './index.css';
 
-const store = createStore(reducer, applyMiddleware(thunk, logger));
+const store = createStore(charsReducer, applyMiddleware(thunk, logger));
 
 ReactDOM.render(
   <Provider store={store}>
