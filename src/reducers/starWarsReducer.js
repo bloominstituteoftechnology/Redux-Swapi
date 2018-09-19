@@ -3,7 +3,7 @@ import { FETCHING, FETCHED, ERROR } from '../actions';
 const initialState = {
   // define a few properties here.
   // Array chars, Boolean fetching, Boolean fetched, null error.
-  chars: [], fetchingChar: false, error: null
+  chars: [], fetchingChar: false, fetchedChar: false, error: null
 };
 export const charsReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -16,13 +16,14 @@ export const charsReducer = (state = initialState, action) => {
       });
     case FETCHED:
       return Object.assign({}, state, {
-        chars: [...state.chars, ...action.payload],
-        fetchingChar: false
+        chars: action.payload,
+        fetchingChar: false,
+        fetchedChar: true
       });
     case ERROR:
       return Object.assign({}, state, {
         fetchingChar: false,
-        error: "Error fetching Characters"
+        error: action.payload
       });
     default:
       return state;
