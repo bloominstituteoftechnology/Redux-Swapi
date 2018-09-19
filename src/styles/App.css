@@ -1,5 +1,14 @@
+body {
+  background:url('../bg.jpg'); 
+  background-size: 5000px;
+}
 .App {
   text-align: center;
+}
+
+h1 {
+  color: #333;
+  font-size: 4rem;
 }
 
 .App-logo {
@@ -20,6 +29,29 @@
 
 .App-intro {
   font-size: large;
+}
+.App ul {
+  margin: 10px 0;
+  padding: 0;
+}
+
+.App ul li {
+  list-style-type: none;
+  background: rgba(0,0,0,0.5);
+  padding: 20px;
+  font-size: 4rem;
+  width: 70%;
+  margin: 10px auto;
+  color: #fff;
+  border-radius: 20px;
+}
+
+@media(max-width: 800px) {
+  .App ul li {
+    padding: 10px 0;
+    font-size: 2rem;
+    width: 90%;
+  }
 }
 
 @keyframes App-logo-spin {
