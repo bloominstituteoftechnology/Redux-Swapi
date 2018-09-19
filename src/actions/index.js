@@ -12,7 +12,7 @@ export const fetchChars = ()=> {
             .get('https://swapi.co/api/people/')
             .then(response=> {
                 console.log(response);
-                dispatch({type: FETCHED, payload: response.data});
+                dispatch({type: FETCHED, payload: response.data.results});
             })
             .catch(err=> {
                 console.log(err);
