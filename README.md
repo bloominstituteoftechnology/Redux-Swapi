@@ -98,7 +98,7 @@ function myCleverAction = () => {
 ## redux-logger
 
 * [redux-logger](https://github.com/evgenyrodionov/redux-logger) is a logging middleware that allows us to simply put some of the powers of the `redux dev tools` directly into our browser.
-* If you don't want to mess with configuration of Chrome packages etc. this is a really good way to tap into your `store.subscribe()` function.
+* If you don't want to mess with configuration of Chrome packages etc. this is a really  good way to tap into your `store.subscribe()` function.
 * Set up is simple, pass it into the `applyMiddleware()` method along with your `redux-thunk` middleware and you're good to go!
 
 ```
