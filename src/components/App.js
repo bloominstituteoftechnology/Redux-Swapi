@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import logo from '../logo.svg';
 import '../styles/App.css';
 import { fetchData } from '../actions';
-// pull in actions from action/index
 
 class App extends Component {
   componentDidMount() {
@@ -13,27 +12,22 @@ class App extends Component {
 
   render() {
     return (
-      console.log(this.props.fetching),
-      (
-        <div className="App">
-          {this.props.fetching ? (
-            <img src={logo} className="App-logo" alt="logo" />
-          ) : (
-            <ul>
-              {this.props.chars.map((char) => {
-                return <li key={char.name}>{char.name}</li>;
-              })}
-            </ul>
-          )}
-        </div>
-      )
+      <div className="App">
+        {this.props.fetching ? (
+          <img src={logo} className="App-logo" alt="logo" />
+        ) : (
+          <ul>
+            {this.props.chars.map((char) => {
+              return <li key={char.name}>{char.name}</li>;
+            })}
+          </ul>
+        )}
+      </div>
     );
   }
 }
 
-// our mapDispatchToProps needs to have two properties inherited from state
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     chars: state.charsReducer.chars,
     error: state.charsReducer.error,
@@ -41,7 +35,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-// the chars and the fetching boolean
 export default connect(
   mapStateToProps,
   {
