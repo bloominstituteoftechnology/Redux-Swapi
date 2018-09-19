@@ -19,7 +19,6 @@ export const fetchChars = () => {
         Axios
             .get(dataSource)
             .then( (response) => {
-                console.log('fetch response:', response);
                 dispatch( { type: FETCHED, payload: response.data.results } );
             })
             .catch( (err) => {
