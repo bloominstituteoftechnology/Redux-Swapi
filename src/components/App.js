@@ -8,6 +8,7 @@ import { getChars } from '../actions';
 class App extends Component {
   componentDidMount() {
     // call our action
+    this.props.getChars();
   }
   render() {
     return (
