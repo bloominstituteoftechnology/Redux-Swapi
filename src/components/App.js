@@ -45,7 +45,7 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapDispatchToState = state => {
   return {
     chars: state.chars,
     fetching: state.fetching,
@@ -56,4 +56,4 @@ const mapStateToProps = state => {
 
 // our mapDispatchToProps needs to have two properties inherited from state
 // the chars and the fetching boolean
-export default connect(mapStateToProps, {fetchSwapi})(App);
+export default connect(mapDispatchToState, {fetchSwapi})(App);
