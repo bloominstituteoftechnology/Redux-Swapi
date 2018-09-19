@@ -1,3 +1,4 @@
+import React from 'react';
 import axios from 'axios';
 
 export const FETCHING = 'FETCHING';
@@ -15,7 +16,7 @@ export const fetch = () => {
     axios
     .get('https://swapi.co/api/people/')
     .then(response => {
-      dispatch({ type: FETCHED, payload: response.data.message });
+      dispatch({ type: FETCHED, payload: response.data.results});
     })
     .catch(err => {
       console.log(err);
