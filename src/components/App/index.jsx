@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import logo from '../logo.svg';
-import '../styles/App.css';
+import logo from '../../logo.svg';
+import '../../styles/App.css';
 // pull in actions from action/index
-import { getChars } from '../actions';
+import { getChars } from '../../actions';
 class App extends Component {
   componentDidMount() {
     // call our action
@@ -13,6 +13,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+      <div>
+          <h1> SWAPI REDUX</h1>
+      </div>
         {this.props.fetching ? (
           <img src={logo} className="App-logo" alt="logo" />
         ) : (
