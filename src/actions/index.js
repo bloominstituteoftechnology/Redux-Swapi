@@ -12,13 +12,13 @@ export const FETCHED_DATA = 'FETCHED_DATA'
 // the url to fetch charicters from is `https://swapi.co/api/people/`
 // remember that now we have controll over our thunk-based
 
-export const fetchData = () => (dispatch) => {
+export const fetchingData = () => (dispatch) => {
   axios
   .get('https://swapi.co/api/people/')
   .then(res => console.log(res))
 }
 
-export const fetchError = () => (dispatch) => {
+export const fetchingError = () => (dispatch) => {
   
 }
 
