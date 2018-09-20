@@ -7,7 +7,7 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 
-import { charsReducer } from './reducers';
+import { charsReducer } from './reducers/starWarsReducer';
 
 const store = createStore(charsReducer, applyMiddleware(thunk, logger));
 

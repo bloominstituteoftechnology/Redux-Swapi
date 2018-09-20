@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import logo from '../logo.svg';
 import '../styles/App.css';
-import { fetchData } from './actions';
+import { fetchData } from '../actions';
 
 class App extends Component {
   componentDidMount() {

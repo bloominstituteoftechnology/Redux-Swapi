@@ -4,7 +4,7 @@ export const FETCHING = 'FETCHING';
 export const FETCHED = 'FETCHED';
 export const ERROR = 'ERROR';
 
-export const fetchData () => {
+export const fetchData = () => {
   return dispatch => {
     dispatch({ type: FETCHING });
     axios
