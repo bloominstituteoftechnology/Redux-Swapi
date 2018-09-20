@@ -37,7 +37,8 @@ const mapStateToProps = state => {
   console.log('this is the state:', state);
   return {
     chars: state.charsReducer.chars,
-    fetchingStuff: state.charsReducer.fetching
+    fetchingStuff: state.charsReducer.fetching,
+    error: state.charsReducer.error
   };
 };
 
