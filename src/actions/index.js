@@ -12,14 +12,20 @@ export const ERROR = 'ERROR';
 // the url to fetch charicters from is `https://swapi.co/api/people/`
 // remember that now we have controll over our thunk-based
 export default function myCleverAction () {
-    const request = axios.get('https://swapi.co/api/people/');
-    return (dispatch) =>{
-        request.then(({data}) =>{
-            // dispatch({type: FETCHING, payload: data.things});
-            console.log(dispatch);
-        })
-        .catch(error =>{
-            dispatch({type: ERROR, error: error});
-        });
+    return dispatch =>{
+        dispatch({type: FETCHING})
+            axios
+                .get('https://swapi.co/api/people')
+                .then(response =>{
+                    console.log(response);
+                    dispatch({type: FETCHED, 
+                        payload: response.data.results})
+                })
+                .catch(error =>{
+                    dispatch({type: ERROR,
+                        payload: 'API not working',error})
+                        console.log(error)
+                })
+
     };
 };
