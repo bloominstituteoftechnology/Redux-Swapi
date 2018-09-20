@@ -20,7 +20,7 @@ export const fetchChars = () => {
       .then(response => {
         dispatch({
           type: FETCHED,
-          payload: response.data
+          payload: response.data.results
         });
       })
       .catch(error => {
