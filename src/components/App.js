@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {fetchChars} from '../actions';
+import { fetchChars } from '../actions';
 import logo from '../logo.svg';
 import '../styles/App.css';
 // pull in actions from action/index
@@ -32,9 +32,9 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    chars: state.chars,
-    error: state.error,
-    fetching: state.fetching
+    chars: state.charsReducer.chars,
+    error: state.charsReducer.error,
+    fetching: state.charsReducer.fetching
   };
 }
-export default connect(null, mapStateToProps, { fetchChars })(App);
+export default connect(mapStateToProps, { fetchChars })(App);
