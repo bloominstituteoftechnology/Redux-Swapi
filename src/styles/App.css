@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: black;
 }
 
 ul {
@@ -8,4 +9,8 @@ ul {
 
 .character-name {
   list-style: none;
+  font-family: 'Notable', sans-serif;
+  padding: 40px 0px;
+  font-size: 32px;
+  color: #ffe91a;
 }
