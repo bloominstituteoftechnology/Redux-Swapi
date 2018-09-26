@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import logo from '../logo.svg';
 import '../styles/App.css';
 // pull in actions from action/index
+import { fetchingData } from '../actions'
 
 class App extends Component {
   componentDidMount() {
     // call our action
+    this.props.fetchingData
   }
   render() {
     return (
@@ -30,4 +31,5 @@ class App extends Component {
 // the chars and the fetching boolean
 export default connect(null, {
   /* actions go here */
+  fetchingData
 })(App);
