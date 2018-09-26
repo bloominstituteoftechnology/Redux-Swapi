@@ -4,10 +4,12 @@ import { connect } from 'react-redux';
 import logo from '../logo.svg';
 import '../styles/App.css';
 // pull in actions from action/index
+import { fetchChar } from '../actions/index';
 
 class App extends Component {
   componentDidMount() {
     // call our action
+    this.props.fetchChar();
   }
   render() {
     return (
@@ -32,8 +34,8 @@ const mapStateToProps = state => {
   return {};
 };
 export default connect(
-  null,
+  mapStateToProps,
   {
-    /* actions go here */
+    fetchChar
   }
 )(App);
