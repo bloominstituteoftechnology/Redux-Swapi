@@ -12,7 +12,13 @@ export const FETCHING_ERROR = "FETCHING_ERROR";
 // remember that now we have control over our thunk-based
 
 export const fetchingData = () => dispatch => {
-  axios.get("https://swapi.co/api/people/").then(res => console.log(res));
+  axios.get("https://swapi.co/api/people/").then(res => dispatch({
+    type: FETCHING_DATA,
+    payload: res.data.results
+  })
+)
+.catch(err => console.log(err))
 };
+
 export const fetchingError = () => dispatch => {};
 export const fetchedData = () => dispatch => {};
