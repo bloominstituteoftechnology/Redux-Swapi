@@ -19,9 +19,9 @@ export const fetchSwapi = () => {
     return dispatch => {
         dispatch({ type: FETCHING });
         axios
-          .get('https://dog.ceo/api/breed/husky/images')
+          .get('https://swapi.co/api/people')
           .then(response => {
-            dispatch({ type: FETCH_SUCCESS, payload: response.data.message });
+            dispatch({ type: FETCH_SUCCESS, payload: response.data.results });
           })
           .catch(error => {
             console.log(error);
