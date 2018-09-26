@@ -8,3 +8,25 @@
 // the url to fetch charicters from is `https://swapi.co/api/people/`
 // remember that now we have controll over our thunk-based
 import axios from 'axios'
+
+
+ export const FETCHING_DATA = 'FETCHING_DATA';
+ export const FETCHING_DATA_SUCCESS = 'FETCHING_DATA_SUCCES';
+ export const FETCHING_DATA_ERROR = 'FETCHING_DATA_ERROR';
+
+
+ export const fetchData = () =>{
+   return dispatch => {
+     dispatch({type:FETCHING_DATA });
+     axios
+     .get('https://swapi.co/api/people/')
+     .then(response=>{
+       console.log(response)
+         dispatch({type:FETCHING_DATA_SUCCESS, payload:});
+     });
+     .catch(err =>{
+       console.log(err)
+       dispatch({ type: FETCHING_DATA_ERROR });
+     })
+   }
+ }
