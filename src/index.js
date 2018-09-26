@@ -9,8 +9,12 @@ import { createStore } from 'redux';
 // thunk from redux-thunk
 // logger from redux-logger
 // rootReducer from ./reducers
+import thunk from 'redux-thunk';
+import logger from 'redux-logger';
+import { applyMiddleware } from 'redux';
+import { charsReducer } from './reducers/starWarsReducer'
 
-const store = createStore(/* rootReducer */, /* applyMiddleware goes here */);
+const store = createStore(charsReducer, applyMiddleware(thunk, logger));
 
 ReactDOM.render(
   <Provider store={store}>
