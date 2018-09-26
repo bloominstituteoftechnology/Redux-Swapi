@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import fetchChars from '../actions/index'
 import logo from '../logo.svg';
 import '../styles/App.css';
 // pull in actions from action/index
 
 class App extends Component {
   componentDidMount() {
+    this.props.fetchChars();
     // call our action
   }
   render() {
