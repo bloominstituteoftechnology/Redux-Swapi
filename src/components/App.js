@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import logo from '../logo.svg';
+import logo from '../StarWars.png';
 import '../styles/App.css';
 // pull in actions from action/index
 import { fetchChar } from '../actions/index';
@@ -19,7 +19,11 @@ class App extends Component {
         ) : (
           <ul>
             {this.props.chars.map(char => {
-              return <li key={char.name}>{char.name}</li>;
+              return (
+                <li className="character-name" key={char.name}>
+                  {char.name}
+                </li>
+              );
             })}
           </ul>
         )}
