@@ -13,7 +13,7 @@ export const charsReducer = (state = initialState, action) => {
     return Object.assign({},state,{fetchingData: true});
     case FETCHING_DATA_SUCCESS:
     return Object.assign({}, state, {
-        swapi: [...state.swapi, ...action.payload],
+        swapi: [...state.swapi, ...action.payload.results],
         fetchingData: false
       });
       case FETCHING_DATA_ERROR:

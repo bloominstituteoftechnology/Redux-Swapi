@@ -13,7 +13,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {this.props.fetching ? (
+        {this.props.fetchingData ? (
           <img src={logo} className="App-logo" alt="logo" />
         ) : (
           <ul>
@@ -30,8 +30,8 @@ class App extends Component {
 const mapStateToProps = state => ({
 
 
-  fetchData: state.fetchingData,
-  swapi:state.swapi,
+  fetchingData: state.fetchingData,
+  chars: state.swapi,
 
 });
 // our mapDispatchToProps needs to have two properties inherited from state
