@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import "../styles/App.css";
 // pull in actions from action/index
-import { fetchingData } from "../actions";
+import { fetchingData, fetchedData } from "../actions";
 
 class App extends Component {
   componentDidMount() {
@@ -40,6 +40,7 @@ export default connect(
   mapStateToProps,
   {
     /* actions go here */
-    fetchingData
+    fetchingData,
+    fetchedData
   }
 )(App);

@@ -26,4 +26,11 @@ export const fetchingData = () => dispatch => {
 };
 
 export const fetchingError = () => dispatch => {};
-export const fetchedData = () => dispatch => {};
+
+export const fetchedData = () => dispatch => {
+  console.log("from fetchedData", results);
+  dispatch({
+    type: FETCHED_DATA,
+    payload: results
+  });
+};
