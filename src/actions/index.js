@@ -4,7 +4,7 @@ import axios from 'axios'
 // we'll need to create 3 different action types here.
 // one for fetching, one for fetched and one for errors
 export const FETCH_IN_PROGRESS = "FETCH_IN_PROGRESS"
-export const FETCH_SUCCESS = "FETCH_SUCCESSFUL"
+export const FETCH_SUCCESS = "FETCH_SUCCESS"
 export const FETCH_FAIL = "FETCH_FAILURE"
 
 // our action creator will be a function that returns a promise
