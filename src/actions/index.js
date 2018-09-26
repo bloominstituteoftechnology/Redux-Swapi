@@ -22,11 +22,12 @@ import axios from 'axios'
      .get('https://swapi.co/api/people/')
      .then(response=>{
        console.log(response)
-         dispatch({type:FETCHING_DATA_SUCCESS, payload:});
-     });
+
+         dispatch({type:FETCHING_DATA_SUCCESS, payload:response.data});
+     })
      .catch(err =>{
        console.log(err)
        dispatch({ type: FETCHING_DATA_ERROR });
-     })
+     });
    }
  }
