@@ -15,12 +15,12 @@ export const FETCHED = "FETCHED";
 export const ERROR = "ERROR";
 
 export const fetchChars = () => {
+    const promise = axios.get('https://swapi.co/api/people');
     return dispatch => {
         dispatch({ type: FETCHING });
-        axios
-            .get('https://swapi.co/api/people')
+        promise
             .then(response => {
-                dispatch({ type: FETCHED, payload: response.data.message });
+                dispatch({ type: FETCHED, payload: response.data.results });
             })
             .catch(err => {
                  console.log(err);

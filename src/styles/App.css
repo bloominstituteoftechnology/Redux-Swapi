@@ -26,3 +26,25 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+.starChars {
+  color: orange;
+  width: 83%;
+  padding: 5px;
+  border-left: 1px solid red;
+}
+.starChars:hover {
+  color: blue;
+}
+.starCharBox {
+  max-width: 250px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: purple;
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border: 5px solid olive;
+}
+
