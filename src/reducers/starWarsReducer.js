@@ -1,7 +1,7 @@
 import { FETCHING, FETCHED, ERROR } from '../actions';
 
 const initialState = {
-  chars: [];
+  chars: [],
   fetching: false,
   fetched: false,
   error: null
@@ -9,7 +9,7 @@ const initialState = {
 export const charsReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCHING:
-    return object.assign({}, state, { fetching: true });
+    return Object.assign({}, state, { fetching: true });
     case FETCHED: 
     return Object.assign({}, state, { chars: [...state.chars, ...action.chars], fetching: false });
     case ERROR:
