@@ -2,7 +2,7 @@ import axios from "axios";
 
 // we'll need to create 3 different action types here.
 // one for fetching, one for fetched and one for errors
-export const FETCHING_DATA = "FETCHING-DATA";
+export const FETCHING_DATA = "FETCHING_DATA";
 export const FETCHED_DATA = "FETCHED_DATA";
 export const FETCHING_ERROR = "FETCHING_ERROR";
 
@@ -18,10 +18,7 @@ export const fetchingData = () => dispatch => {
 
   axios
     .get("https://swapi.co/api/people/")
-    .then(
-      res => dispatch(fetchedData(res.data.results)),
-      dispatch({ type: FETCHING_DATA })
-    )
+    .then(res => dispatch(fetchedData(res.data.results)))
     .catch(err => dispatch(fetchingError(err)));
 };
 

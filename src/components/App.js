@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import logo from "../logo.svg";
 import "../styles/App.css";
 // pull in actions from action/index
-import { fetchingData, fetchedData } from "../actions";
+import { fetchingData } from "../actions";
 
 class App extends Component {
   componentDidMount() {
@@ -31,7 +31,7 @@ const mapStateToProps = (state, props) => ({
   chars: state.charsReducer.chars,
   fetching: state.charsReducer.fetching,
   fetched: state.charsReducer.fetched,
-  null: state.charsReducer.console.error
+  null: state.charsReducer.error
 });
 
 // our mapDispatchToProps needs to have two properties inherited from state
@@ -41,6 +41,5 @@ export default connect(
   {
     /* actions go here */
     fetchingData,
-    fetchedData
   }
 )(App);
