@@ -3,7 +3,7 @@ const initialState = {
   // define a few properties here.
   // Array chars, Boolean fetching, Boolean fetched, null error.
   chars: [],
-  fetching: false,
+  fetching: true,
   fetched: false,
   error: null
 };
@@ -18,7 +18,11 @@ export const charsReducer = (state = initialState, action) => {
         fetching: !state.fetching
       };
 
-    // case FETCHING_ERROR:
+    case FETCHING_ERROR:
+      return {
+        ...state,
+        error: action.payload
+      };
 
     case FETCHED_DATA:
       return {

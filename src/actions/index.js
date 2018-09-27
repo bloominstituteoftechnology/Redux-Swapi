@@ -22,15 +22,19 @@ export const fetchingData = () => dispatch => {
       res => dispatch(fetchedData(res.data.results)),
       dispatch({ type: FETCHING_DATA })
     )
-    .catch(err => console.log(err));
+    .catch(err => dispatch(fetchingError(err)));
 };
 
-export const fetchingError = () => dispatch => {};
-
-export const fetchedData = () => dispatch => {
-  console.log("from fetchedData", results);
+export const fetchingError = error => dispatch => {
   dispatch({
-    type: FETCHED_DATA,
-    payload: results
+    type: FETCHING_ERROR,
+    payload: error
   });
+
+  export const fetchedData = results => dispatch => {
+    dispatch({
+      type: FETCHED_DATA,
+      payload: results
+    });
+  };
 };
