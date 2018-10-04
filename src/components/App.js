@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import logo from '../logo.svg';
 import '../styles/App.css';
-// pull in actions from action/index
+import { fetchingChars } from '../actions/index';
 
 class App extends Component {
   componentDidMount() {
-    // call our action
+    this.props.fetchingChars('https://swapi.co/api/people');
   }
   render() {
     return (
       <div className="App">
         {this.props.fetching ? (
-          <img src={logo} className="App-logo" alt="logo" />
+          <h1> Loading... </h1>
         ) : (
           <ul>
             {this.props.chars.map(char => {
@@ -26,8 +25,15 @@ class App extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    fetching: state.fetching,
+    fethced: state.fetched,
+    chars: state.chars,
+    errors: state.errors
+  }
+}
+
 // our mapDispatchToProps needs to have two properties inherited from state
 // the chars and the fetching boolean
-export default connect(null, {
-  /* actions go here */
-})(App);
+export default connect(mapStateToProps, { fetchingChars })(App);
