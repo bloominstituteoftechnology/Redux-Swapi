@@ -11,5 +11,5 @@ import axios from 'axios'
 
 export const FETCHING = 'FETCHING';
 export const ERROR_FETCHING = 'ERROR_FETCHING';
-export const GET = 'GET';
+export const FETCHED = 'FETCHED;
 
