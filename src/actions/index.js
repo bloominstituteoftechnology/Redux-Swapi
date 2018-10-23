@@ -1,5 +1,4 @@
 // we'll need axios
-import axios from 'axios'
 
 // we'll need to create 3 different action types here.
 // one for fetching, one for fetched and one for errors
@@ -33,8 +32,10 @@ export const setError = () => ({
 })
 
 export const fetchData = () => dispatch => {
+  dispatch(setFetching())
+
   axios
     .get('https://swapi.co/api/people')
     .then(res => dispatch(setFetched(res.data)))
-    .error(err => dispatch(setError(err)))
+    .catch(err => dispatch(setError(err)))
 }
