@@ -1,4 +1,4 @@
-// we'll need axios
+
 import axios from 'axios';
 
 export const FETCHING_CHARACTERS = 'FETCHING_CHARACTERS';
@@ -6,7 +6,6 @@ export const FETCHING_CHARACTERS_SUCCESS = 'FETCHING_CHARACTERS_SUCCESS';
 export const FETCHING_CHARACTERS_ERROR = 'FETCHING_CHARACTERS_ERROR';
 
 export const fetchCharacters = () => dispatch => {
-  // let's do some async stuff! Thanks react-thunk :)
   dispatch({ type: FETCHING_CHARACTERS });
   axios
     .get(`https://swapi.co/api/people/`)
@@ -18,6 +17,19 @@ export const fetchCharacters = () => dispatch => {
       dispatch({ type: FETCHING_CHARACTERS_ERROR, payload: error });
     });
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // we'll need to create 3 different action types here.
