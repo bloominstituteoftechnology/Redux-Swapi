@@ -2,14 +2,7 @@ import { FETCHING, SUCCESS, FAILURE } from '../actions';
 const initialState = {
   // define a few properties here.
   // Array characters, Boolean fetching, null error.
-  characters: [
-    {
-      name: 'joe'
-    },
-    {
-      name: 'luke'
-    }
-  ],
+  characters: [],
   fetching: false,
   error: null
 };
