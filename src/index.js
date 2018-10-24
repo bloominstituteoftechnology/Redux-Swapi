@@ -10,7 +10,7 @@ import { createStore } from 'redux';
 // logger from redux-logger
 // rootReducer from ./reducers
 
-const store = createStore(/* rootReducer */, /* applyMiddleware goes here */);
+const store = createStore(/* rootReducer, */ /* applyMiddleware goes here */);
 
 ReactDOM.render(
   <Provider store={store}>
