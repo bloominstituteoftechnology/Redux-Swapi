@@ -19,11 +19,12 @@ class CharacterListView extends React.Component {
     console.log("#########  :  " ,this.props);
     if (this.props.fetching) {
       // return something here to indicate that you are fetching data
+      <h1>Data fetching......</h1>
     }
     return (
       <div className="CharactersList_wrapper">
       <h1>StarWar..........</h1>
-          <CharacterList characters={this.props.characters} />
+           <CharacterList characters = {this.props.starWars} />
       </div>
     );
   }
@@ -34,9 +35,9 @@ class CharacterListView extends React.Component {
 const mapStateToProps = state => {
     console.log("mapStateToProp   ",state);
     return {
-      starWars : state.fetchStarWars,
-      isFetching : state.isFetching,
-      error : state.error/* action creators go here */
+      starWars : state.charsReducer.starWars,
+      isFetching : state.charsReducer.isFetching,
+      error : state.charsReducer.error/* action creators go here */
     }
 }
 export default connect(mapStateToProps, { fetchStarWars })(CharacterListView);

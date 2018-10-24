@@ -19,7 +19,7 @@ export const charsReducer = (state = initialState, action) => {
       case FETCHING_STARWARS_SUCCESS :
          // console.log("**  ",state); //initialState
           return {...state, 
-                  isFetching : false,
+                  isFetching : true,
                   starWars : [...state.starWars, ...action.payload] 
                  }; 
       case FETCHING_STARWARS_FAILURE :
