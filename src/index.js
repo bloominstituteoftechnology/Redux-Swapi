@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { App } from './App';
+import App from './App';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
-import { combineReducers } from './reducers';
+import rootReducer from './reducers';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 
@@ -16,7 +16,7 @@ const composeEnhancers =
     : compose;
 
 const enhancer = composeEnhancers(applyMiddleware(thunk, logger));
-const store = createStore(combineReducers, enhancer);
+const store = createStore(rootReducer, enhancer);
 
 ReactDOM.render(
   <Provider store={store}>

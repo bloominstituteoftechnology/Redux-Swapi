@@ -1,4 +1,5 @@
 import { FETCHING_CHARS, FETCHING_CHARS_SUCCESS, FETCHING_CHARS_FAILURE } from '../actions';
+
 const initialState = {
   chars: [],
   isFetching: false,
