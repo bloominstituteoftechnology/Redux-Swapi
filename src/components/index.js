@@ -1,2 +1,4 @@
-export CharacterList from "./CharacterList";
-export Character from "./Character";
+import CharacterList from "./CharacterList";
+import Character from "./Character";
+
+export { CharacterList, Character }; 

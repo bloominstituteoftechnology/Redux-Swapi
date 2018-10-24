@@ -1,1 +1,3 @@
-export CharacterListView from "./CharacterListView";
+import CharacterListView from "./CharacterListView";
+
+export { CharacterListView };

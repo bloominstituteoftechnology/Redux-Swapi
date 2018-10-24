@@ -11,9 +11,10 @@ class CharacterListView extends React.Component {
   }
 
   componentDidMount() {
+    console.log('characterlistviewprops', this.props);
     // call our action
-    this.props.fetchCharacters():
-  }
+    this.props.fetchCharacters()
+  };
 
   render() {
     if (this.props.fetching) {  //isFetching or fetching? 
@@ -36,8 +37,8 @@ class CharacterListView extends React.Component {
 // the characters and the fetching boolean
 const mapStateToProps = state => {
   return {
-    characters: state.characters,
-    isFetching: state.isFetching
+    characters: state.charsReducer.characters,
+    isFetching: state.charsReducer.isFetching
   };
 };
 
