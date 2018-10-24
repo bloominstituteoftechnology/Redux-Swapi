@@ -2,4 +2,39 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background: url("./assets/background-main.jpg");
+  background-color: black;
+  height: 80rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.header {
+  width: 80%;
+  margin: 5rem auto;
+  background: url("./assets/logo.png");
+
+  height: 15rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.character-list {
+  display: flex;
+  flex-flow: row wrap;
+  width: 60%;
+  margin: 5rem auto;
+}
+.card {
+  width: 45%;
+  margin: 1rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.644);
+  color: white;
+}
+
+.app {
 }
