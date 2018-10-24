@@ -31,7 +31,7 @@ const mapStateToProps = state => {
   return {
     characters: state.charsReducer.characters,
     isFetching: state.charsReducer.isFetching,
-    errof: state.charsReducer.error,
+    error: state.charsReducer.error,
   }
 }
 
