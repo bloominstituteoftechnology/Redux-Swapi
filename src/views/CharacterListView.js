@@ -1,13 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { CharacterList } from "./components";
+import CharacterList from "../components/CharacterList";
 import { fetchCharacters } from "../actions";
 // import actions
 
 class CharacterListView extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   componentDidMount() {
@@ -16,8 +16,8 @@ class CharacterListView extends React.Component {
   }
 
   render() {
-    if (this.props.isFetching) {
-      return <h1>{this.props.isFetching}</h1>
+    if (this.props.fetching) {
+      return <h1>FETCHING DATA</h1>
     }
     return (
       <div className="CharactersList_wrapper">
