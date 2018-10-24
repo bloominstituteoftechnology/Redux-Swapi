@@ -16,11 +16,11 @@ export const charsReducer = (state = initialState, action) => {
       return { ...state, isFetching: true };
 
     case FETCHING_CHARACTERS_SUCCESS:
-    console.log(action.payload)
+    console.log('inside success action', action.payload)
       return {
         ...state,
         isFetching: false,
-        characters: [...state.chars, ...action.payload]
+        characters: [...state.characters, ...action.payload]
       };
 
     case FETCHING_CHARACTERS_FAILURE:
