@@ -18,12 +18,10 @@ export const fetchChars = () => dispatch => {
     dispatch({ type: FETCHING });
     axios 
         .get(`https://swapi.co/api/people/`)
-        .then(response => {
-            console.log(response)
-            dispatch({ type: SUCCESS, payload: response.data.charecter })
+        .then(({response}) => {
+            dispatch({ type: SUCCESS, payload: response.results })
         })
         .catch(error => {
-            console.log(error)
             dispatch({ type: FAILURE, payload: error })
         })
 }
