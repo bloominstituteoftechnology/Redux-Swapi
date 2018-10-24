@@ -10,6 +10,7 @@ class CharacterListView extends React.Component {
   }
 
   componentDidMount() {
+    console.log('in cdm');
     this.props.fetchChars();
   }
 
@@ -17,6 +18,7 @@ class CharacterListView extends React.Component {
     if (this.props.fetching) {
       return ( <h1>Loading.  It shanty be lawn ghee.</h1> );
     }
+    console.log('props in cLV', this.props);
     return (
       <div className="CharactersList_wrapper">
         <CharacterList characters={this.props.characters} />;
@@ -25,13 +27,12 @@ class CharacterListView extends React.Component {
   }
 }
 
-// our mapStateToProps needs to have two properties inherited from state
 const mapStateToProps = state => { 
+  console.log('state', state);
   return {
-    characters: state.characters,
-    fetching: state.fetching,
-    error: state.error
+    characters: state.charsReducer.characters,
+    fetching: state.charsReducer.fetching,
+    error: state.charsReducer.error
   };
 }
-// the characters and the fetching boolean
 export default connect(mapStateToProps, { fetchChars })(CharacterListView);
