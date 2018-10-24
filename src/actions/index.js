@@ -1,8 +1,20 @@
-// we'll need axios
+import axios from 'axios';
 
-// we'll need to create 3 different action types here.
-// one for fetching, one for success and one for failure
+export const FETCHING_FRIENDS = 'fetching_friends';
+export const FETCHING_FRIENDS_SUCCESS = 'fetching_friends_success' 
+export const FETCHING_FRIENDS_FAILURE = 'fetching_friends_failure'
 
-// our action creator will be a function that returns a function
-// the url to fetch characters from is `https://swapi.co/api/people/`
-// remember that now we have controll over our thunk-based action creator
+
+export const getFriends = () => dispatch => {
+    dispatch({ type: FETCHING_FRIENDS });
+
+    axios.get('https://swapi.co/api/people')
+        .then(res => {
+            console.log(res.data);
+            dispatch({ type: FETCHING_FRIENDS_SUCCESS, payload: res.data.results})
+        })
+        .catch(err => {
+            dispatch({ type: FETCHING_FRIENDS_FAILURE, payload: err})
+        });
+};
+
