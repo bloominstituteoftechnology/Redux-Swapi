@@ -1,0 +1,1 @@
+export CharacterListView from "./CharacterListView";
