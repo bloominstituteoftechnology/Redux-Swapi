@@ -1,21 +1,21 @@
 import { FETCHING_CHARS, FETCHING_CHARS_SUCCESS, FETCHING_CHARS_FAILURE } from '../actions';
 const initialState = {
   chars: [],
-  isFetching: false,
+  fetching: false,
   error: null
 };
 export const charsReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCHING_CHARS:
-      return { ...state, isFetching: true };
+      return { ...state, fetching: true };
     case FETCHING_CHARS_SUCCESS:
       return {
         ...state,
-        isFetching: false,
+        fetching: false,
         chars: [...state.chars, ...action.payload]
       };
     case FETCHING_CHARS_FAILURE:
-      return { ...state, isFetching: false, error: action.payload };
+      return { ...state, fetching: false, error: action.payload };
     default:
       return state;
   }
