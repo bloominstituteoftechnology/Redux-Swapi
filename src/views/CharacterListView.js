@@ -22,7 +22,7 @@ class CharacterListView extends React.Component {
     }
     if (this.props.fetching) {
       // return something here to indicate that you are fetching data
-      return <p>Loading Stuffage...</p>
+      return <p>Loading Data...</p>
     }
     console.log("characterListVIEW props :" , this.props)
     return (
