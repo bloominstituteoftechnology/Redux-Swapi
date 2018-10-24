@@ -7,7 +7,7 @@ import {
 const initialState = {
   // define a few properties here.
   // Array characters, Boolean fetching, null error.
-  charecters: [],
+  characters: [],
   isFetching: false,
   error: null
 };
@@ -22,7 +22,7 @@ export const charsReducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: false,
-        charecters: [...state.charsReducer.charecters, ...action.payload]
+        characters: [...state.characters, ...action.payload]
       }
     case FAILURE:
       return {
