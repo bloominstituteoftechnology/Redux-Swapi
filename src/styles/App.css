@@ -26,3 +26,21 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.CharactersList_wrapper {
+    min-height: 400px;
+    width: 20%;
+    margin: 200px auto;
+    border-radius: 15px;
+    font-family: sans-serif;
+    color: white;
+    background-image: url('../star-wars-space.png');
+    opacity: 0.70;
+    background-size: 100%;
+    padding: 50px;
+}
+
+.character-list {
+  margin-top: 20px;
+  
+}
