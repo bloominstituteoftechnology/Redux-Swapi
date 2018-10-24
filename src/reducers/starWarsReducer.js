@@ -1,4 +1,4 @@
-import /* we need our action types here*/ '../actions';
+import { FETCHING_CHARACTERS, FETCHING_CHARACTERS_SUCCESS, FETCHING_CHARACTERS_FAILURE} from '../actions';
 const initialState = { 
   characters: [], 
   isFetching: false, 
