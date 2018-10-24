@@ -16,11 +16,11 @@ export const getCharacters = charater => dispatch => {
   axios
     .get(url)
     .then( ({ data }) => {
-      console.log(data)
+      console.log('data', data)
       dispatch({ type: SUCCESS, data })
     })
     .catch(err => {
-      console.log(err)
+      console.log('err', err)
       dispatch({ type: FAILURE, err})
     })
 }
