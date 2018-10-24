@@ -15,13 +15,13 @@ export const FETCHED = 'FETCHED';
 
 export const fetch = chars => {
     const promise = axios.get('https://swapi.co/api/people');
-    return dispatch => {
+    return dispatch => { // pending state
       dispatch({ type: FETCHING });
       promise
-        .then(({ data }) => {
+        .then(({ data }) => { // resolved state
           dispatch({ type: FETCHED, payload: data.results });
         })
-        .catch(error => {
+        .catch(error => { // rejected state
           dispatch({ type: ERROR_FETCHING, payload: error });
         });
     };
