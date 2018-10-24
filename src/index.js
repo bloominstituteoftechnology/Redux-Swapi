@@ -5,8 +5,8 @@ import { applyMiddleware, createStore, compose } from 'redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import './index.css';
-import { App } from './App';
-import { combineReducers } from './reducers'
+import App from './App';
+import combineReducers from './reducers'
 // needed dependancies
 // applyMiddleware from redux
 // thunk from redux-thunk
