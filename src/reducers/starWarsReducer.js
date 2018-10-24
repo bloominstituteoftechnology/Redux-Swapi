@@ -6,7 +6,7 @@ import {
 const initialState = {
   // define a few properties here.
   // Array characters, Boolean fetching, null error.
-  starwar: [],
+  characters: [],
   isFetching: false,
   error: null
 };
@@ -21,7 +21,7 @@ export const charsReducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: false,
-        starwar: [...state.starwar, ...action.payload]
+        characters: [...state.characters, ...action.payload]
       };
     case FETCHING_STARWAR_FAILURE:
       return {...state, isFetching:false, error:action.payload}

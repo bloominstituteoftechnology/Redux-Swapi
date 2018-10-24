@@ -12,9 +12,9 @@ export const fetchStarwar = () => dispatch => {
     // let's do some async stuff! Thanks react-thunk :)
     dispatch({ type: FETCHING_STARWAR });
     axios
-      .get('https://swapi.co/api/people')
+      .get('https://swapi.co/api/people/')
       .then(response => {
-        dispatch({ type: FETCHING_STARWAR_SUCCESS, payload: response.data.result });
+        dispatch({ type: FETCHING_STARWAR_SUCCESS, payload: response.data.results });
       })
       .catch(error => {
         dispatch({ type: FETCHING_STARWAR_FAILURE, payload: error });
