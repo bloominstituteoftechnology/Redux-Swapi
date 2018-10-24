@@ -18,7 +18,7 @@ class CharacterListView extends React.Component {
 
   render() {
     if (this.props.fetching) {
-      <img src={logo} className="logo" alt="logo" />;
+      return <img src={logo} className="logo" alt="logo" />;
     }
     return (
       <div className="CharactersList_wrapper">
