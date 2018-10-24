@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { CharacterList } from "./components";
-// import actions
+import { CharacterList } from "../components";
+import { fetchingStarwars } from '../actions/index'
 
 class CharacterListView extends React.Component {
   constructor() {
@@ -10,26 +10,35 @@ class CharacterListView extends React.Component {
   }
 
   componentDidMount() {
-    // call our action
+    this.props.fetchingStarwars();
   }
 
   render() {
     if (this.props.fetching) {
-      // return something here to indicate that you are fetching data
+      <h1>Loading Starwars Characters...</h1>;
     }
     return (
       <div className="CharactersList_wrapper">
-        <CharacterList characters={this.props.characters} />;
+        <CharacterList characters={this.props.characters} />
       </div>
     );
   }
 }
 
-// our mapStateToProps needs to have two properties inherited from state
-// the characters and the fetching boolean
+const mapStateToProps = state => {
+  console.log(state);
+  return {
+    characters: state.charsReducer.starwarsChar,
+    error: state.charsReducer.error,
+    fetching: state.charsReducer.fetching,
+
+  };
+
+};
+
 export default connect(
-  null /* mapStateToProps replaces null here */,
+  mapStateToProps,
   {
-    /* action creators go here */
+    fetchingStarwars
   }
 )(CharacterListView);
