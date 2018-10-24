@@ -1,25 +1,25 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchCHARS } from "../actions/index"
 
-import CharacterList from "../components/CharacterList";
+import { CharacterList } from "../components";
 // import actions
+import { fetchData } from "../actions";
 
 class CharacterListView extends React.Component {
-  constructor() {
-    super();
-  }
+ 
 
   componentDidMount() {
-    this.props.fetchCHARS();
     // call our action
+    this.props.fetchData();
   }
 
   render() {
+    console.log(this.props.characters);
     if (this.props.fetching) {
+      // return something here to indicate that you are fetching data
       return (
-        <h1>Please wait, fetching Characters</h1>
-      );
+        <h1>Fetching character data...</h1>
+      )
     }
     return (
       <div className="CharactersList_wrapper">
@@ -29,15 +29,16 @@ class CharacterListView extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    chars: state.chars,
-    isFetching: state.isFetching // is our data currently being fetched???
-  };
-};
 // our mapStateToProps needs to have two properties inherited from state
 // the characters and the fetching boolean
-export default connect(
-  mapStateToProps /* mapStateToProps replaces null here */,
-  { fetchCHARS }
-)(CharacterListView);
+
+const mapStateToProps = state => {
+  return {
+    characters: state.charsReducer.characters,
+    fetching: state.charsReducer.fetching
+  }
+}
+
+export default connect(mapStateToProps, {
+  fetchData
+})(CharacterListView);

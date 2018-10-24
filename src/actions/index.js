@@ -1,26 +1,26 @@
-import { axios } from 'axios'
-
-export const FETCHING_CHARS = 'FETCHING_CHARS';
-export const FETCHING_CHARS_SUCCESS = 'FETCHING_CHARS_SUCCESS';
-export const FETCHING_CHARS_FAILURE = 'FETCHING_CHARS_FAILURE';
-
-export const fetchCHARS = () => dispatch => {
-  // let's do some async stuff! Thanks react-thunk :)
-  dispatch({ type: FETCHING_CHARS });
-  axios
-    .get('https://swapi.co/api/people')
-    .then(response => {
-      console.log(dispatch);
-      dispatch({ type: FETCHING_CHARS_SUCCESS, payload: response.data.message });
-    })
-    .catch(error => {
-      dispatch({ type: FETCHING_CHARS_FAILURE, payload: error });
-    });
-};
-
+// we'll need axios
+import axios from 'axios';
 // we'll need to create 3 different action types here.
 // one for fetching, one for success and one for failure
-
+export const FETCHING = 'FETCHING';
+export const SUCCESS = 'SUCCESS';
+export const FAILURE = 'FAILURE';
 // our action creator will be a function that returns a function
 // the url to fetch characters from is `https://swapi.co/api/people/`
 // remember that now we have controll over our thunk-based action creator
+export const fetchData = () => {
+    const getData = axios.get('https://swapi.co/api/people');
+    
+    return function(dispatch) {
+        dispatch({ type: FETCHING });
+        getData
+            .then(response => {
+
+                setTimeout(() => {dispatch({ type: SUCCESS, payload: response.data.results })
+            }, 2000)
+            })
+            .catch(error => {
+                dispatch({ type: FAILURE, payload: error })
+            });
+    }
+}
