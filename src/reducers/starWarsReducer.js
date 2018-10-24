@@ -18,7 +18,7 @@ export const charsReducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: false,
-        characters: [...state.chars, ...action.payload]
+        characters: [...state.characters, ...action.payload]
       };
     case ERROR:
       return { ...state, isFetching: false, error: action.payload };
