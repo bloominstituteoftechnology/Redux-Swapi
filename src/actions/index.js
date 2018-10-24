@@ -13,7 +13,7 @@ export const fetchPeople = () => dispatch => {
     .get('https://swapi.co/api/people/')
     .then(res => {
       console.log(res.data);
-      dispatch({ type: SUCCESS, payload: res.data });
+      dispatch({ type: SUCCESS, payload: res.data.results });
     })
     .catch(err => {
       dispatch({ type: FAILURE, payload: err });
