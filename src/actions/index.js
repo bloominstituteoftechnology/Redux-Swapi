@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const GET_CHARACTERS = "GET_CHARACTERS";
 export const GET_CHARACTERS_SUCCESS = "GET_CHARACTERS_SUCCESS";
-export const ERROR_GETTING_CHARACTERS = "ERROR_GETTING_CHARACTERS";
+export const GET_CHARACTERS_ERROR = "GET_CHARACTERS_ERROR";
 
 export const getCharacters = () => {
   const promise = axios.get("https://swapi.co/api/people");
@@ -18,7 +18,7 @@ export const getCharacters = () => {
       })
       .catch(err => {
         console.log(err);
-        dispatch({ type: ERROR_GETTING_CHARACTERS });
+        dispatch({ type: GET_CHARACTERS_ERROR });
       });
   };
 };
