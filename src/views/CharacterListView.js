@@ -2,22 +2,23 @@ import React from "react";
 import { connect } from "react-redux";
 import { CharacterList } from "../components";
 import { fetchCharacters } from "../actions";
+import ReactLoading from "react-loading";
 
 // import actions
 
 class CharacterListView extends React.Component {
-  constructor() {
-    super();
-  }
   componentDidMount() {
     // call our action
     this.props.fetchCharacters();
   }
 
   render() {
-    console.log(this.props);
     if (this.props.isFetching) {
-      return <h2>loading. . .</h2>;
+      return (
+        <div className="loading-animation-contianer">
+          <ReactLoading type={"spin"} color={"#dddddd"} className="loading-animation" />
+        </div>
+      );
       // return something here to indicate that you are fetching data
     }
     return (

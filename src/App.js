@@ -5,7 +5,11 @@ import "./styles/App.css";
 
 class App extends Component {
   render() {
-    return <CharacterListView />;
+    return (
+      <div className="App">
+        <CharacterListView />
+      </div>
+    );
   }
 }
 
