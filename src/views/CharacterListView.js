@@ -10,7 +10,7 @@ class CharacterListView extends React.Component {
   }
 
   componentDidMount() {
-    // call our action
+    this.props.fetchChars();
   }
 
   render() {
