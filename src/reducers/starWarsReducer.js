@@ -1,5 +1,5 @@
 import { FETCHING_CHARACTER, CHARACTER_FETCH_SUCCESS, CHARACTER_FETCH_FAILURE } from '../actions';
-import { Object } from 'core-js';
+
 const initialState = {
   // define a few properties here.
   // Array characters, Boolean fetching, null error.
