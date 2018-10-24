@@ -1,17 +1,16 @@
-import { axios } from 'axios'
+import axios from 'axios'
 
 export const FETCHING_CHARS = 'FETCHING_CHARS';
 export const FETCHING_CHARS_SUCCESS = 'FETCHING_CHARS_SUCCESS';
 export const FETCHING_CHARS_FAILURE = 'FETCHING_CHARS_FAILURE';
 
 export const fetchCHARS = () => dispatch => {
-  // let's do some async stuff! Thanks react-thunk :)
   dispatch({ type: FETCHING_CHARS });
   axios
-    .get('https://swapi.co/api/people')
+    .get("https://swapi.co/api/people/")
     .then(response => {
-      console.log(dispatch);
-      dispatch({ type: FETCHING_CHARS_SUCCESS, payload: response.data.message });
+      console.log(response);
+      dispatch({ type: FETCHING_CHARS_SUCCESS, payload: response.data.results });
     })
     .catch(error => {
       dispatch({ type: FETCHING_CHARS_FAILURE, payload: error });

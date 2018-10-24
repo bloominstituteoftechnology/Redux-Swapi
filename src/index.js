@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
-import rootReducer from './reducers';
+import charsReducer from './reducers';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 
@@ -16,7 +16,7 @@ const composeEnhancers =
     : compose;
 
 const enhancer = composeEnhancers(applyMiddleware(thunk, logger));
-const store = createStore(rootReducer, enhancer);
+const store = createStore(charsReducer, enhancer);
 
 ReactDOM.render(
   <Provider store={store}>
