@@ -14,8 +14,7 @@ import charsReducer from './reducers';
 // logger from redux-logger
 // rootReducer from ./reducers
 
-const store = createStore(charsReducer, 
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+const store = createStore(charsReducer,
   applyMiddleware(thunk, logger) 
 );
 
