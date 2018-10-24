@@ -23,3 +23,5 @@ export const fetchData = () => dispatch =>{
         }) 
         .catch(error => {dispatch({type : DATA_FETCH_FAILURE, payload: error })})
 }
+
+//is the initial dispatch not working?
