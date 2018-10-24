@@ -5,7 +5,7 @@ import axios from 'axios';
 // one for fetching, one for fetched and one for errors
 export const FETCHING = 'FETCHING';
 export const FETCHED = 'FETCHED';
-export const ERROR = 'ERROR';
+export const FAILURE = 'FAILURE';
 
 
 // our action creator will be a function that returns a promise
@@ -22,6 +22,8 @@ export const fetchData = () => {
             .then(response => {
                 dispatch({ type: FETCHED, payload: response.data.results })
             })
-            .catch(err => console.log(err));
+            .catch(error => {
+                dispatch({ type: FAILURE, payload: error })
+            });
     }
 }

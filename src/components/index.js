@@ -1,3 +1,2 @@
-import App from './App';
-
-export { App };
+export CharacterList from "./CharacterList";
+export Character from "./Character";
