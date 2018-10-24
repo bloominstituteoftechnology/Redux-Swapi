@@ -5,8 +5,8 @@ import Character from "./Character";
 const CharacterList = props => {
   return (
     <ul>
-      {this.props.charatacters.map(charatacter => {
-        return <Character key={charatacter.name} />;
+      {props.characters.map(character => {
+        return <Character key={character.name} character={character} />;
       })}
     </ul>
   );
