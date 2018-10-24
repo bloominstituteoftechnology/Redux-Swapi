@@ -4,7 +4,7 @@ import axios from 'axios';
 // we'll need to create 3 different action types here.
 // one for fetching, one for fetched and one for errors
 export const FETCHING = 'FETCHING';
-export const FETCHED = 'FETCHED';
+export const SUCCESS = 'SUCCESS';
 export const FAILURE = 'FAILURE';
 
 
@@ -20,7 +20,7 @@ export const fetchData = () => {
         dispatch({ type: FETCHING });
         getData
             .then(response => {
-                dispatch({ type: FETCHED, payload: response.data.results })
+                dispatch({ type: SUCCESS, payload: response.data.results })
             })
             .catch(error => {
                 dispatch({ type: FAILURE, payload: error })
