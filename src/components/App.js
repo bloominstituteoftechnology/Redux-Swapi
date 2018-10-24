@@ -26,8 +26,8 @@ class App extends Component {
   }
 }
 
-// our mapDispatchToProps needs to have two properties inherited from state
+// our mapStateToProps needs to have two properties inherited from state
 // the chars and the fetching boolean
-export default connect(null, {
-  /* actions go here */
+export default connect(null /* mapStateToProps replaces null here */, {
+  /* action creators go here */
 })(App);
