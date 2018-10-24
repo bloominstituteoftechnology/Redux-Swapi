@@ -76,7 +76,7 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
-```
+``` 
 
 - instead of passing our initial state directly to our `createStore()` function, we can pass it `applyMiddleware` as a second argument.
 - Then, anything we add to `applyMiddleware` we'll have access to once we pass it to our store and set it as a property on the `<Provider />` component.
