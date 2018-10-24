@@ -2,9 +2,7 @@ import {DATA_FETCH_SUCCESS,DATA_FETCH_FAILURE,FETCH_DATA} from '../actions';
 const initialState = {
   // define a few properties here.
   // Array characters, Boolean fetching, null error.
-  characters : [{
-    
-  }],
+  characters : [],
   fetching : false,
   error : null,
 };

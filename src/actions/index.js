@@ -15,7 +15,6 @@ export const FETCH_DATA = 'FETCH_DATA';
 
 
 export const fetchData = () => dispatch =>{
-    console.log("Fetch Data has been invoked")
     dispatch({ type : FETCH_DATA });// dispatching fetchdata to reducer so it displays a loading screen while data is getting fetched
     axios
         .get( `https://swapi.co/api/people/`)

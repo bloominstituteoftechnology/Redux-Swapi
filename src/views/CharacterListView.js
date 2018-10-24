@@ -20,7 +20,7 @@ class CharacterListView extends React.Component {
     if(this.props.error){
       return <h1>{this.props.error}</h1>
     }
-    if (this.props.fetching) {
+    if (this.props.fetching){
       // return something here to indicate that you are fetching data
       return <p>Loading Data...</p>
     }
