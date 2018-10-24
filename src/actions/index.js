@@ -35,7 +35,20 @@ export const fetchData = () => dispatch => {
   dispatch(setFetching())
 
   axios
-    .get('https://swapi.co/api/people')
-    .then(res => dispatch(setFetched(res.data)))
+    .get('https://swapi.co/api/people/')
+    .then(res => dispatch(setFetched(res.data.results)))
     .catch(err => dispatch(setError(err)))
 }
+
+// export const fetchData = () => {
+//   const request = axios.get('https://swapi.co/api/people/');
+
+//   return (dispatch) => {
+//     request.then(({data}) => {
+//       dispatch(setFetched(data));
+//     })
+//     .catch(err => {
+//       dispatch(setError(err));
+//     });
+//   };
+// };
