@@ -9,6 +9,7 @@ const initialState = {
 
 
 export const charsReducer = (state = initialState, action) => {
+    //console.log("REDUCER  : ",action.payload);
   switch (action.type) {
       // Fill me in with the important reducers
       // action types should be FETCHING, SUCCESS and FAILURE
@@ -16,6 +17,7 @@ export const charsReducer = (state = initialState, action) => {
       case FETCHING_STARWARS :
           return {...state, isFetching : true};
       case FETCHING_STARWARS_SUCCESS :
+         // console.log("**  ",state); //initialState
           return {...state, 
                   isFetching : false,
                   starWars : [...state.starWars, ...action.payload] 

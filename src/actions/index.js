@@ -15,7 +15,7 @@ export const fetchStarWars = () => dispatch => {
     axios
         .get('https://swapi.co/api/people/')
         .then(response => {
-            console.log("Response after data fetching : ",response);
+            console.log("Response after data fetching : ",response.data.results);
             dispatch({ type : FETCHING_STARWARS_SUCCESS, payload : response.data.results });  
          })
         .catch(error => {
