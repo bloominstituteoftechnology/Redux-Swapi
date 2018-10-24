@@ -8,7 +8,7 @@ export const ERROR = 'ERROR';
 export const fetchChars = () => dispatch => {
     dispatch({type: FETCHING});
     return axios.get('https://swapi.co/api/people/')
-                .then(res => { dispatch({ type: FETCHED, payload: res.data})})
+                .then(res => { console.log(res); dispatch({ type: FETCHED, payload: res.data.results})})
                 .catch(err => dispatch({type: ERROR, payload: err}))
 } 
 // we'll need axios
