@@ -3,19 +3,19 @@ import { connect } from 'react-redux';
 
 import { CharacterList } from '../components';
 // import actions
+import { fetchCharacters } from '../actions'
 
 class CharacterListView extends React.Component {
-  constructor() {
-    super();
-  }
-
   componentDidMount() {
     // call our action
+    this.props.fetchCharacters();
   }
 
   render() {
-    if (this.props.fetching) {
+    console.log(this.props)
+    if (this.props.isFetching) {
       // return something here to indicate that you are fetching data
+      return <h3>The Force is loading...</h3>
     }
     return (
       <div className="CharactersList_wrapper">
