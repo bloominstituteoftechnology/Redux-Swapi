@@ -1,0 +1,23 @@
+ul {
+    width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    height: 97vh;
+}
+
+li {
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: yellow;
+    font-weight: bolder;
+}
+
+li:nth-child(odd) {
+    background-color: red;
+}
+
+li:nth-child(even) {
+    background-color: green;
+}

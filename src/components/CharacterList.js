@@ -3,6 +3,7 @@ import { fetchChars } from "../actions";
 import { connect } from 'react-redux';
 import Character from "./Character";
 import { rootReducer } from '../reducers'
+import "./styles.css";
 
 class CharacterList extends React.Component {
   componentDidMount() {
