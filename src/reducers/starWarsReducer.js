@@ -1,6 +1,6 @@
 import {FETCHING_CHARACTERS, FETCHING_CHARACTERS_SUCCESS, FETCHING_CHARACTERS_ERROR} from '../actions';
 const initialState = {
-  characters: [{name: 'sop'}],
+  characters: [],
   isFetching: false,
   error: ''
   // define a few properties here.
