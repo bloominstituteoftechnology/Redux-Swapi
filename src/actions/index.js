@@ -8,3 +8,19 @@
 // remember that now we have controll over our thunk-based action creator
 
 import axios from 'axios';
+
+export const FETCHING = 'FETCHING';
+export const FETCHED_SUCCESS = 'FETCHED_SUCCESS';
+export const ERROR = 'ERROR';
+
+export const getCharacters = () => {
+  return (dispatch) => {
+    dispatch({ type: FETCHING });
+    axios
+      .get('https://swapi.co/api/people')
+      .then(({ data }) => dispatch({ type: FETCHED_SUCCESS, payload: data.results }))
+      .catch((error) => {
+        dispatch({ type: ERROR, payload: error });
+      });
+  };
+};
