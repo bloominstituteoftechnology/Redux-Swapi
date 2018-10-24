@@ -10,10 +10,11 @@ class CharacterListView extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchCharacters;
+    this.props.fetchCharacters();
   }
 
   render() {
+    console.log("inListView", this.props.characters);
     if (this.props.fetching) {
       <div className="fetching">
         <h1>Hold On.. We're Summoning Your Characters.. </h1>
@@ -29,9 +30,9 @@ class CharacterListView extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    characters: state.characters,
-    error: state.error,
-    isFetching: state.isFetching
+    characters: state.charsReducer.characters,
+    error: state.charsReducer.error,
+    isFetching: state.charsReducer.isFetching
   };
 };
 // our mapStateToProps needs to have two properties inherited from state
