@@ -1,6 +1,10 @@
 // ACTIONS ----------------------- ACTIONS
 import axios from 'axios';
 
+export const FETCHING_CHARS = 'FETCHING_CHARS';
+export const FETCHING_CHARS_SUCCESS = 'FETCHING_CHARS_SUCCESS';
+export const FETCHING_CHARS_FAILURE = 'FETCHING_CHARS_FAILURE';
+
 export const fetchChars = () => dispatch => {
     dispatch({ type: FETCHING_CHARS });
     // send for the images. then...
@@ -20,6 +24,4 @@ export const fetchChars = () => dispatch => {
         })
 }
 
-export const FETCHING_CHARS = 'FETCHING_CHARS';
-export const FETCHING_CHARS_SUCCESS = 'FETCHING_CHARS_SUCCESS';
-export const FETCHING_CHARS_FAILURE = 'FETCHING_CHARS_FAILURE';
+
