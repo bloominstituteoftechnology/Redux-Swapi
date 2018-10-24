@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-
 import logo from '../logo.svg'
-import '../styles/App.css'
+import { CharacterList } from '../components'
 import { fetchData } from '../actions'
 
 const mapStateToProps = ({ charsReducer: { fetching, chars } }) => ({
@@ -10,35 +9,33 @@ const mapStateToProps = ({ charsReducer: { fetching, chars } }) => ({
   chars
 })
 
-class App extends Component {
+class CharacterListView extends Component {
+  constructor() {
+    super()
+  }
+
   componentDidMount() {
-    // call our action
     this.props.fetchData()
   }
-  render() {
-    console.log(this.props)
 
+  render() {
     return (
       <div className="App">
         {this.props.fetching ? (
           <img src={logo} className="App-logo" alt="logo" />
         ) : (
-          <ul>
-            {this.props.chars.map(char => {
-              return <li key={char.name}>{char.name}</li>
-            })}
-          </ul>
+          <div className="CharactersList_wrapper">
+            <CharacterList characters={this.props.chars} />
+          </div>
         )}
       </div>
     )
   }
 }
 
-// our mapDispatchToProps needs to have two properties inherited from state
-// the chars and the fetching boolean
 export default connect(
   mapStateToProps,
   {
     fetchData
   }
-)(App)
+)(CharacterListView)
