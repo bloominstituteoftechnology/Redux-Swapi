@@ -2,8 +2,7 @@ import { FETCHING_STARWARS, FETCHING_STARWARS_SUCCESS, FETCHING_STARWARS_FAILURE
 
 const initialState = {
   starwarsChar: [], fetching: false, error: null
-  // define a few properties here.
-  // Array characters, Boolean fetching, null error.
+ 
 };
 export const charsReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -22,9 +21,7 @@ export const charsReducer = (state = initialState, action) => {
       return {
         ...state, fetching: false, error: action.payload
       };
-    // Fill me in with the important reducers
-    // action types should be FETCHING, SUCCESS and FAILURE
-    // your switch statement should handle all of these cases.
+    
     default:
       return state;
   }
