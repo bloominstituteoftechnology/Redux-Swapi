@@ -9,12 +9,9 @@ export const getCharacters = () => {
     dispatch({ type: GET_CHARACTERS });
     axios
       .then(res => {
-        return res.json();
-      })
-      .then(data => {
         dispatch({
           type: GET_CHARACTERS_SUCCESS,
-          payload: data.results
+          payload: res.results
         });
       })
       .catch(err => {
