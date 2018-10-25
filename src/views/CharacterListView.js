@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import "../components/Char.css";
 
 import { CharacterList } from "../components";
 // import actions

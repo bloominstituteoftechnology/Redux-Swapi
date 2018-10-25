@@ -1,0 +1,25 @@
+.char-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 70vh;
+  margin-top: 10vh;
+}
+
+.char-item {
+  border: 1px solid white;
+  font-size: 3rem;
+  margin: 20px;
+  padding: 20px;
+  color: white;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+body {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("https://www.desktopbackground.org/p/2010/05/10/15242_star-wars-backgrounds-werq081_2560x1600_h.jpg");
+  background-position: center;
+  background-size: cover;
+  min-height: 100%;
+}
