@@ -8,15 +8,16 @@ export const getCharacters = () => {
   return dispatch => {
     dispatch({ type: GET_CHARACTERS });
     axios
+      .get("https://swapi.co/api/people")
       .then(res => {
         dispatch({
           type: GET_CHARACTERS_SUCCESS,
-          payload: res.results
+          payload: res.data.results
         });
       })
       .catch(err => {
         console.log(err);
-        dispatch({ type: GET_CHARACTERS_ERROR });
+        dispatch({ type: GET_CHARACTERS_ERROR, payload: err });
       });
   };
 };

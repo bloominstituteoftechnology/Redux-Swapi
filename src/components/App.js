@@ -28,9 +28,9 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    chars: state.chars,
-    error: state.error,
-    gettingChars: state.gettingChars
+    chars: state.charsReducer.chars,
+    error: state.charsReducer.error,
+    gettingChars: state.charsReducer.gettingChars
   };
 };
 

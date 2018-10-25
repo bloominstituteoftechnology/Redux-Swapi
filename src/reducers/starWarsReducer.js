@@ -6,23 +6,25 @@ import {
 const initialState = {
   chars: [],
   gettingChars: false,
-  error: ""
+  error: null
 };
 
 export const charsReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_CHARACTERS:
-      return Object.assign({}, state, { gettingChars: true });
+      return { ...state, gettingChars: true };
     case GET_CHARACTERS_SUCCESS:
-      return Object.assign({}, state, {
-        chars: action.payload,
-        gettingChars: false
-      });
-    case GET_CHARACTERS_ERROR:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         gettingChars: false,
-        error: "Error getting chars"
-      });
+        chars: [...state.chars, ...action.payload]
+      };
+    case GET_CHARACTERS_ERROR:
+      return {
+        ...state,
+        gettingChars: false,
+        error: action.payload
+      };
     default:
       return state;
   }
