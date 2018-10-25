@@ -5,12 +5,16 @@ import { CharacterList } from "../components";
 // import actions
 import {fetchCharacters} from "../actions"
 class CharacterListView extends React.Component {
-  
+  constructor () {
+    super();
+  }
 
   componentDidMount() {
     // call our action
     this.props.fetchCharacters();
   }
+
+// const characterList=this.props.characters[0];
 
   render() {
     if (this.props.fetching) {
@@ -29,7 +33,7 @@ class CharacterListView extends React.Component {
 const mapStateToProps = state => {
   return {
     characters: state.charsReducer.characters,
-    error: state.charsReducer.error,
+    
     fetching: state.charsReducer.fetching
   }
 }
