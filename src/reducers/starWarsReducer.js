@@ -3,7 +3,7 @@ import { FETCH_PEOPLE, SUCCESS, FAILURE} from '../actions';
 const initialState = {
   // define a few properties here.
   // Array characters, Boolean fetching, null error.
-  chars: [],
+  characters: [],
   isFetching: false,
   error: null
 };
@@ -17,7 +17,7 @@ export const charsReducer = (state = initialState, action) => {
       return {...state, isFetching: true};
   
     case SUCCESS: 
-      return {...state, isFetching: false, chars:[...state.chars, ...action.payload] } 
+      return {...state, isFetching: false, characters:[...state.chars, ...action.payload] } 
     
     case FAILURE:
       return {...state, isFetching: false, error: action.payload}
