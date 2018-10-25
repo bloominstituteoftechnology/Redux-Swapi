@@ -30,12 +30,13 @@ class CharacterListView extends React.Component {
 // our mapStateToProps needs to have two properties inherited from state
 // the characters and the fetching boolean
 const mapStateToProps = state => {
-  console.log("mapState", state);
-  console.log("mapState", state.charsReducer);
+  // console.log("mapState", state);
+  // console.log("mapState", state.charsReducer);
 
+  // when using multiple reducers, need to specify the reducer name after state
   return {
-    characters: state.charsReducer.characters, // dogs for when we have the data!
-    isFetching: state.charsReducer.charisFetching // is our data currently being fetched???
+    characters: state.charsReducer.characters, 
+    isFetching: state.charsReducer.charisFetching 
   };
 };
 
