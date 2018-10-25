@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore, applyMiddleware, compose, combineReducers } from "redux";
+import { createStore, applyMiddleware, compose } from "redux";
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
-import charsReducer from './reducers';
+
+import combineReducers from './reducers';
 
 import App from './App';
 
@@ -16,8 +17,8 @@ import './index.css';
 // logger from redux-logger
 // rootReducer from ./reducers
 
-const reducers = combineReducers({ charsReducer });
-const middlewareQueue = applyMiddleware(logger, thunk);
+// const reducers = combineReducers({ charsReducer });
+// const middlewareQueue = applyMiddleware(logger, thunk);
 // const store = createStore(reducers, middlewareQueue);
 
 const composeEnhancers =
@@ -28,7 +29,7 @@ const composeEnhancers =
     : compose;
 
 const enhancer = composeEnhancers(applyMiddleware(thunk, logger));
-const store = createStore(reducers, middlewareQueue, enhancer);
+const store = createStore(combineReducers, enhancer);
 
 ReactDOM.render(
   <Provider store={store}>

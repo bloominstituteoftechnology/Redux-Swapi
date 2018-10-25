@@ -6,9 +6,9 @@ import { CharacterList } from "../components";
 import { fetchCharacters } from '../actions';
 
 class CharacterListView extends React.Component {
-  constructor() {
-    super();
-  }
+  // constructor() {
+  //   super();
+  // }
 
   componentDidMount() {
     // call our action
@@ -33,8 +33,8 @@ class CharacterListView extends React.Component {
 // the characters and the fetching boolean
 const mapStateToProps = state => {
   return {
-    characters: state.characters,
-    isFetching: state.isFetching,
+    characters: state.charsReducer.characters,
+    isFetching: state.charsReducer.isFetching,
   }
 }
 
