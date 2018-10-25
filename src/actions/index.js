@@ -5,15 +5,16 @@ export const GET_CHARACTERS_SUCCESS = "GET_CHARACTERS_SUCCESS";
 export const GET_CHARACTERS_ERROR = "GET_CHARACTERS_ERROR";
 
 export const getCharacters = () => {
-  const promise = axios.get("https://swapi.co/api/people");
   return dispatch => {
     dispatch({ type: GET_CHARACTERS });
-
-    promise
-      .then(response => {
+    axios
+      .then(res => {
+        return res.json();
+      })
+      .then(data => {
         dispatch({
           type: GET_CHARACTERS_SUCCESS,
-          payload: response.data.characters
+          payload: data.results
         });
       })
       .catch(err => {

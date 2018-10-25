@@ -15,7 +15,7 @@ export const charsReducer = (state = initialState, action) => {
       return Object.assign({}, state, { gettingChars: true });
     case GET_CHARACTERS_SUCCESS:
       return Object.assign({}, state, {
-        chars: [...state.chars, ...action.payload],
+        chars: action.payload,
         gettingChars: false
       });
     case GET_CHARACTERS_ERROR:

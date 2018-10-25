@@ -2,31 +2,39 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import "../styles/App.css";
-// pull in actions from action/index
+import { getCharacters } from "../actions/index";
 
 class App extends Component {
   componentDidMount() {
-    // call our action
+    this.props.getCharacters();
   }
   render() {
     return (
       <div className="App">
-        {/* <ul>
-          {this.props.chars.map(char => {
-            return <li key={char.name}>{char.name}</li>;
-          })}
-        </ul>
-        )} */}
+        {this.props.gettingChars ? (
+          <p>Getting characters...</p>
+        ) : (
+          <ul>
+            {this.props.chars.map(char => {
+              return <li key={char.name}>{char.name}</li>;
+            })}
+          </ul>
+        )}
+        {this.props.error !== "" ? <p>{this.props.error}</p> : null}
       </div>
     );
   }
 }
 
-// our mapDispatchToProps needs to have two properties inherited from state
-// the chars and the fetching boolean
+const mapStateToProps = state => {
+  return {
+    chars: state.chars,
+    error: state.error,
+    gettingChars: state.gettingChars
+  };
+};
+
 export default connect(
-  null,
-  {
-    /* actions go here */
-  }
+  mapStateToProps,
+  { getCharacters }
 )(App);
