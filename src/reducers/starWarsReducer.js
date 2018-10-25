@@ -1,4 +1,5 @@
 import { FETCHING_FRIENDS, FRIENDS_SUCCESS, FRIENDS_ERR } from '../actions';
+
 const initialState = {
   characters: [],
   isFetching: false,
