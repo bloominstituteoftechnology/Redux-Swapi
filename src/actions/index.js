@@ -1,12 +1,21 @@
 // we'll need axios
 import axios from 'axios';
 
-export const FETCHING = 'FETCHING';
+export const FETCH_PEOPLE = 'FETCH_PEOPLE';
+export const SUCCESS = 'SUCCESS';
+export const FAILURE = 'FAILURE';
 
-export const fetching = () => dispatch => {
+export const fetchPeople = () => dispatch => {
  
-  dispatch({ type: FETCHING })
-  axios.get('https://swapi.co/api/people')
+  dispatch({ type: FETCH_PEOPLE })
+  axios
+    .get('https://swapi.co/api/people')
+    .then( response => {
+      dispatch({ type: SUCCESS, payload: response.data.message})
+    })
+    .catch(error => {
+      dispatch({ type: FAILURE, payload: error})
+    })
 
   
 }

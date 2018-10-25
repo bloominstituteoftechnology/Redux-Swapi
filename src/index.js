@@ -17,7 +17,7 @@ const composeEnhancers =
     : compose;
 
 const enhancer = composeEnhancers(applyMiddleware(thunk, logger));
-const store = createStore(charsReducer, enhancer);
+const store = createStore( charsReducer, enhancer);
 
 
 ReactDOM.render(
