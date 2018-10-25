@@ -20,5 +20,5 @@ export const fetchChars = () => dispatch => {
     })
     .catch(err => {
       dispatch({ type: FETCHING_CHARS_FAILURE, payload: err });
-    });
-};
+    })
+}
