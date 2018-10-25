@@ -1,6 +1,6 @@
-import /* we need our action types here*/ '../actions';
+import /* we need our action types here*/ "../actions";
 const initialState = {
-  // define a few properties here.
+  characters: []
   // Array characters, Boolean fetching, null error.
 };
 export const charsReducer = (state = initialState, action) => {
