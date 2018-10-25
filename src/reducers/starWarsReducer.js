@@ -16,13 +16,13 @@ export const charsReducer = (state = initialState, action) => {
     // your switch statement should handle all of these cases.
     case FETCH_PEOPLE: 
       return {...state, isFetching: true};
+    case FAILURE:
+      return {...state, isFetching: false, error: action.payload};
   
     case SUCCESS: 
-    console.log('this is it', state)
-      return {...state,characters:[...state.characters, ...action.payload], isFetching: false  } 
+      return {...state, characters:[...state.characters, ...action.payload], isFetching: false  }; 
     
-    case FAILURE:
-      return {...state, isFetching: false, error: action.payload}
+    
 
     default:
       return state;
