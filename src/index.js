@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import { Provider } from "react-redux";
 import { applyMiddleware, createStore } from "redux";
+import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import charsReducer from "./reducers";
@@ -14,11 +15,10 @@ import charsReducer from "./reducers";
 // logger from redux-logger
 // rootReducer from ./reducers
 
+
 const store = createStore(
-  charsReducer,
+  charsReducer, composeWithDevTools(applyMiddleware(thunk, logger))
   /* applyMiddleware goes here */
-  applyMiddleware(thunk, logger),
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 ReactDOM.render(

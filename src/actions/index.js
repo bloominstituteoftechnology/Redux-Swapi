@@ -17,10 +17,11 @@ export const fetchChar = () => dispatch => {
   axios
     .get("https://swapi.co/api/people/")
     .then( response => {
-      console.log(response);
+      console.log(response); 
+      //remember to console log to find correct payload response
       dispatch({ 
         type: SUCCESS, 
-        payload: response.message 
+        payload: response.data.results 
       })
     })
     .catch(error => {

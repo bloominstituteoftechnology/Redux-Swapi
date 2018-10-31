@@ -25,6 +25,7 @@ export const charsReducer = (state = initialState, action) => {
       };
     
     case SUCCESS:
+    console.log(state.characters, action.payload)
       return {
         ...state,
         isFetching: false,
@@ -37,7 +38,7 @@ export const charsReducer = (state = initialState, action) => {
         isFetching: false, 
         error: action.payload
       }
-      
+
     default:
       return state;
   }
