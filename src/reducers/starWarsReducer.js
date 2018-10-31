@@ -1,4 +1,4 @@
-import {FETCHING_CHARS, FETCHING_CHARS_FAILURE, FETCHING_CHARS_SUCCESS} "../actions";
+import {FETCHING_CHARS, FETCHING_CHARS_FAILURE, FETCHING_CHARS_SUCCESS} from "../actions";
 
 
 const initialState = {
