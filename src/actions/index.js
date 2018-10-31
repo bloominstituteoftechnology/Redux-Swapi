@@ -12,6 +12,7 @@ export const FAILURE = 'ERROR';
 // remember that now we have controll over our thunk-based action creator
 
 export const fetchChar = () => dispatch => {
+  console.log(dispatch);
   dispatch({ type: FETCHING });
   axios
     .get("https://swapi.co/api/people/")
@@ -19,10 +20,11 @@ export const fetchChar = () => dispatch => {
       console.log(response);
       dispatch({ 
         type: SUCCESS, 
-        payload: response.data 
+        payload: response.message 
       })
     })
     .catch(error => {
+      console.log(error);
       dispatch({ 
         type: FAILURE, 
         payload: error 

@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { CharacterList } from "../components";
 // import actions
-import { fetchChar } from '../actions/index.js'
+import { fetchChar } from '../actions'
 
 class CharacterListView extends React.Component {
   constructor(props) {
@@ -15,7 +15,7 @@ class CharacterListView extends React.Component {
   }
 
   render() {
-    if (this.props.fetch) {
+    if (this.props.isFetching) {
       // return something here to indicate that you are fetching data
       return <h3>fetching your characters...</h3>
     }
@@ -33,7 +33,7 @@ const mapStateToProps = state => {
   console.log(state);
   return {
     characters: state.charsReducer.characters,
-    fetch: state.charsReducer.isFetching,
+    isFetching: state.charsReducer.isFetching,
     error: state.charsReducer.error,
   }
 }
