@@ -20,3 +20,5 @@ export const StarWarsCharFetch = () => {
     });
   };
 }
+
+//MVP complete
