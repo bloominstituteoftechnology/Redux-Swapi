@@ -58,7 +58,7 @@ import { applyMiddleware, createStore } from 'redux';
 
 ## redux-thunk
 
-- [redux-thunk](https://github.com/gaearon/redux-thunk) was built by _Dan Abramov_, co-author of Redux, to handle Asynchronous requests in Recux.
+- [redux-thunk](https://github.com/gaearon/redux-thunk) was built by _Dan Abramov_, co-author of Redux, to handle Asynchronous requests in Redux.
 - **What is it?** - `redux-thunk` is a middleware that we can plug into our `createStore()` method when setting up our Redux application.
 - **Why do we need it?** Well, Dan himself argues that if you have to ask that question you probably don't need it. However, the average single-page-application deals with `HTTP` requests and often times, we don't have the data back from the server we need in time for use in a synchronous flow. `redux-thunk` allows us to turn our action creators into async functions by granting them the ability to return 'functions' instead of plain objects.
 - **How do we use it?** It's pretty simple really.
