@@ -1,6 +1,6 @@
 # Redux Swapi
 
----
+----
 
 ## Topics
 
