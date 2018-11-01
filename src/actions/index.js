@@ -4,6 +4,9 @@ import axios from 'axios';
 export const FETCHING_CHARACTERS = 'FETCHING_CHARACTERS';
 export const FETCHING_CHARACTERS_SUCCESS = 'FETCHING_CHARACTERS_SUCCESS';
 export const FETCHING_CHARACTERS_FAILURE = 'FETCHING_CHARACTERS_FAILURE';
+export const FETCHING_PLANET= 'FETCHING_PLANET';
+export const FETCHING_PLANET_SUCCESS  = 'FETCHING_PLANET_SUCCESS';
+export const FETCHING_PLANET_FAILURE = 'FETCHING_PLANET_FAILURE';
 
 export const fetchCharacters = () => dispatch => {
     // let's do some async stuff! Thanks react-thunk :)
@@ -12,12 +15,28 @@ export const fetchCharacters = () => dispatch => {
       .get('https://swapi.co/api/people/')
       .then(response => {
         console.log(response);
+        
         dispatch({ type: FETCHING_CHARACTERS_SUCCESS, payload: response.data.results });
       })
       .catch(error => {
         dispatch({ type: FETCHING_CHARACTERS_FAILURE, payload: error });
       });
   };
+
+  export const fetchPlanet = () => dispatch => {
+
+    dispatch({ type: FETCHING_PLANET });
+    axios 
+      .get('https://swapi.co/api/planets/1/')
+      .then(response => {
+        console.log(response);
+
+        dispatch({ type: FETCHING_PLANET_SUCCESS, payload: response.data });
+      })
+      .catch(error => {
+        dispatch({ type: FETCHING_PLANET_FAILURE, payload: error });
+      })
+  }
 
 // we'll need to create 3 different action types here.
 // one for fetching, one for success and one for failure
