@@ -15,7 +15,7 @@ export const charsReducer = (state = initialState, action) => {
     case FETCHING:
       return Object.assign({}, state, {isFetching: true});
     case SUCCESS: 
-      return Object.assign({}, state,  {isFetching: false, starWarsChar: state.starWarsChar.concat(action.payload)});
+      return Object.assign({}, state,  {isFetching: false, characters: state.characters.concat(action.payload)});
     case FAILURE: 
       return Object.assign({}, state, {error: action.error})
       default:
