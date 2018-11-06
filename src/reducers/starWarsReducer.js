@@ -1,4 +1,4 @@
-import { FETCHING, ERROR_FETCHING, GET } from '../actions';
+import { FETCHING, ERROR_FETCHING, FETCHED } from '../actions';
 const initialState = {
   characters: []
   // Array characters, Boolean fetching, null error.
@@ -6,7 +6,7 @@ const initialState = {
   fetching: false,
   fetched: false,
   error: null
-  
+
 };
 export const charsReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -17,7 +17,7 @@ export const charsReducer = (state = initialState, action) => {
     return 
     case ERROR_FETCHING:
     return
-    case GET:
+    case FETCHED:
     return 
     default:
       return state;
