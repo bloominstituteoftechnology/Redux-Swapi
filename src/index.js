@@ -11,16 +11,10 @@ import logger from 'redux-logger';
 
 import "./index.css";
 
-// needed dependancies
-// applyMiddleware from redux
-// thunk from redux-thunk
-// logger from redux-logger
-// rootReducer from ./reducers
-
-const store = createStore(
-  rootReducer
-  /* applyMiddleware goes here */
-);
+// Apply middleware (logger and thunk) and create a store with combined reducers
+// and middleware.
+const middleware = applyMiddleware(logger, thunk);
+const store = createStore(rootReducer, middleware);
 
 ReactDOM.render(
   <Provider store={store}>
