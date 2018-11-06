@@ -6,3 +6,26 @@
 // our action creator will be a function that returns a function
 // the url to fetch characters from is `https://swapi.co/api/people/`
 // remember that now we have controll over our thunk-based action creator
+import axios from 'axios';
+
+export const FETCHING = 'FETCHING';
+export const SUCCESS = 'SUCCESS';
+export const FAILURE = 'FAILURE';
+
+export const fetchCharacters = () =>{
+    return dispatch =>{
+        dispatch({type:FETCHING})
+    
+        axios   
+            .get('https://swapi.co/api/people/')
+                .then(response =>{
+                    dispatch({
+                        type : SUCCESS,
+                        payload : response.data.results.slice(0,10)
+                    })
+                })
+            .catch(err =>{
+                dispatch({type: FAILURE, payload : 'No character to be had'})
+            })    
+    }
+}
