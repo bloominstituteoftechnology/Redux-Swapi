@@ -19,9 +19,10 @@ class CharacterListView extends React.Component {
     if (this.props.fetching) {
       <div>Fetching Characters...</div>
     }
+    console.log( "this.props.characters.results", this.props.characters.results );
     return (
       <div className="CharactersList_wrapper">
-        <CharacterList characters={this.props.characters.results} />;
+        <CharacterList characters={this.props.characters} />;
       </div>
     );
   }

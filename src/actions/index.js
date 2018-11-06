@@ -18,7 +18,7 @@ export const fetchData = (data) => {
       .then( response => {
         dispatch({
           type: SUCCESS,
-          payload: response.data
+          payload: response.data.results
         });
       })
       .catch( err => {
