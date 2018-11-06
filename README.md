@@ -1,4 +1,4 @@
-# Redux Swapi
+# Redux Swapi (initial commit)
 
 ---
 
