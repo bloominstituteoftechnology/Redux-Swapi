@@ -12,8 +12,8 @@ export const FETCHING = 'FETCHING';
 export const SUCCESS = 'SUCCESS';
 export const FAILURE = 'FAILURE';
 
-export const fetchCharacters = () =>{
-    return dispatch =>{
+export const fetchCharacters = () => dispatch =>{
+    
         dispatch({type:FETCHING})
     
         axios   
@@ -25,7 +25,7 @@ export const fetchCharacters = () =>{
                     })
                 })
             .catch(err =>{
-                dispatch({type: FAILURE, payload : 'No character to be had'})
+                dispatch({type: FAILURE, payload : err})
             })    
-    }
+    
 }
