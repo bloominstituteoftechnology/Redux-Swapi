@@ -1,4 +1,4 @@
-import { FETCHING, SUCCESS, FAILURE} from '../actions'; /* we need our action types here*/ "../actions";
+import { FETCHING, SUCCESS, FAILURE} from '../actions';
 
 const initialState = {
   characters: [],
@@ -15,9 +15,9 @@ export const charsReducer = (state = initialState, action) => {
       case FETCHING:
         return Object.assign({}, state, { fetching: true});
       case SUCCESS:
-        return Object.assign({}, state, { characters: action.payload, fetching: false, error: '' });
+        return Object.assign({}, state, { characters: action.characters, fetching: false, error: '' });
       case FAILURE: 
-        return Object.assign({}, state, { fetching: false, error: action.payload});
+        return Object.assign({}, state, { fetching: false, error: action.message});
       default:
         return state;
   }
