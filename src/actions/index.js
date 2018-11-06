@@ -19,13 +19,13 @@ export const fetchCharacters = () => {
       axios
          .get(`https://swapi.co/api/people/`)
          .then(response => {
-         dispatch({
-            type: SUCCESS, 
-            payload: response,
+            dispatch({
+               type: SUCCESS, 
+               payload: response.data.results,
+            })
          })
          .catch(err => {
-            dispatch({type: FAILURE, payload: null,})
-         })
+            dispatch({type: FAILURE, payload: err,})
       })
    }
 }

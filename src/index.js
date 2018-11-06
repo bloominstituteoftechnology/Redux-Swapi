@@ -15,7 +15,7 @@ import thunk from "redux-thunk";
 import logger from "redux-logger";
 
 const store = createStore(
-  rootReducer, applyMiddleware(thunk, logger)
+  rootReducer, applyMiddleware(logger, thunk)
   /* applyMiddleware goes here */
 );
 
