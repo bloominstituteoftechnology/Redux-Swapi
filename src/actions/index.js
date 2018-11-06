@@ -14,15 +14,15 @@ export const fetchCharacters = () => {
   return dispatch => {
     dispatch({ type: FETCHING });
     axios.get(`https://swapi.co/api/people`)
-    .then(response => {
-      console.log(response)
+    .then((response) => {
+      console.log(response.data)
       dispatch({
         type: SUCCESS,
-        payload: response.data
+        payload: response.data.results
       });
     })
     .catch(err => {
-      dispatch({ type: FAILURE, payload: 'ERROR!' });
+      dispatch({ type: FAILURE, payload: err });
     });
   };
 };

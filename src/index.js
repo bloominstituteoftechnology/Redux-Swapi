@@ -15,7 +15,7 @@ import "./index.css";
 // logger from redux-logger
 // rootReducer from ./reducers
 
-const middleware = applyMiddleware(logger, thunk);
+const middleware = applyMiddleware(thunk, logger);
 
 const store = createStore(
   rootReducer,
