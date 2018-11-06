@@ -5,10 +5,10 @@ import App from "./App";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from 'redux'; //  // make async functions
 import thunk from 'redux-thunk'; // make async functions
-import rootReducer from './reducers'
-import logger from 'redux-logger'; // print out actions and states
 
-const store = createStore( rootReducer, applyMiddleware(thunk,logger));
+import { charsReducer } from './reducers/starWarsReducer'
+
+const store = createStore( charsReducer, applyMiddleware(thunk,logger));
 
 ReactDOM.render(
   <Provider store={store}>
