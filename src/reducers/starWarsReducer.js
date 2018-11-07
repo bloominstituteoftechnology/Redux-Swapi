@@ -10,7 +10,11 @@ export const charsReducer = (state = initialState, action) => {
     case FETCHING:
       return {...state, loading: true};
     case SUCCESS:
-      return {...state, }
+      return Object.assign({}, state, {
+        characters: action.payload,
+        error: "",
+        fetching: false
+      });
     case FAILURE:
       return {...state, error: action.payload, loading: false}
     // Fill me in with the important reducers
