@@ -11,11 +11,8 @@ class CharacterListView extends React.Component {
 
   componentDidMount() {
   this.props.fetchChars()
-  
-  
   }
   
-
   render() {
     if (this.props.loading){return <h1>Loading</h1>}
   return (
@@ -25,9 +22,6 @@ class CharacterListView extends React.Component {
     );
   }
 }
-
-console.log(this.state)
-
 const mapStateToProps = state => {
  return({
   characters: state.chars.characters,
@@ -35,8 +29,6 @@ const mapStateToProps = state => {
   })
 }
 
-// our mapStateToProps needs to have two properties inherited from state
-// the characters and the fetching boolean
 export default connect(
   mapStateToProps,
   {
