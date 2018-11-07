@@ -14,7 +14,7 @@ class CharacterListView extends React.Component {
   render() {
 
     if (this.props.loading) {
-     return <h1>Everything is proceeding as I have foreseen.</h1>
+      return <h1>"Everything is proceeding as I have foreseen." - Emperor Palpatine</h1>
     }
 
 
