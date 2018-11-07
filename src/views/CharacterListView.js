@@ -17,12 +17,13 @@ class CharacterListView extends React.Component {
       return (
         <h2>Hold on we are loading the characters</h2>
       );
+    } else {
+      return (
+        <div className="CharactersList_wrapper">
+          <CharacterList characters={this.props.characters} />;
+        </div>
+      );
     }
-    return (
-      <div className="CharactersList_wrapper">
-        <CharacterList characters={this.props.characters} />;
-      </div>
-    );
   }
 }
 
