@@ -14,10 +14,10 @@ export const fetchChars = () =>{
     axios
         .get(`https://swapi.co/api/people/`)
         .then(response =>{
-            dispatch({type: SUCCESS, payload: response.data});
+            dispatch({type: SUCCESS, payload: response.data.results});
         })
         .catch(err =>{
-            dispatch({type: ERROR, payload: "failed to load data" })
+            dispatch({type: FAILURE, payload: err })
         })
     }
 }
