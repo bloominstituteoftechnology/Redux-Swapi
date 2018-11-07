@@ -41,6 +41,6 @@ const mstp = state => {
 export default connect(
   mstp,
   {
-    FETCHING, SUCCESS, FAILURE
+    FETCHING, SUCCESS, FAILURE, fetchCharacters
   }
 )(CharacterListView);

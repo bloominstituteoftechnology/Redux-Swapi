@@ -29,7 +29,7 @@ export const fetchCharacters = () => {
             .catch(err => {
                 dispatch({
                     type: FAILURE,
-                    payload: err
+                    payload: null
                 })
             })
     }
