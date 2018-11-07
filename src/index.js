@@ -15,7 +15,7 @@ import logger from 'redux-logger'
 
 const store = createStore(
   rootReducer,
-  applyMiddleware(thunk, logger) );
+  applyMiddleware(logger, thunk) );
 
 ReactDOM.render(
   //Provider 'provides' the store as well as any middleware to our components

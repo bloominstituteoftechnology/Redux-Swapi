@@ -9,7 +9,7 @@ const CharacterList = props => {
         return <Character key={character.name} character={character} />;
       })}
     </ul>
-  );
-};
+  )
+}
 
 export default CharacterList;
