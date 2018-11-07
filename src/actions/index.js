@@ -10,13 +10,12 @@ export const LOADING = "LOADING";
 // the url to fetch characters from is `https://swapi.co/api/people/`
 // remember that now we have controll over our thunk-based action creator
 export const getinfo = () => {
-    
+
     return dispatch => {
         dispatch({ type: LOADING });
         axios
             .get('https://swapi.co/api/people/')
             .then(response => {
-                console.log(response)
                 dispatch({
                     type: FETCHED_INFO,
                     payload: response.data.results
