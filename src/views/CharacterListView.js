@@ -28,8 +28,8 @@ class CharacterListView extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    characters: state.characters,
-    fetching: state.fetching
+    characters: state.charsReducer.characters,
+    fetching: state.charsReducer.fetching
   }
 }
 // our mapStateToProps needs to have two properties inherited from state

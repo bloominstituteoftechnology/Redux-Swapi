@@ -5,15 +5,14 @@ export const FETCH_SUCCESS = 'FETCH_SUCCESS';
 export const FETCH_FAILED = 'FETCH_FAILED';
 
 export default () => {
-    return dispacth => {
-        dispatch({ type: FETCHING_CHARS});
+    return dispatch => {
+        dispatch({ type: FETCHING_CHARS})
         axios
             .get('https://swapi.co/api/people/')
             .then(response => {
-                console.log(response);
-                dispacth({ 
+                dispatch({ 
                     type: FETCH_SUCCESS,
-                    payload: response.data
+                    payload: response.data.results
                 })
             })
             .catch(err => {
