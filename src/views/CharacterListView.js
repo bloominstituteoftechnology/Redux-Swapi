@@ -1,10 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-import { getCharacters } from '../actions/index.js';
+// import actions
+import { getCharacters } from '../actions/index.js'; // this is an action creator
 
 import { CharacterList } from "../components";
-// import actions
-import { FETCHING, ERROR, FETCHED } from "../actions";
+// import { FETCHING, ERROR, FETCHED } from "../actions"; // action types 
 class CharacterListView extends React.Component {
   constructor(props) {
     super(props);
@@ -26,7 +26,7 @@ class CharacterListView extends React.Component {
     }
     return (
       <div className="CharactersList_wrapper">
-        <CharacterList characters={this.props.characters} />;
+        <CharacterList characters={this.props.characters} />
       </div>
     );
   }
@@ -38,7 +38,7 @@ const mapStateToProps = state => {
   return{
     fetching: state.fetching,
     error: state.error,
-    chars: state.chars
+    characters: state.characters
   }
 }
 
