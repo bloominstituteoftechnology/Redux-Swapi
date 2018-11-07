@@ -6,8 +6,8 @@ import { CharacterList } from "../components";
 import { fetchChars } from '../actions/index';
 
 class CharacterListView extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   componentDidMount() {
@@ -32,15 +32,15 @@ class CharacterListView extends React.Component {
 
 const mapStateToProps = (state) => {
   return ({
-    characters: state.characters,
-    fetching: state.fetching,
+    characters: state.charsReducer.characters,
+    fetching: state.charsReducer.fetching,
   })
 }
 
 // our mapStateToProps needs to have two properties inherited from state
 // the characters and the fetching boolean
 export default connect(
-  null /* mapStateToProps replaces null here */,
+  mapStateToProps /* mapStateToProps replaces null here */,
   {
     fetchChars
   }
