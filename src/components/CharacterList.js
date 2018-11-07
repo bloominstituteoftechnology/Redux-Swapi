@@ -1,15 +1,42 @@
 import React from "react";
+import {fetchCharacters} from "../actions/index"
+import {connect} from 'react-redux'
 
 import Character from "./Character";
 
-const CharacterList = props => {
-  return (
-    <ul>
-      {props.characters.map(character => {
-        return <Character key={character.name} character={character} />;
-      })}
-    </ul>
-  );
+class CharacterList extends React.Component {
+    constructor(props) {
+        super();
+    }
+
+    componentDidMount() {
+        this.props.fetchCharacters();
+    }
+
+    render() {
+        return (
+            <ul>
+                {
+                    this.props.loading
+                        ? "LOADING"
+                        : this.props.characters.map(character => {
+                            return <Character key={character.name} character={character}/>
+                        })
+                }
+
+                { this.props.error && "Could not fetch characters" }
+            </ul>
+        );
+    }
+
 };
 
-export default CharacterList;
+const mapStateToProps = ({ loading, error, characters }) => {
+    return {
+        loading,
+        error,
+        characters
+    }
+};
+
+export default connect(mapStateToProps, {fetchCharacters})(CharacterList);

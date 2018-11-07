@@ -4,13 +4,12 @@ import "./index.css";
 import App from "./App";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
-import rootReducer from "./reducers";
 import reduxThunk from 'redux-thunk';
 import reduxLogger from 'redux-logger';
 import rootReducer from "./reducers"
 
 const store = createStore(
-  rootReducer
+  rootReducer,
   applyMiddleware(reduxThunk, reduxLogger)
 );
 
