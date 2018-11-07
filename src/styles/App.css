@@ -26,3 +26,17 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.CharactersList_wrapper {
+border: 2px solid blue;
+width: 1000px;
+
+}
+
+.list-view {
+border: 2px solid red;
+width: 200px;
+height: 100px;
+
+}
+
