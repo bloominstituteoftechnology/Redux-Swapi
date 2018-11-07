@@ -12,13 +12,12 @@ import logger from 'redux-logger';
 // applyMiddleware from redux
 // thunk from redux-thunk
 // logger from redux-logger
-// rootReducer from ./reducers
+// rootReducer from ./reducers  
 
-const middlewareQueue = applyMiddleware(logger, thunk)
 
 const store = createStore(
   rootReducer,
-  middlewareQueue
+  applyMiddleware(logger, thunk)
   /* applyMiddleware goes here */
 );
 
