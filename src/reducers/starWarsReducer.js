@@ -1,4 +1,4 @@
-import {FETCHING, SUCCESS, FAILURE} from  "../actions/index";
+import {FETCHING, SUCCESS, FAILURE} from  "../actions/index";       // don't need index in path
 const initialState = {
   characters: [],
   fetching: false,
@@ -15,6 +15,7 @@ export const charsReducer = (state = initialState, action) => {
     case FETCHING:
       return Object.assign( {}, state, {error: 'fetching: true'});
 
+
     case SUCCESS:
       return {...state,
         characters: [...state.characters, ...action.characters],
@@ -23,9 +24,26 @@ export const charsReducer = (state = initialState, action) => {
       };
 
     case FAILURE:
+      return {}
+
+
+
+   /*
+    case SUCCESS:
+      return Object.assign( {}, state, {
+        characters: action.characters,
+        fetching: false,
+        error: ''
+
+
+
+
+    case FAILURE:
       return {...state,
       fetching: false,
       error: action.error};
+    */
+
 
     default:
       return state;
