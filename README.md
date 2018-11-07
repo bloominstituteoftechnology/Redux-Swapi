@@ -117,6 +117,7 @@ applyMiddleware(thunk, logger);
 
 ## Project
 
+- [x] Forked, cloned, installed, and started
 - Your project here is to build a `react-redux` application that will request some data from a 3rd party api.
 - go ahead and run an `npm install` or `yarn` to get what you need installed here.
 - **Start** in `src/index.js`. We'll need to pull in the appropriate packages.
