@@ -10,31 +10,23 @@ export const FAILURE = 'FAILURE';
 // one for fetching, one for success and one for failure
 
 export const fetchData = () => {
+  //   console.log('inside fetchData');
   return dispatch => {
+    dispatch({ type: FETCHING });
     axios
       .get(`https://swapi.co/api/people/`)
       .then(response => {
-        //   dispatch({
-        //       type: FETCHING,
-        //       payload: {
-        //           response
-        //       }
-        //   })
-        console.log(response);
+        // console.log('respone: ', response);
+        dispatch({
+          type: SUCCESS,
+          payload: response.data.results.slice(0, 10)
+        });
       })
       .catch(err => {
         console.log('ERROR');
+        dispatch({ type: FAILURE, payload: 'Failed to load data' });
       });
-    return { type: FETCHING };
   };
-};
-
-export const success = () => {
-  return { type: SUCCESS };
-};
-
-export const failure = () => {
-  return { type: FAILURE };
 };
 
 // our action creator will be a function that returns a function
