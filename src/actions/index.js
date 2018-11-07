@@ -10,7 +10,6 @@ export const getChars = Char => {
         axios 
             .get('https://swapi.co/api/people/')
             .then(response => {
-                console.log(response.data.results)
                 dispatch({
                     type: SUCCESS,
                     payload: response.data.results
