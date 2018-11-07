@@ -12,11 +12,11 @@ export const FAILURE = 'FAILURE'
 // remember that now we have controll over our thunk-based action creator
 export const fetchingCharacters = () =>{
     return (dispatch) => {
-        
+
         dispatch({type: FETCHING})
         axios.get(`https://swapi.co/api/people/`)
             .then((response) => {
-                dispatch({type: SUCCESS, payload: response.data.name})
+                dispatch({type: SUCCESS, payload: response.data})
             })
             .catch((err) => {
                 dispatch({type: FAILURE, payload: err})
