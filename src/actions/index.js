@@ -21,6 +21,6 @@ export const fetchPeople = () => dispatch => {
 			dispatch({type : SUCCESS, payload : res.data});
 		})
 		.catch(err => {
-			dispatch({type : FAILURE, payload : err});
+			dispatch({type : FAILURE, err : 1});
 		});
 };
