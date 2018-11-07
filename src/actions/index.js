@@ -5,16 +5,19 @@ export const FAILURE = "FAILURE";
 export const SUCCESS = "SUCCESS";
 
 export const fetchCharacters = () => {
+    console.log("In the actions");
+    
   return dispatch => {
-    dispatch({ type: "FETCHING" });
+    dispatch({ type: FETCHING });
     axios
       .get(`https://swapi.co/api/people/`)
       .then(response => {
-        dispatch({ type: "SUCCESS", payload: response });
+          console.log("In the then")
+        dispatch({ type: SUCCESS, payload: response.data.results });
       })
       .catch(err => {
         dispatch({
-          type: "FAILURE",
+          type: FAILURE,
           payload: "Characters not found"
         });
       });

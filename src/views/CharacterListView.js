@@ -15,7 +15,7 @@ class CharacterListView extends React.Component {
         <div>Please wait while awesomeness is brought from another galaxy</div>
       );
     }
-    console.log("ListView", this.props)
+    console.log("ListView", this.props.characters)
     return (
       <div className="CharactersList_wrapper">
         <CharacterList characters={this.props.characters} />;
