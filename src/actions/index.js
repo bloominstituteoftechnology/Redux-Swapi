@@ -4,7 +4,25 @@ export const FETCHING = "FETCHING";
 export const FAILURE = "FAILURE";
 export const SUCCESS = "SUCCESS";
 
-export const fetchCharacters 
+export const fetchPeople = () => {
+    return dispatch => {
+        dispatch({type: FETCHING});
+        axios
+        .get(`https://swapi.co/api/people/`)
+        .then(response => {
+            dispatch({
+                type: SUCCESS,
+                payload: response.data
+            });
+        })
+        .catch(err=> {
+            dispatch({
+                type: FAILURE, 
+                payload: "Character does not exist"
+            });
+        });
+    };
+};
 
 //need to include dispatch 
 

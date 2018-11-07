@@ -1,4 +1,4 @@
-import /* we need our action types here*/ "../actions";
+import {FETCHING, FAILURE, SUCCESS } from "../actions/index";
 const initialState = {
   characters: [],
   error: "",
@@ -12,12 +12,16 @@ export const charsReducer = (state = initialState, action) => {
     case FAILURE:
       return {...state, error: action.payload, loading: false};
     case SUCCESS:
-      //something goes here...
+      return Object.assign({}, initialState, {
+        characters: action.payload,
+        error: "",
+        loading:false
+      });
     
       // Fill me in with the important reducers
     // action types should be FETCHING, SUCCESS and FAILURE
     // your switch statement should handle all of these cases.
     default:
-      return state;
+      return initialState;
   }
 };
