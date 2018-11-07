@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import { CharacterList } from "../components";
-import { FETCHING, SUCCESS, FAILURE, fetchCharacters } from '../actions';
+import { fetchCharacters } from '../actions';
 // import actions
 
 class CharacterListView extends React.Component {
@@ -18,7 +18,9 @@ class CharacterListView extends React.Component {
   render() {
     if (this.props.fetching) {
       // return something here to indicate that you are fetching data
-      return 'These are not the droids you are looking for'
+      return (
+        <div>These are not the droids you are looking for</div>
+      )
     }
     return (
       <div className="CharactersList_wrapper">
@@ -34,13 +36,14 @@ class CharacterListView extends React.Component {
 const mstp = state => {
   return {
     characters: state.charsReducer.characters,
-    fetching: state.charsReducer.fatching
+    fetching: state.charsReducer.fetching,
+    error: state.charsReducer.error
   }
 }
 
 export default connect(
   mstp,
   {
-    FETCHING, SUCCESS, FAILURE, fetchCharacters
+    fetchCharacters
   }
 )(CharacterListView);
