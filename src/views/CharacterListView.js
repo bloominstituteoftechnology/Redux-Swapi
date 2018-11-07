@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import { CharacterList } from "../components";
-import { FETCHING, SUCCESS, FAILURE, fetching } from '../actions';
+import { FETCHING, SUCCESS, FAILURE, fetchCharacters } from '../actions';
 // import actions
 
 class CharacterListView extends React.Component {
@@ -12,7 +12,7 @@ class CharacterListView extends React.Component {
 
   componentDidMount() {
     // call our action
-    return this.props.fetching()
+    this.props.fetchCharacters()
   }
 
   render() {
