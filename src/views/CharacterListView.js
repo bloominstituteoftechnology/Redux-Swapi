@@ -6,13 +6,13 @@ import { CharacterList } from "../components";
 import {getCharacters} from "../actions"
 
 class CharacterListView extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
   }
 
   componentDidMount() {
     // call our action
-    getCharacters(); 
+    this.props.getCharacters(); 
   }
 
   render() {
