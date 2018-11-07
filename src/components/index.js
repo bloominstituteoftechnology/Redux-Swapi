@@ -1,2 +1,3 @@
-export { default as CharacterList } from "./CharacterList";
-export { default as Character } from "./Character";
+import App from './App';
+
+export { App };
