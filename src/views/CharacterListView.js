@@ -37,10 +37,4 @@ const mapStateToProps = state => {
 }
 // our mapStateToProps needs to have two properties inherited from state
 // the characters and the fetching boolean
-export default connect(
-  mapStateToProps /* mapStateToProps replaces null here */,
-  {
-    getChars
-    /* action creators go here */
-  }
-)(CharacterListView);
+export default connect( mapStateToProps,{ getChars })(CharacterListView);

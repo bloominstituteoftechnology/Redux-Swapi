@@ -5,10 +5,11 @@ export const SUCCESS = 'SUCCESS';
 export const FAILURE = 'FAILURE';
 
 
-export const getChars = () => dispatch => {
+export const getChars = () => { 
+    return dispatch => {
     dispatch({type: FETCHING});
     axios
-        .get("https://swapi.co/api/people")
+        .get(`https://swapi.co/api/people`)
         .then(({data}) => {
             dispatch({
                 type:SUCCESS,
@@ -21,6 +22,7 @@ export const getChars = () => dispatch => {
                 payload: error
             });
         });
+    }
 }
 
 // we'll need axios
