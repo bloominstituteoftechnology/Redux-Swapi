@@ -15,9 +15,8 @@ import rootReducer from "./reducers";
 // rootReducer from ./reducers
 
 
-
 const store = createStore(
-  rootReducer, applyMiddleware(thunk)
+  rootReducer, applyMiddleware(logger, thunk)
   /* applyMiddleware goes here */
 );
 
