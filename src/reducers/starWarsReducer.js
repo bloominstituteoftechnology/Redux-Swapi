@@ -1,6 +1,6 @@
 import { FETCHING, ERROR_FETCHING, FETCHED } from '../actions';
 const initialState = {
-  characters: []
+  
   // Array characters, Boolean fetching, null error.
   chars: [],
   fetching: false,
