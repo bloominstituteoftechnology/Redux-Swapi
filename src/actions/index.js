@@ -23,7 +23,7 @@ export const fetching = () => {
             .catch(err => {
                 dispatch({
                     type: FAILURE,
-                    payload: 'No person found'
+                    payload: err
                 });
             });
     };
