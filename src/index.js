@@ -5,7 +5,10 @@ import App from "./App";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
 import rootReducer from "./reducers";
-// needed dependancies
+import { applyMiddleware } from "redux";
+import { thunk } from "redux-thunk";
+import { logger } from "redux-logger";
+import { rootReducer } from "./reducers";
 // applyMiddleware from redux
 // thunk from redux-thunk
 // logger from redux-logger
