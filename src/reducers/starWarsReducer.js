@@ -1,13 +1,23 @@
 import { FETCHING, SUCCESS, ERROR } from "../actions/index";
 
 const initialState = {
-  characters: []
-  // Array characters, Boolean fetching, null error.
+  characters: [],
+  loading: false,
+  error: ''
 };
+
 export const charsReducer = (state = initialState, action) => {
   switch (action.type) {
+    case FETCHING:
+      return {...state, loading: true}
     case SUCCESS:
-      return action.payload
+      return Object.assign({}, state, {
+        characters: action.payload,
+        loading: false,
+        error: ''
+      })
+    case ERROR:
+      return {...state, error: action.payload}
     default:
       return state;
   }

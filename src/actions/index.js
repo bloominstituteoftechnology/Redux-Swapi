@@ -10,12 +10,15 @@ export const getChars = Char => {
         axios 
             .get('https://swapi.co/api/people/')
             .then(response => {
-                copnsole.log(response)
+                console.log(response.data.results)
                 dispatch({
                     type: SUCCESS,
-                    payload: response
+                    payload: response.data.results
                 })
             })
+            .catch(err => {
+                dispatch({type: ERROR, payload: 'Error in API call'});
+            });
     }
 }
 
