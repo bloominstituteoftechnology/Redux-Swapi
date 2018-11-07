@@ -10,12 +10,12 @@ export const fetchCharacters = () => {
     axios
       .get(`https://swapi.co/api/people/`)
       .then(response => {
-        dispatch({ type: "SUCCESS", payload: { characters: response } });
+        dispatch({ type: "SUCCESS", payload: response });
       })
       .catch(err => {
         dispatch({
           type: "FAILURE",
-          payload: { error: "Characters not found" }
+          payload: "Characters not found"
         });
       });
   };
