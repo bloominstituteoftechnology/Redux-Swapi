@@ -2,20 +2,21 @@ import React from "react";
 import { connect } from "react-redux";
 
 import { CharacterList } from "../components";
-// import actions
+import { fetching } from "../actions";
 
 class CharacterListView extends React.Component {
-  constructor() {
-    super();
-  }
-
+  
   componentDidMount() {
     // call our action
+    this.props.fetching();
   }
 
   render() {
     if (this.props.fetching) {
       // return something here to indicate that you are fetching data
+      return (
+        <h2>Hold on we are loading the characters</h2>
+      );
     }
     return (
       <div className="CharactersList_wrapper">
@@ -27,9 +28,12 @@ class CharacterListView extends React.Component {
 
 // our mapStateToProps needs to have two properties inherited from state
 // the characters and the fetching boolean
-export default connect(
-  null /* mapStateToProps replaces null here */,
+
+const mapStateToProps = state => (
   {
-    /* action creators go here */
+    characters: state.characters,
+    fetching: state.fetching
   }
-)(CharacterListView);
+);
+
+export default connect(mapStateToProps, { fetching })(CharacterListView);
