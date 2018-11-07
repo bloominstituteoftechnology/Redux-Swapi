@@ -7,6 +7,7 @@ const CharacterList = props => {
 
   return (
     <div>
+      <div>{props.error}</div>
       {props.loading ? (
         <h1>Loading....</h1>
       ) : null}
@@ -22,7 +23,8 @@ const CharacterList = props => {
 const mapStateToProps = state => {
   return {
     characters: state.chars.characters,
-    loading: state.chars.loading
+    loading: state.chars.loading,
+    error: state.chars.error
   }
 }
 
