@@ -5,7 +5,7 @@ export const SUCCESS = 'SUCCESS';
 export const FAILURE = 'FAILURE';
 
 
-export const getCharacters = () => dispatch => {
+export const getChars = () => dispatch => {
     dispatch({type: FETCHING});
     axios
         .get("https://swapi.co/api/people")
