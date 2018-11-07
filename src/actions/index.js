@@ -1,7 +1,8 @@
 // we'll need axios
 import axios from 'axios';
+import thunk from 'redux-thunk';
 
-export const FETCH_DATA = 'FETCH_DATA';
+export const FETCHING = 'FETCHING';
 export const SUCCESS = 'SUCCESS';
 export const FAILURE = 'FAILURE';
 
@@ -9,7 +10,23 @@ export const FAILURE = 'FAILURE';
 // one for fetching, one for success and one for failure
 
 export const fetchData = () => {
-  return { type: FETCH_DATA };
+  return dispatch => {
+    axios
+      .get(`https://swapi.co/api/people/`)
+      .then(response => {
+        //   dispatch({
+        //       type: FETCHING,
+        //       payload: {
+        //           response
+        //       }
+        //   })
+        console.log(response);
+      })
+      .catch(err => {
+        console.log('ERROR');
+      });
+    return { type: FETCHING };
+  };
 };
 
 export const success = () => {
