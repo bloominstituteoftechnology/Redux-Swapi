@@ -4,14 +4,14 @@ import { FETCHING, SUCCESS, FAILURE } from "../actions";
 
 const initialState = {
   characters: [],
-  fetching: false,
+  loading: false,
   error: '',
   // Array characters, Boolean fetching, null error.
 };
-export const charsReducer = (state = initialState, action) => {
+export const charsReducer = (previousState = initialState, action) => {
   switch (action.type) {
     case FETCHING: 
-
+        return {...previousState, loading: true };
     case SUCCESS:
 
     case FAILURE: 
@@ -19,6 +19,6 @@ export const charsReducer = (state = initialState, action) => {
     // action types should be FETCHING, SUCCESS and FAILURE
     // your switch statement should handle all of these cases.
     default:
-      return state;
+      return previousState;
   }
 };
