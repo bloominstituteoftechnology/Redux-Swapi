@@ -10,12 +10,14 @@ import thunk from 'redux-thunk';
 
 
 
-// needed dependancies
+// needed depende ncies
 // applyMiddleware from redux
 // thunk from redux-thunk
 // logger from redux-logger
 // rootReducer from ./reducers
 
+
+// store functionality extended with logger & thunk
 const midddleware = applyMiddleware(logger, thunk);           // added
 
 const store = createStore(

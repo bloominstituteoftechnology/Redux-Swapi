@@ -13,6 +13,7 @@ export const FAILURE = 'FAILURE';
 // the url to fetch characters from is `https://swapi.co/api/people/`
 // remember that now we have control over our thunk-based action creator
 
+/*
 export const fetch = () => {
   return dispatch => {
       dispatch({type: FETCHING});
@@ -25,11 +26,35 @@ export const fetch = () => {
             characters: response.data.results
           })
         })
-        .catch(error => ({
-          type: FAILURE,
-          error: 'URL not resolved'}))
+        .catch(error => {                                  // use dispatch!!!
+          dispatch({type: FAILURE, error: 'URL not resolved'});
+        })
 
   }
 
+
+};
+*/
+
+export const fetch = () => {
+  const starWarsChars = axios.get('https://swapi.co/api/people');
+
+  return dispatch => {
+    dispatch({ type: FETCHING});
+
+    starWarsChars
+      .then(response => {
+        console.log(response);
+        dispatch({ type: SUCCESS, payload: response.data.results });
+      })
+      .catch(err => {
+        dispatch({
+          type: FAILURE,
+          payload: 'URL not resolved'
+        });
+
+      });
+
+  };
 
 };
