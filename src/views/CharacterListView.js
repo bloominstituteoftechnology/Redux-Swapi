@@ -20,9 +20,11 @@ class CharacterListView extends React.Component {
 
   render() {
     if (this.props.fetching) {
-     return
+     return (
       // return something here to indicate that you are fetching data
+     <div>
       <h2 className="loading">Loading Characters, please wait... If this message doesnt go away, please try again.</h2>
+     </div> )
     }
     return (
       <div className="CharactersList_wrapper">
