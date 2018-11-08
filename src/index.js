@@ -8,9 +8,10 @@ import rootReducer from "./reducers";
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 
+const middleWare = applyMiddleware(logger, thunk);
 const store = createStore(
-  rootReducer
-  /* applyMiddleware goes here */
+  rootReducer,
+  middleWare
 );
 
 ReactDOM.render(
