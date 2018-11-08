@@ -13,8 +13,9 @@ export const FETCHING = 'FETCHING'
 export const SUCCESS = 'SUCCESS'
 export const FAILURE = 'FAILURE'
 
-export const characters = (dispatch) => {
-    dispatch({type: FETCHING});
+export const charactersFunction = (dispatch) => {
+    return dispatch => {
+        dispatch({type: FETCHING});
 
     axios
     .get(`https://swapi.co/api/people/`)
@@ -27,6 +28,9 @@ export const characters = (dispatch) => {
         dispatch({
             type: "FAILURE",
             text: "I cannae do it, captain"
+            })
         })
-    })
+    }
 }
+
+
