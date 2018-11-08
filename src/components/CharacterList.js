@@ -1,5 +1,5 @@
 import React from "react";
-import { connect } from 'react-redux';    //first import connect
+// import { connect } from 'react-redux';    //first import connect
 
 import Character from "./Character";
 
@@ -14,14 +14,14 @@ const CharacterList = props => {
 };
 
 // mapStateToProps - state or state.characters ?
-const mapStateToProps = state => {
-  return {
-    characters: state.characters,
-    loading: state.loading,
-    error: state.error,
-  }
-}
+// const mapStateToProps = state => {
+//   return {
+//     characters: state.characters,
+//     loading: state.loading,
+//     error: state.error,
+//   }
+// }
 
-export default connect(mapStateToProps)(CharacterList)
+// export default connect(mapStateToProps)(CharacterList)
 
-// export default CharacterList;
+export default CharacterList;
