@@ -4,11 +4,11 @@ import Character from "./Character";
 
 const CharacterList = props => {
   return (
-    <ul>
+    <div className="char-div">
       {props.characters.map(character => {
         return <Character key={character.name} character={character} />;
       })}
-    </ul>
+    </div>
   );
 };
 
