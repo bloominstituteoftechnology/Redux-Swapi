@@ -19,7 +19,7 @@ export const fetchCharacters = () =>{
                 dispatch({type: SUCCESS, payload: response.data.results})
             })
             .catch((err) => {
-                dispatch({type: FAILURE, payload: err})
+                dispatch({type: FAILURE, payload: "An error has occurred. Unable to retrieve the Star Wars characters"})
             })
     }
 }
