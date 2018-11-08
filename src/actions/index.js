@@ -1,3 +1,4 @@
+import axios from 'react-dom';
 // we'll need axios
 
 // we'll need to create 3 different action types here.
@@ -5,4 +6,4 @@
 
 // our action creator will be a function that returns a function
 // the url to fetch characters from is `https://swapi.co/api/people/`
-// remember that now we have controll over our thunk-based action creator
+// remember that now we have control over our thunk-based action creator
