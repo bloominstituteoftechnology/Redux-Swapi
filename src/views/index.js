@@ -1,1 +1,1 @@
-export { default as CharacterListView } from "./CharacterListView";
+export { default as CharacterListView } from './CharacterListView';
