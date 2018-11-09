@@ -20,13 +20,13 @@ export const SUCCESS = "SUCCESS";
 // Becuase we are using redux-thunk, we can pass a function as our action.
 // If we pass a normal action, thunk will pass it along as if northing happened
 // thunk will intercept the action and send a dummy action to the reducer, triggering our default switch.
-export const fetchDogs = breed => {
+export const fetchDogs = person => {
   // thunk will then pass the dispatch function to our callback, allowing us to dispatch multiple actions at multiple times.
   return dispatch => {
     // Here we dispatch an initial loading state action.
     dispatch({ type: LOADING });
     axios
-      .get(`https://dog.ceo/api/breed/${breed}/images`)
+      .get(`https://swapi.co/api/people/${person}/`) //https://swapi.co/api/people/${breed}/
       .then(response => {
         // If the API call is successful, we will pass a success action type and the correct payload
         dispatch({
@@ -36,7 +36,7 @@ export const fetchDogs = breed => {
       })
       .catch(err => {
         // If the API call is not successful, we will pass an action with the Error type.
-        dispatch({ type: ERROR, payload: "Unrecognized Breed" });
+        dispatch({ type: ERROR, payload: "Unrecognized" });
       });
   };
 };
