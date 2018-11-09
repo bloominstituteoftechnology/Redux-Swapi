@@ -1,12 +1,13 @@
-import React, { Component } from "react";
+import './styles/App.css'
 
-import { CharacterListView } from "./views";
-import "./styles/App.css";
+import React, { Component } from 'react'
+
+import { CharacterListView } from './views'
 
 class App extends Component {
   render() {
-    return <CharacterListView />;
+    return <CharacterListView />
   }
 }
 
-export default App;
+export default App
