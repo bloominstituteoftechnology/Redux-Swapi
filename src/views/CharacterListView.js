@@ -32,8 +32,8 @@ class CharacterListView extends React.Component {
 }
 const mapStateToProps = state => {
   return {
-    chars: state.character,
-    loading: state.loading
+    chars: state.charsReducer.character,
+    loading: state.charsReducer.loading
   }
 }
 // our mapStateToProps needs to have two properties inherited from state
@@ -41,7 +41,7 @@ const mapStateToProps = state => {
 export default connect(
 mapStateToProps,
   {
-    fetchChars:fetchChars
+    fetchChars : fetchChars
     /* action creators go here */
   }
 )(CharacterListView);

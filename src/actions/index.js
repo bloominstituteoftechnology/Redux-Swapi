@@ -20,11 +20,11 @@ export const fetchChars = char => {
     axios
       .get(`https://swapi.co/api/people`)
       .then(response => {
-        console.log(response.data.message)
+        console.log(response.data.results)
         // If the API call is successful, we will pass a success action type and the correct payload
         dispatch({
           type: FETCHED_CHARS,
-          chars: response.data.message
+          chars: response.data.results
   });
       })
       .catch(err => {
