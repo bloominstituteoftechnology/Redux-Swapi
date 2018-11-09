@@ -30,10 +30,10 @@ export const getChars = () => {
         dispatch({type: SUCCESS})
         axios.get(`https://swapi.co/api/people`)
         .then( response => {
-            dispatch({type: SUCCESS, characters: response.data })
+            dispatch({type: SUCCESS, characters: response.data.results, })
         })
         .catch ( err => {
-            dispatch({type: ERROR, errorMessage: "Can not fetch Characters"})
+            dispatch({type: ERROR,  errorMessage: "Can not fetch Characters"})
         })
     }
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 import Character from "./Character";
 
 const CharacterList = props => {
@@ -7,15 +7,17 @@ const CharacterList = props => {
   return (
     <ul>
       {props.characters.map(character => {
-        return <Character key={character.name} character={character} />;
+        return <Character key={character.name}  character={character} />;
       })}
     </ul>
   );
 };
 
 const mapStateToProps = (state) => {
+  console.log(state)
   return {
-    characters: state.characters,
+    characters: state,
+  
   }
 }
 
