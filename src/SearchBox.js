@@ -23,14 +23,14 @@ class SearchBox extends React.Component {
   render() {
     return (
       <div>
-        <h1>Welcome to Doggos, {this.props.name}!</h1>
+        <h1>Welcome to Star Wars(???), {this.props.name}!</h1>
         <input
           type="text"
           name="breed"
           onChange={this.inputChange}
           value={this.state.breed}
         />
-        <button onClick={this.searchForBreed}>Find Dogs!</button>
+        <button onClick={this.searchForBreed}>Search</button>
       </div>
     );
   }

@@ -12,7 +12,7 @@ export default combineReducers({
 import { FETCHED_DOGS } from "../actions/dogsActions";
 
 const initialState = {
-  name: "Dan Frehner",
+  name: "Shannon",
   username: "",
   email: "",
   lastLoggedIn: ""

@@ -18,7 +18,7 @@ const App = () => {
   return (
     <div className="App">
       <SearchBox />
-      <h1>Search For:</h1>
+      <h1>SWAPI List</h1>
       <DogsList />
     </div>
   );
