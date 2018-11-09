@@ -1,6 +1,7 @@
 import React from "react";
-
+import { connect } from 'react-redux';
 import Character from "./Character";
+import { getCharacters } from '../actions';
 
 const CharacterList = props => {
   return (
@@ -11,5 +12,14 @@ const CharacterList = props => {
     </ul>
   );
 };
+
+/* export default CharacterList; */
+/* const mapStateToProps = state => {
+  return {
+    characters: state.characters,
+    error: state.error,
+    loading: state.loading
+  }
+} */
 
 export default CharacterList;
