@@ -1,12 +1,27 @@
 import React, { Component } from "react";
 
-import { CharacterListView } from "./views";
-import "./styles/App.css";
+import "./styles.css";
 
+/*
 class App extends Component {
   render() {
     return <CharacterListView />;
   }
 }
+*/
+
+//ADDED CODE
+import SearchBox from "./SearchBox";
+import DogsList from "./DogsList";
+
+const App = () => {
+  return (
+    <div className="App">
+      <SearchBox />
+      <h1>SWAPI List</h1>
+      <DogsList />
+    </div>
+  );
+};
 
 export default App;
