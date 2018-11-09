@@ -10,8 +10,12 @@ export const FAILURE = "FAILURE";
 // the url to fetch characters from is `https://swapi.co/api/people/`
 // remember that now we have controll over our thunk-based action creator
 
+// Because we're using redux-thunk
+// thunk will intercept the action and send a dummy action to the reducer, triggering default switch
 export const fetchChar = people => {
+// thunk will pass dispatch function to callback, allow dispatch multiple actions at multiple times
     return dispatch => {
+        // dispatch initial fetching action
         dispatch({ type: FETCHING });
 
         axios
@@ -20,11 +24,11 @@ export const fetchChar = people => {
             //the Action
             dispatch({
                 type: SUCCESS,
-                payload: response.results
+                payload: response.data.results
             });
         })
         .catch(err => {
-            dispatch({ type: FAILURE, payload: "Unable to Fetch Data" });
+            dispatch({ type: FAILURE, payload: "Unable to Fetch SW Data" });
         });
     };
 };

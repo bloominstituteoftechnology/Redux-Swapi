@@ -8,8 +8,11 @@ const initialState = {
   error: '',
   // Array characters, Boolean fetching, null error.
 };
+
+// Redux always passes two values to Reducer - previousState & action
 export const charsReducer = (previousState = initialState, action) => {
   switch (action.type) {
+    // switch statement dependent on action type
     case FETCHING: 
         return {...previousState, loading: true };
     case SUCCESS:

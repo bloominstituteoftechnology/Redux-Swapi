@@ -11,7 +11,12 @@ import thunk from 'redux-thunk';// thunk from redux-thunk
 import logger from 'redux-logger'; // logger from redux-logger
 // rootReducer from ./reducers
 
+
+
+// extend Redux functionality, by manipulating action before it gets to reducer
 const middleware = applyMiddleware(logger, thunk);
+
+//middlewhere is the second argument to createStore, which wraps around App vis Provider
 const store = createStore(
   rootReducer,
   middleware,
