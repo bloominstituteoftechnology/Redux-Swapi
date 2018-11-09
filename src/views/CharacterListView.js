@@ -28,6 +28,7 @@ class CharacterListView extends React.Component {
     }
     return (
       <div className="CharactersList_wrapper">
+      <h1 className="title">Star Wars Character List</h1>
         <CharacterList characters={this.props.characters} />;
       </div>
     );

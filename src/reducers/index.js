@@ -5,8 +5,8 @@ import { charsReducer } from './starWarsReducer';
   charsReducer
 }); */
 
-/* export { default as charsReducer } from "./starWarsReducer"; */
+/*  export { default as charsReducer } from "./starWarsReducer";  */
 
-export default combineReducers({
+ export default combineReducers({
   charsReducer
-});
+}); 
