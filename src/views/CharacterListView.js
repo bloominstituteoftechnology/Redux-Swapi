@@ -14,23 +14,23 @@ class CharacterListView extends React.Component {
 
   componentDidMount() {
     // call our action
-    //return { fetchChar }
     this.props.fetchChar();
   }
 
   render() {
     if (this.props.fetching) {
       // return something here to indicate that you are fetching data
+      return (<p> LOADING DATA...one moment...</p>)
     }
     return (
       <div className="CharactersList_wrapper">
-        <CharacterList characters={this.props.characters} />;
+        <CharacterList characters={this.props.characters} />
       </div>
     );
   }
 }
 
-//mapStateToProps - state or state.characters ?
+//mapStateToProps - state or state.characters; actually state.charsReducer!!
 const mapStateToProps = state => {
   return {
     characters: state.charsReducer.characters,
