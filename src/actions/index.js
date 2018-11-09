@@ -24,9 +24,8 @@ export const fetchChars = char => {
         // If the API call is successful, we will pass a success action type and the correct payload
         dispatch({
           type: FETCHED_CHARS,
-          payload: response.data.message,
-
-        });
+          chars: response.data.message
+  });
       })
       .catch(err => {
         // If the API call is not successful, we will pass an action with the Error type.
