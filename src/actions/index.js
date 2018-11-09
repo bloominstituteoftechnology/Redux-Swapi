@@ -8,10 +8,10 @@ export const FETCH_CHARACTERS_FAILURE = 'FETCH_CHARACTERS_FAILURE';
 export const getCharacters = () => dispatch => {
     dispatch({ type: FETCH_CHARACTERS });
     axios.get("https://swapi.co/api/people")
-        .then(({ response }) => {
+        .then( response => {
             dispatch({
                 type: FETCH_CHARACTERS_SUCCESS,
-                payload: response.results,
+                payload: response.data.results,
             });
         })
 
