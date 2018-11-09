@@ -1,20 +1,20 @@
-import { FETCHING_CHARS, ERROR, SUCCESS } from "../actions";
+import { LOADING, ERROR, SUCCESS } from "../actions";
 const initialState = {
   characters: [],
-  fetching: false,
+  loading: false,
   error: ""
 };
 export const charsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCHING_CHARS:
-      return { ...state, fetching: true };
+    case LOADING:
+      return { ...state, loading: true };
     case ERROR:
       return { ...state, error: action.payload, loading: false };
     case SUCCESS:
       return Object.assign({}, state, {
-        dogs: action.payload,
+        characters: [...state.characters, ...action.payload],
         error: "",
-        fetching: false
+        loading: false
       });
     default:
       return state;
