@@ -12,7 +12,7 @@ export const charsReducer = (state = initialState, action) => {
       return { ...state, error: action.payload, loading: false };
     case SUCCESS:
       return Object.assign({}, state, {
-        characters: [...state.characters, ...action.payload],
+        characters: action.payload,
         error: "",
         loading: false
       });
