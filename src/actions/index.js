@@ -17,8 +17,8 @@ axios
 .get(`https://swapi.co/api/people/`)
     .then(response => {
         dispatch({
-            type: SUCCESS,
-            payload: response.data.RESULTS
+            type: SUCCESSFUL,
+            payload: response.data.results
         });
     } )
     .catch(response => {

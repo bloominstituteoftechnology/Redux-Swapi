@@ -10,7 +10,6 @@ import rootReducer from "./reducers";
 // thunk from redux-thunk
 import thunk from "redux-thunk";
 import logger from "redux-logger";
-import rootReducer from "./reducers";
 // logger from redux-logger
 // rootReducer from ./reducers
 
