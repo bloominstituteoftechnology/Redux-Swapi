@@ -19,7 +19,13 @@ class CharacterListView extends React.Component {
       return (<h1>...Fetching CharacterList</h1>)
     }
 
-   
+    else if (this.props.characters.length === 0) {
+
+      return (<h1>{this.props.errorMessage}</h1>)
+    }
+
+    else {
+      
     return (
       <div className="CharactersList_wrapper">
         <CharacterList characters={this.props.characters} />
@@ -27,6 +33,7 @@ class CharacterListView extends React.Component {
     );
     
   }
+ }
 }
 
 // our mapStateToProps needs to have two properties inherited from state
