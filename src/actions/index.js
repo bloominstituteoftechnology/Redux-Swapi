@@ -17,23 +17,10 @@ export const fetchChars = () => {
         dispatch({type: FETCHING})
         axios.get(`https://swapi.co/api/people/`)
         .then( response => {
-            dispatch({type: FETCHING, characters: response.data })
+            dispatch({type: SUCCESS, payload: response.data.results })
         })
         .catch( err => {
             dispatch({type: ERROR, errorMessage: "Can not fetch Characters"})
-        })
-    }
-}
-
-export const getChars = () => {
-    return (dispatch) => {
-        dispatch({type: SUCCESS})
-        axios.get(`https://swapi.co/api/people`)
-        .then( response => {
-            dispatch({type: SUCCESS, characters: response.data.results, })
-        })
-        .catch ( err => {
-            dispatch({type: ERROR,  errorMessage: "Can not fetch Characters"})
         })
     }
 }
