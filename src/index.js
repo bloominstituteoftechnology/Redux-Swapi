@@ -18,6 +18,7 @@ const middleWare = applyMiddleware(logger, thunk);
 
 const store = createStore(
   rootReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
   middleWare
   /* applyMiddleware goes here */
 );
