@@ -6,15 +6,27 @@ export const SUCCESS = 'SUCCESS'
 
 export const FAILURE = 'FAILURE'
 
-export const fetching = () => {
+export const LOADING = 'LOADING'
+
+
+export const getSwChars = () => {
+ return (dispatch) => {
+
+  dispatch({type: LOADING})
+  axios
+  .get('https://swapi.co/api/people.')
+  .then(response => {
+   dispatch({
+    type: FETCHING,
+    payload: response.data
+   })
+  })
+  .catch(err => {
+
+  })
 
 }
 
-export const success = () => {
-
-}
-
-export const failure = () => {
 
 }
 
