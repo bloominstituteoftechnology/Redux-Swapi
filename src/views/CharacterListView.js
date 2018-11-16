@@ -2,6 +2,11 @@ import React from "react";
 import { connect } from "react-redux";
 
 import { CharacterList } from "../components";
+import { applyMiddleware, createStore } from 'redux';
+import thunk from 'redux-thunk';
+//import reducers
+
+
 // import actions
 
 class CharacterListView extends React.Component {
