@@ -6,22 +6,22 @@ import {
 
 const initialState = {
   characters: [],
-  fetchingCharacters: false,
+  fetching: false,
   error: ""
   // Array characters, Boolean fetching, null error.
 };
 export const charsReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCHING:
-      return Object.assign({}, state, { fetchingCharacters: true });
+      return Object.assign({}, state, { fetching: true });
     case SUCCESS:
       return Object.assign({}, state, {
         characters: [...state.characters, ...action.payload],
-        fetchingCharacters: false
+        fetching: false
       });
     case FAILURE:
       return Object.assign({}, state, {
-        fetchingCharacters: false,
+        fetching: false,
         error: "Error fetching Characters"
       });
     // Fill me in with the important reducers
