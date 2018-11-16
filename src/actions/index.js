@@ -15,7 +15,7 @@ export const fetchChars = () => {
     return (dispatch) => {
         dispatch({type: FETCHING_CHARS});
         starWarsChars
-            .then(response =? {
+            .then(response => {
                 console.log(response);
                 dispatch({ type: CHARS_FETCHED, payload: [] });
             })
