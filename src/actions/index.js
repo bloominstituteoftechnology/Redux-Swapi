@@ -1,31 +1,30 @@
 import axios from 'axios'
 // we'll need axios
-export const FETCHING = 'FETCHING'
 
 export const SUCCESS = 'SUCCESS'
 
 export const FAILURE = 'FAILURE'
 
-export const LOADING = 'LOADING'
+export const FETCHING = 'FETCHING'
 
 
-export const getSwChars = () => {
- return (dispatch) => {
-
-  dispatch({type: LOADING})
+export const getSwChars = () => dispatch => {
+  dispatch({type: FETCHING})
   axios
-  .get('https://swapi.co/api/people.')
+  .get('https://swapi.co/api/people')
   .then(response => {
+   console.log("Response is:",response)
+
    dispatch({
-    type: FETCHING,
-    payload: response.data
+    type: SUCCESS,
+    payload: response.data.results
    })
+   console.log(response)
   })
   .catch(err => {
-
+   dispatch({type: FAILURE, payload: "Sorry, data not found!"})
+   console.log(err)
   })
-
-}
 
 
 }
