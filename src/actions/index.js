@@ -16,14 +16,18 @@ export const fetchChars = () => {
 		starWarsChars
 			.then(response => {
 				console.log(response);
-				dispatch({ type: CHARS_FETCHED, payload: [] });
-			}).catch(err => {
 				dispatch({ 
-					type: ERROR_FETCHING_CHARS
-					payload: 'Error Fetching Chars'
+					type: CHARS_FETCHED, 
+					payload: [response.data.results] 
 				});
 			})
-	}
+			.catch(err => {
+				dispatch({ 
+					type: ERROR_FETCHING_CHARS,
+					payload: 'Error Fetching Chars'
+				});
+			});
+	};
 }
 
 // remember that now we have controll over our thunk-based action creator
