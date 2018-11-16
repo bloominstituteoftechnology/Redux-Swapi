@@ -16,7 +16,7 @@ export const FETCHING_CHARACTERS_FAILURE = "FETCHING_CHARACTERS_FAILURE";
 export const fetchCharacters = () => dispatch => {
     dispatch({ type: FETCHING_CHARACTERS });
     axios
-      .get(`https://swapi.co/api/people/`)
+      .get("https://swapi.co/api/people/")
       .then(({ data }) => {
         dispatch({
           type: FETCHING_CHARACTERS_SUCCESS,
