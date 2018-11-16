@@ -1,6 +1,6 @@
 import React from "react";
+import Character from './Character'
 
-import Character from "./Character";
 
 const CharacterList = props => {
   return (
@@ -12,4 +12,5 @@ const CharacterList = props => {
   );
 };
 
-export default CharacterList;
+export default CharacterList
+
