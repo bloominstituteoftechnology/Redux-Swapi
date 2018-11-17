@@ -1,7 +1,7 @@
 import { 
   FETCHING_CHARS, 
   ERROR_FETCHING_CHARS, 
-  CHARS_FETCHED } from '../actions';
+  CHARS_FETCHED } from "../actions";
 
 const initialState = {
   chars: [],
