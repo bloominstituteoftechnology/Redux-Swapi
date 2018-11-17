@@ -113,7 +113,7 @@ import logger from 'redux-logger';
 applyMiddleware(thunk, logger);
 ```
 
-- As soon as your app starts dispatching actions, you'll see a very delightful log of these actions in the console :) Feel free to disable this at anytime if logs get to busy or if you just simply prefer to use the dev tools.
+[ X ] As soon as your app starts dispatching actions, you'll see a very delightful log of these actions in the console :) Feel free to disable this at anytime if logs get to busy or if you just simply prefer to use the dev tools.
 
 ## Project
 
