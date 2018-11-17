@@ -18,7 +18,7 @@ export const fetchChars = () => {
 				console.log(response);
 				dispatch({ 
 					type: CHARS_FETCHED, 
-					payload: [response.data.results] 
+					payload: response.data.results
 				});
 			})
 			.catch(err => {

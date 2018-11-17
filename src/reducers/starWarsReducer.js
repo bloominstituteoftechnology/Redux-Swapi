@@ -29,7 +29,7 @@ export const charsReducer = (state = initialState, action) => {
     	return Object.assign({}, state, { 
     		fecthing: false, 
     		fetched: true,
-    		characters: [...state.chars, ...action.payload] //always add previous material with new material
+    		characters: [...state.characters, ...action.payload] //always add previous material with new material
     	});
     default:
       return state;
