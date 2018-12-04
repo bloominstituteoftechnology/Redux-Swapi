@@ -9,12 +9,6 @@ import "./index.css";
 import App from "./App";
 import rootReducer from "./reducers";
 
-// needed dependancies
-// applyMiddleware from redux (check)
-// thunk from redux-thunk (check)
-// logger from redux-logger (check)
-// rootReducer from ./reducers (check)
-
 const store = createStore(rootReducer, applyMiddleware(thunk, logger));
 
 ReactDOM.render(
