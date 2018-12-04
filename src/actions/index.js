@@ -10,7 +10,6 @@ export const fetchCharacters = () => {
     dispatch({ type: FETCHING });
     starwarsChars
       .then(res => {
-        console.log(res.data);
         dispatch({ type: SUCCESS, payload: res.data.results });
       })
       .catch(err =>
