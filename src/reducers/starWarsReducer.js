@@ -5,6 +5,7 @@ const initialState = {
   error: null,
   fetching: false
 };
+
 export const charsReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCHING:

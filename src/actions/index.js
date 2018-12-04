@@ -5,17 +5,18 @@ export const ERROR = "FETCH_ERROR";
 export const SUCCESS = "FETCH_SUCCESS";
 
 export const fetchCharacters = () => {
-  const swChars = axios.get("https://swapi.co/api/people/");
+  const starwarsChars = axios.get("https://swapi.co/api/people");
   return dispatch => {
     dispatch({ type: FETCHING });
-    swChars
+    starwarsChars
       .then(res => {
+        console.log(res.data);
         dispatch({ type: SUCCESS, payload: res.data.results });
       })
       .catch(err =>
         dispatch({
           type: ERROR,
-          payload: `We've had an ${err}`
+          payload: `We've had ${err}`
         })
       );
   };
