@@ -35,14 +35,13 @@ function mapStateToProps(state) {
   console.log(state);
   return {
     characters: state.charsReducer.characters,
+    fetching: state.charsReducer.fetching
   };
 }
 
-
 export default connect(
-  mapStateToProps /* mapStateToProps replaces null here */,
+  mapStateToProps,
   {
-    /* action creators go here */
     fetchChars
   }
 )(CharacterListView);
