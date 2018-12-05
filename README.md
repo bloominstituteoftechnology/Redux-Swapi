@@ -48,7 +48,7 @@ You'll notice that we are using container and presentational components to separ
 
 - Simply put, middleware is software that sits between our action creators and the reducer stack. Every action will first go through all middleware sequentially before it is sent to the reducers.
 - Consider something we can use to augment the powers of Redux. `redux` has a package you can use called `applyMiddleware` that will allow you to install utilities to help you achieve specific tasks.
-- We can pull in the `applyMiddleware` function directly from `redux`.
+- [x] We can pull in the `applyMiddleware` function directly from `redux`.
 
 ```
 import { applyMiddleware, createStore } from 'redux';
