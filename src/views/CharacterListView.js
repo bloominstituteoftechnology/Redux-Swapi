@@ -2,11 +2,12 @@ import React from "react";
 import { connect } from "react-redux";
 
 import { CharacterList } from "../components";
-// import actions
+import { fetch_chars } from '../actions';
 
 class CharacterListView extends React.Component {
   constructor() {
     super();
+    //that's right, no state here. wow.
   }
 
   componentDidMount() {
