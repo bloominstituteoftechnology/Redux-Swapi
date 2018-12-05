@@ -1,4 +1,8 @@
-import /* we need our action types here*/ "../actions";
+import {
+  FETCHING,
+  REQUEST_SUCCESS,
+  REQUEST_FAIL
+} "../actions";
 const initialState = {
   characters: []
   // Array characters, Boolean fetching, null error.
