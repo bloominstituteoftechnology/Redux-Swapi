@@ -1,15 +1,37 @@
 import React from "react";
-
+import { connect } from "react-redux";
 import Character from "./Character";
+import { fetchSWAPI } from "../actions/index";
 
-const CharacterList = props => {
-  return (
-    <ul>
-      {props.characters.map(character => {
-        return <Character key={character.name} character={character} />;
-      })}
-    </ul>
-  );
-};
+class CharacterList extends React.Component {
+  constructor() {
+    super();
+  }
 
-export default CharacterList;
+  componentDidMount() {
+    this.props.fetchSWAPI();
+  }
+
+  render() {
+    return (
+      <ul>
+        {this.props.characters.map(character => {
+          return <Character key={character.name} character={character} />
+        })}
+      </ul>
+    );
+  }
+}
+
+function mapStateToProps(state) {
+  console.log(state);
+  return {
+    characters: state.charsReducer.characters,
+    fetching: state.charsReducer.fetching
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  { fetchSWAPI }
+)(CharacterList);
