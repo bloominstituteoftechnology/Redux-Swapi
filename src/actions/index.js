@@ -17,11 +17,13 @@ export const fetchCharacters = () => {
 
   return dispatch => {
 
+    dispatch({type: FETCH_CHARS});
+
     axios.get('https://swapi.co/api/people/')
       .then(res => dispatch({
 
         type: FETCH_SUCCESS,
-        payload: res.data
+        payload: res.data.results
 
       }))
       .catch(err => dispatch({
