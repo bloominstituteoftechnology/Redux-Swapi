@@ -4,10 +4,6 @@ import Character from "./Character";
 import { fetchSWAPI } from "../actions/index";
 
 class CharacterList extends React.Component {
-  constructor() {
-    super();
-  }
-
   componentDidMount() {
     this.props.fetchSWAPI();
   }
@@ -16,7 +12,7 @@ class CharacterList extends React.Component {
     return (
       <ul>
         {this.props.characters.map(character => {
-          return <Character key={character.name} character={character} />
+          return <Character key={character.name} character={character} />;
         })}
       </ul>
     );

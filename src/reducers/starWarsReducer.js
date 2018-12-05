@@ -1,10 +1,15 @@
-import { FETCH_CHAR_START, FETCH_FAILURE, FETCH_SUCCESS } /* we need our action types here*/ from "../actions";
+import {
+  FETCH_CHAR_START,
+  FETCH_FAILURE,
+  FETCH_SUCCESS /* we need our action types here*/
+} from "../actions";
 const initialState = {
   characters: [],
   error: null,
   fetching: false
   // Array characters, Boolean fetching, null error.
 };
+
 export const charsReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_CHAR_START:
@@ -32,5 +37,3 @@ export const charsReducer = (state = initialState, action) => {
       return state;
   }
 };
-
-

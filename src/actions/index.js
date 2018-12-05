@@ -7,9 +7,9 @@ export const FETCH_CHAR_START = "FETCH_CHAR_START";
 export const fetchSWAPI = () => dispatch => {
   dispatch({ type: FETCH_CHAR_START });
   axios
-    .get("https://swapi.co/api/people/")
+    .get("https://cors-anywhere.herokuapp.com/https://swapi.co/api/people/")
     .then(response => {
-      console.log(response)
+      console.log(response);
       dispatch({ type: FETCH_SUCCESS, payload: response.data.results });
     })
     .catch(err => {
