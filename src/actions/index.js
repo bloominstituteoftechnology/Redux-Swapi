@@ -1,4 +1,10 @@
+import axios from 'axios';
 // we'll need axios
+export const FETCH_DATA_START = 'FETCH_DATA_START';
+export const FETCH_DATA_GOOD = 'FETCH_DATA_GOOD';
+export const FETCH_DATA_FAIL = 'FETCH_DATA_FAIL';
+
+
 
 // we'll need to create 3 different action types here.
 // one for fetching, one for success and one for failure
