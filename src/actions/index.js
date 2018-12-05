@@ -8,7 +8,7 @@ export const FETCHING = 'FETCHING';
 export const SUCCESS = 'SUCCESS';
 export const FAILURE = 'FAILURE';
 
-const url = 'https://swapi.co/api/people';
+const url = 'https://cors-anywhere.herokuapp.com/https://swapi.co/api/people/';
 
 // our action creator will be a function that returns a function
 // the url to fetch characters from is `https://swapi.co/api/people/`

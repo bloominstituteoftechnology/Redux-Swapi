@@ -17,7 +17,9 @@ class CharacterList extends React.Component {
     if (!this.props.fetching) {
       return (
         <React.Fragment>
-          <h1 className='title'>Star Wars Characters</h1>
+          <div className='header'>
+            <h1 className='title'>Star Wars Characters</h1>
+          </div>
           <div className='characters-container'>
               <ul>
               {this.props.characters.map(character => {
