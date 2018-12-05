@@ -1,4 +1,5 @@
 import { FETCHING, SUCCESS, FAILURE } from "../actions";
+
 const initialState = {
   characters: [],
   fetching: false,
@@ -18,8 +19,9 @@ export const charsReducer = (state = initialState, action) => {
     case SUCCESS:
       return {
         ...state,
-        characters: [...state.characters, ...action.payload],
-        fetching: false
+        characters: action.payload,
+        fetching: false,
+        Err: null
       };
     case FAILURE:
       return {
