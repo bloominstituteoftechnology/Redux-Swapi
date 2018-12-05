@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  width: 60%;
+  margin: 0 auto;
 }
 
 .App-logo {
@@ -25,4 +27,17 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.CharactersList_wrapper {
+  width: 100%;
+  margin: 0 auto;
+  border: 1px solid #222;
+  line-height: 2rem;
+}
+
+.loading-message {
+  color: red;
+  width: 50%;
+  margin: 150px auto;
 }
