@@ -15,12 +15,13 @@ class CharacterListView extends React.Component {
   render() {
     if (this.props.fetching) {
       return <h2 className="loading-message">Loading Star Wars Characters...</h2>
+    } else {
+      return (
+        <div className="CharactersList_wrapper">
+          <CharacterList characters={this.props.characters} />
+        </div>
+      );
     }
-    return (
-      <div className="CharactersList_wrapper">
-        <CharacterList characters={this.props.characters} />
-      </div>
-    );
   }
 }
 
@@ -28,8 +29,8 @@ function mapStateToProps(state) {
   console.log('mapStateToProps ', state);
   return {
     characters: state.charsReducer.characters,
-    fetching: state.fetching,
-    error: state.error
+    fetching: state.charsReducer.fetching,
+    error: state.charsReducer.error
   }
 }
 
