@@ -6,9 +6,6 @@ import { CharacterList } from "../components";
 import { fetchChars } from '../actions';
 
 class CharacterListView extends React.Component {
-  constructor() {
-    super();
-  }
 
   componentDidMount() {
     // call our action
@@ -16,12 +13,9 @@ class CharacterListView extends React.Component {
   }
 
   render() {
-    if (this.props.fetching) {
-      // return something here to indicate that you are fetching data
-      <h3>Loading Character List...</h3>
-    }
     return (
       <div className="CharactersList_wrapper">
+        {this.props.fetching ? <h2>Loading characters..</h2> : null}
         <CharacterList characters={this.props.characters} />;
       </div>
     );
@@ -34,7 +28,7 @@ const mapStateToProps = (state) => {
   console.log(state);
   return {
     characters: state.charsReducer.characters,
-    fetching: state.fetching
+    fetching: state.charsReducer.fetching
   }
 }
 
