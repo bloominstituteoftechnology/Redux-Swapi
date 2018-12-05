@@ -8,12 +8,12 @@ export const FETCH_FAILURE = 'FETCH_FAILURE';
 // we'll need to create 3 different action types here.
 // one for fetching, one for success and one for failure
 export const fetchChars = () => dispatch => {
-  console.log('fetchChars');
+  //console.log('fetchChars');
   dispatch({type: FETCHING});
   axios
     .get('https://swapi.co/api/people/')
     .then(res => {
-      console.log(res);
+      //console.log(res);
       dispatch({type: FETCH_SUCCESS, payload: res.data.results});
     })
 

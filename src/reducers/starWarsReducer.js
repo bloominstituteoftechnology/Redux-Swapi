@@ -10,7 +10,7 @@ const initialState = {
 export const charsReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCHING:
-      console.log('fetching');
+      //console.log('fetching');
       return {
         ...state,
         fetching: true,
