@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import { Provider } from "react-redux";
-import { createStore } from "redux";
+// import { createStore } from "redux";
 // import rootReducer from "./reducers";
 // needed dependancies
 // applyMiddleware from redux
@@ -16,9 +16,9 @@ import logger from 'redux-logger';
 import rootReducer from './reducers';
 
 const store = createStore(
-  rootReducer
+  rootReducer,
   /* applyMiddleware goes here */
-  applyMiddleware(thunk, logger);
+  applyMiddleware(thunk, logger)
 );
 
 ReactDOM.render(
