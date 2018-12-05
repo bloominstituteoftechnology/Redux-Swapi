@@ -18,7 +18,7 @@ export const requestData = () => dispatch => {
         .then(resp => {
             dispatch({
                 type: REQUEST_SUCCESS,
-                payload: resp.results
+                payload: resp.data.results
             })
         })
         .catch(err => {

@@ -1,5 +1,4 @@
 import {
-  requestData,
   SEND_REQUEST,
   REQUEST_SUCCESS,
   REQUEST_FAIL
