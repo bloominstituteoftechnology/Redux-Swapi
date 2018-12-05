@@ -11,4 +11,14 @@ export const REQUEST_FAIL = 'REQUEST_FAIL';
 // remember that now we have control over our thunk-based action creator
 
 
-const 
+export const requestData = () => dispatch => {
+    dispatch({type: SEND_REQUEST})
+    axios
+        .get('https://swapi.co/api/people/')
+        .then(resp => {
+            dispatch({type: REQUEST_SUCCESS, payload: resp.results})
+        })
+        .catch(err => {
+            dispatch({type: REQUEST_FAIL, payload: err}
+        })
+}
