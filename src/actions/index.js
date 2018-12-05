@@ -1,18 +1,21 @@
 import axios from "axios";
 
-export const FETCHING = "FETCHING";
-export const SUCCESS = "SUCCESS";
-export const FAILURE = "FAILURE";
+export const FETCHING_CHARS = "FETCHING_CHARS";
+export const FETCHING_CHARS_SUCCESS = "FETCHING_CHARS_SUCCESS";
+export const FETCHING_CHARS_FAILURE = "FETCHING_CHARS_FAILURE";
 
 export const getChars = () => dispatch => {
-  dispatch({ type: FETCHING });
+  dispatch({ type: FETCHING_CHARS });
   axios
-    .get("https://swapi.co/api/people")
-    .then(({ data }) => {
-      dispatch({ type: SUCCESS, payload: data.results });
+    // .get("https://cors-anywhere.herokuapp.com/https://swapi.co/api/people")
+    .get("https://swapi.co/api/people/")
+    .then(res => {
+      console.log(res);
+
+      dispatch({ type: FETCHING_CHARS_SUCCESS, payload: res.data.results });
     })
     .catch(err => {
-      dispatch({ type: FAILURE, payload: err });
+      dispatch({ type: FETCHING_CHARS_FAILURE, payload: err });
     });
 };
 
