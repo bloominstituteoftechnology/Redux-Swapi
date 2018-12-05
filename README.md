@@ -78,8 +78,8 @@ ReactDOM.render(
 );
 ```
 
-- instead of passing our initial state directly to our `createStore()` function, we can pass it `applyMiddleware` as a second argument.
-- Then, anything we add to `applyMiddleware` we'll have access to once we pass it to our store and set it as a property on the `<Provider />` component.
+- [x] instead of passing our initial state directly to our `createStore()` function, we can pass it `applyMiddleware` as a second argument.
+- [x] Then, anything we add to `applyMiddleware` we'll have access to once we pass it to our store and set it as a property on the `<Provider />` component.
 - Set up is really that simple. The biggest changes lie in the re-design of our `action-creators`.
 - Instead of returning a simple object every time, any `http request` sent out can be done within an action creator and that function can now return another function.
 - This would look a lot like this.
