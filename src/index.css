@@ -3,3 +3,51 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.title {
+  display: flex;
+  justify-content: center;
+  width: 40%;
+  padding: 15px 0;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-radius: 10px;
+  margin: 50px auto;
+}
+
+.characters-container {
+  width: 40%;
+  margin: 0 auto;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.characters-container ul li {
+  list-style-type: none;
+  margin: 10px;
+}
+
+.loading-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-container .fa-spinner {
+  font-size: 25px;
+  animation: spin infinite 1.5s linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

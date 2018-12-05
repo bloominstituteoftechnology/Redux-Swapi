@@ -14,13 +14,27 @@ class CharacterList extends React.Component {
   }
 
   render(){
-    return (
-      <ul>
-        {this.props.characters.map(character => {
-          return <Character key={character.name} character={character} />;
-        })}
-      </ul>
-    );
+    if (!this.props.fetching) {
+      return (
+        <React.Fragment>
+          <h1 className='title'>Star Wars Characters</h1>
+          <div className='characters-container'>
+              <ul>
+              {this.props.characters.map(character => {
+                return <Character key={character.name} character={character} />;
+              })}
+            </ul>
+          </div>
+        </React.Fragment>
+      );
+    } else {
+      return (
+        <div className='loading-container'>
+          <h2>Loading</h2>
+          <i className="fas fa-spinner"></i>
+        </div>
+      ); 
+    }
   }
 };
 
