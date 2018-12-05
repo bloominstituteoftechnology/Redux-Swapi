@@ -48,7 +48,7 @@ You'll notice that we are using container and presentational components to separ
 
 - Simply put, middleware is software that sits between our action creators and the reducer stack. Every action will first go through all middleware sequentially before it is sent to the reducers.
 - Consider something we can use to augment the powers of Redux. `redux` has a package you can use called `applyMiddleware` that will allow you to install utilities to help you achieve specific tasks.
-- We can pull in the `applyMiddleware` function directly from `redux`.
+- [x] We can pull in the `applyMiddleware` function directly from `redux`.
 
 ```
 import { applyMiddleware, createStore } from 'redux';
@@ -58,7 +58,7 @@ import { applyMiddleware, createStore } from 'redux';
 
 ## redux-thunk
 
-- [redux-thunk](https://github.com/gaearon/redux-thunk) was built by _Dan Abramov_, co-author of Redux, to handle Asynchronous requests in Recux.
+- [redux-thunk](https://github.com/gaearon/redux-thunk) was built by _Dan Abramov_, co-author of Redux, to handle Asynchronous requests in Redux.
 - **What is it?** - `redux-thunk` is a middleware that we can plug into our `createStore()` method when setting up our Redux application.
 - **Why do we need it?** Well, Dan himself argues that if you have to ask that question you probably don't need it. However, the average single-page-application deals with `HTTP` requests and often times, we don't have the data back from the server we need in time for use in a synchronous flow. `redux-thunk` allows us to turn our action creators into async functions by granting them the ability to return 'functions' instead of plain objects.
 - **How do we use it?** It's pretty simple really.
@@ -78,8 +78,8 @@ ReactDOM.render(
 );
 ```
 
-- instead of passing our initial state directly to our `createStore()` function, we can pass it `applyMiddleware` as a second argument.
-- Then, anything we add to `applyMiddleware` we'll have access to once we pass it to our store and set it as a property on the `<Provider />` component.
+- [x] instead of passing our initial state directly to our `createStore()` function, we can pass it `applyMiddleware` as a second argument.
+- [x] Then, anything we add to `applyMiddleware` we'll have access to once we pass it to our store and set it as a property on the `<Provider />` component.
 - Set up is really that simple. The biggest changes lie in the re-design of our `action-creators`.
 - Instead of returning a simple object every time, any `http request` sent out can be done within an action creator and that function can now return another function.
 - This would look a lot like this.
