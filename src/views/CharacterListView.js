@@ -38,7 +38,7 @@ const mapStateToProps = state => {
   console.log('mapState', state);
   return {
     characters: state.charsReducer.characters,
-    fetching: state.fetching,
+    fetching: state.charsReducer.fetching,
   };
 };
 export default connect(
