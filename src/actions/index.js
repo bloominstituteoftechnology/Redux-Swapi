@@ -13,14 +13,17 @@ export const FETCH_DATA_FAIL = 'FETCH_DATA_FAIL';
 // the url to fetch characters from is `https://swapi.co/api/people/`
 // remember that now we have controll over our thunk-based action creator
 
-export const fetchData = () => {
+export const fetchData = () => dispatch => {
     dispatch({ type: FETCH_DATA_START });
     axios
         .get('https://swapi.co/api/people/')
         .then(response => {
-            dispatch({ type: FETCH_DATA_GOOD, payload: response.data. });
+            console.log(response);
+            dispatch({ type: FETCH_DATA_GOOD, payload: response.data.results });
         })
         .catch(err => {
             dispatch({ tyype: FETCH_DATA_FAIL, payload: err });
         });
 }
+
+{ /*https://cors-anywhere.herokuapp.com/https://swapi.co/api/people */ }
