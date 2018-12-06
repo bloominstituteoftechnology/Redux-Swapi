@@ -14,12 +14,12 @@ export const charsReducer = (state = initialState, action) => {
     case FETCHING:
       return { ...state, dataLoading: true };
     case SUCCESS:
-      console.log("suc", action.payload);
+      // console.log("suc", action.payload);
       return {
         ...state,
         characters: [...state.characters, ...action.payload],
-        dataLoading: false,
-        dataLoaded: true
+        dataLoading: !state.dataLoading,
+        dataLoaded: !state.dataLoaded
       };
     case FAILURE:
       return { ...state, dataLoaded: false };

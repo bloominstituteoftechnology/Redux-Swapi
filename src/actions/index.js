@@ -14,11 +14,12 @@ export const fetchData = () => dispatch => {
   dispatch({ type: FETCHING });
   axios
     .get("https://swapi.co/api/people/")
-    .then(({ data }) => {
-      console.log("axios", data);
-      dispatch({ type: SUCCESS, payload: data.results });
+    .then(response => {
+      console.log("axios", response);
+      dispatch({ type: SUCCESS, payload: response.data.results });
     })
     .catch(err => {
+      console.log("fail", err);
       dispatch({ type: FAILURE, payload: err });
     });
 };
