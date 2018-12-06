@@ -8,19 +8,22 @@ class App extends Component {
   };
 
   componentDidMount() {
-    this.props.fetchData('https://swapi.co/api/people/');
+    this.props.fetchData();
   }
 
   fetchNewData = () => {
-    const nextVal = this.state.next < 9 ? this.state.next + 1 : 1;
-    this.setState({ next: nextVal });
-    this.props.fetchData(`https://swapi.co/api/people/?page=${nextVal}`);
+    let { next } = this.state;
+    next = next < 9 ? next + 1 : 1;
+    this.setState({ next });
+    this.props.fetchData(`?page=${next}`);
   }
 
   render() {
     if (this.props.err != null) {
       return (
-        <h2 className="error">There was a problem fetching the data.</h2>
+        <h2 className="error">
+          There was a problem fetching the data.
+        </h2>
       );
     }
     return (
@@ -29,11 +32,15 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
         ) : (
           <div>
-          <button onClick={this.fetchNewData}>Show different characters.</button>
-            <ul>
-              {this.props.chars.map(char => {
-                return <li key={char.name}>{char.name}</li>;
-              })}
+            <button onClick={this.fetchNewData}>
+              Show different characters.
+            </button>
+            <ul className="chars">
+              {this.props.chars.map(({ name }) => (
+                <li key={name}>
+                  {name}
+                </li>
+              ))}
             </ul>
           </div>
         )}

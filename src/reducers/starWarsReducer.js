@@ -7,21 +7,22 @@ const initialState = {
   err: null
 };
 
-export const charsReducer = (state = initialState, action) => {
-  switch (action.type) {
+export const charsReducer = (state = initialState, { type, payload }) => {
+  switch (type) {
     case FETCH:
-      return Object.assign({}, ...state, { isFetching: true });
+      return { ...state, isFetching: true };
     case FETCH_SUCCESS:
-      return Object.assign({}, ...state, {
-        chars: action.payload,
-        isFetching: false, 
-        isFetched: true 
-      });
+      return {
+        ...state,
+        chars: payload,
+        isFetching: false,
+        isFetched: true
+      };
     case FETCH_FAILURE:
       return {
         ...state,
         isFetching: false,
-        err: action.payload
+        err: payload
       };
     default:
       return state;
