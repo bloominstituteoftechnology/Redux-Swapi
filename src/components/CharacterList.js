@@ -1,33 +1,20 @@
 import React from "react";
-import { connect } from "react-redux";
 import Character from "./Character";
-import { fetchSWAPI } from "../actions/index";
 
 class CharacterList extends React.Component {
-  componentDidMount() {
-    this.props.fetchSWAPI();
-  }
 
   render() {
     return (
+      <div>
+      {this.props.isFetching ? <div>Loading data</div> : null}
       <ul>
         {this.props.characters.map(character => {
-          return <Character key={character.name} character={character} />;
+          return <Character key={character.name} character={character} />
         })}
       </ul>
-    );
+      </div>
+    )
   }
 }
 
-function mapStateToProps(state) {
-  console.log(state);
-  return {
-    characters: state.charsReducer.characters,
-    fetching: state.charsReducer.fetching
-  };
-}
-
-export default connect(
-  mapStateToProps,
-  { fetchSWAPI }
-)(CharacterList);
+export default CharacterList;
