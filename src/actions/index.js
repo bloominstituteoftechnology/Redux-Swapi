@@ -19,6 +19,6 @@ export const fetchChars = () => dispatch => {
         dispatch({ type: SUCCESS, payload: response.data.results });
       })
       .catch(err => {
-        dispatch({ type: FAILURE, payload: err });
+        dispatch({ type: FAILURE, payload: true });
       });
   };
