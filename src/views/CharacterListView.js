@@ -11,11 +11,12 @@ class CharacterListView extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchData; // call our action
+    console.log("cdm", this.props);
+    this.props.fetchData(); // call our action
   }
 
   render() {
-    if (this.props.fetching) {
+    if (this.props.fetchData) {
       <h1>loading character data...</h1>;
       // return something here to indicate that you are fetching data
     }

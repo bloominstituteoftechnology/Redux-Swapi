@@ -9,6 +9,7 @@ import thunk from "redux-thunk"; // gives us the ability to make async actions
 import logger from "redux-logger"; //logs our actions and states
 
 import rootReducer from "./reducers";
+
 // needed dependancies
 // applyMiddleware from redux
 // thunk from redux-thunk
