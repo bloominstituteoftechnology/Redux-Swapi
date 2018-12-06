@@ -6,9 +6,9 @@ import { CharacterList } from "../components";
 import { fetchData } from "../actions";
 // console.log(fetchData);
 class CharacterListView extends React.Component {
-  constructor() {
-    super();
-  }
+  // constructor() {
+  //   super();
+  // }
 
   componentDidMount() {
     console.log("cdm", this.props);
@@ -22,7 +22,7 @@ class CharacterListView extends React.Component {
     }
     return (
       <div className="CharactersList_wrapper">
-        <CharacterList characters={this.props.characters} />;
+        <CharacterList characters={this.props.characters} />
       </div>
     );
   }
