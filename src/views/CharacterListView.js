@@ -32,10 +32,10 @@ class CharacterListView extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state.charsReducer, 'maptoprops')
+  //console.log(state.charsReducer, 'maptoprops')
   return {
-    characters: state.charsReducer.characters,
-    fetching: state.charsReducer.fetching,
+    characters: state.characters.characters,
+    fetching: state.characters.fetching,
   }
 }
 
