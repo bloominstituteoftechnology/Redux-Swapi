@@ -8,8 +8,8 @@ export const fetchSwapi = () => dispatch => {
     dispatch({ type: FETCH_SWAPI_START });
     axios
         .get('https://swapi.co/api/people')
-        .then(response => {
-            dispatch({ type: FETCH_SWAPI_SUCCESS, payload: response.data.results });
+        .then(({data}) => {
+            dispatch({ type: FETCH_SWAPI_SUCCESS, payload: data.results });
         })
         .catch(err => {
             dispatch({ type: FETCH_SWAPI_FAILURE, payload: err })
