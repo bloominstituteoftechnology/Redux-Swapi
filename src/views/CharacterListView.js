@@ -5,9 +5,8 @@ import { CharacterList } from "../components";
 import { fetchSwapi } from "../actions";
 
 class CharacterListView extends React.Component {
-  constructor() {
-    super();
-   
+  state = {
+    characters: []
   }
 
   componentDidMount() {
