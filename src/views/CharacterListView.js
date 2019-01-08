@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { CharacterList } from "../components";
 // import actions
 import { addCharacter } from '../actions';
+import Loading from '../components/Loading';
 
 class CharacterListView extends React.Component {
   constructor() {
@@ -17,7 +18,7 @@ class CharacterListView extends React.Component {
 
   render() {
     if (this.props.fetching) {
-      return <h2>FETCHING STUFF</h2>
+      return <Loading />
     }
     return (
       <div className="CharactersList_wrapper">
