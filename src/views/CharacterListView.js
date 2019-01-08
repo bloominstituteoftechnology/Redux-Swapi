@@ -7,10 +7,6 @@ import { fetchCharacters } from '../actions';
 import Loading from '../components/Loading';
 
 class CharacterListView extends React.Component {
-  constructor() {
-    super();
-  }
-
   componentDidMount() {
     console.log(this.props);
     this.props.fetchCharacters();
