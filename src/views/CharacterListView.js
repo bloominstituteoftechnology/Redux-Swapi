@@ -19,7 +19,7 @@ class CharacterListView extends React.Component {
     }
     return (
       <div className="CharactersList_wrapper">
-        {/* <CharacterList characters={this.props.characters} /> */}
+        <CharacterList characters={this.props.characters} />
       </div>
     );
   }
@@ -30,8 +30,8 @@ class CharacterListView extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    isLoading: state.isLoading,
-    characters: state.characters
+    isLoading: state.charsReducer.isLoading,
+    characters: state.charsReducer.characters
   };
 };
 export default connect(
