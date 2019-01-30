@@ -1,4 +1,3 @@
-// we'll need axios
 import axios from 'axios';
 
 // we'll need to create 3 different action types here.
@@ -13,8 +12,8 @@ export const FETCH_FAILURE = 'FETCH_FAILURE';
 // remember that now we have control over our thunk-based action creator
 
 export const actionCreator = () => dispatch => {
-    axios.get('`https://swapi.co/api/people/`')
-    .then(res => dispatch({type: FETCH_SUCCESS, payload: res.data}))
+    axios.get(`https://swapi.co/api/people/`)
+    .then(res => dispatch({type: FETCH_SUCCESS, payload: res.data.results}))
     .catch(err => dispatch({type: FETCH_FAILURE, payload: err}));
 };
 
