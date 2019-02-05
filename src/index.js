@@ -19,7 +19,6 @@ const store = createStore(
   rootReducer,
   thunk,
   logger
-  /* applyMiddleware goes here */
 );
 
 ReactDOM.render(
