@@ -23,6 +23,7 @@ export const fetchChar = () => {
           type: SUCCESS,
           payload: res.data,
         });
+        console.log(res);
       })
       .catch(err => {
         dispatch({
