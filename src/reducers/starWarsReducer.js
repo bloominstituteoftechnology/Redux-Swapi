@@ -3,7 +3,7 @@ import {FETCHING, SUCCESS, FAILURE} from '../actions';
 const initialState = {
   fetching: false,
   success: true,
-  failure: false,
+  failure: '',
   characters: [],
   // Array characters, Boolean fetching, null error.
 };
@@ -21,7 +21,13 @@ export const charsReducer = (state = initialState, action) => {
       };
     }
     case FAILURE: {
-      return {...state, fetching: false, success: false, characters: []};
+      return {
+        ...state,
+        fetching: false,
+        success: false,
+        failure: action.payload,
+        characters: [],
+      };
     }
     // Fill me in with the important reducers
     // action types should be FETCHING, SUCCESS and FAILURE
