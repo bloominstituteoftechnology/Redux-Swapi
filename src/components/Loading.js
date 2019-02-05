@@ -1,23 +1,23 @@
-import React from 'react';
+import React from "react";
 
 export default class Loading extends React.Component {
   state = {
-      text: 'Loading',
-    }
-  componentDidMount(){
+    text: "Loading"
+  };
+  componentDidMount() {
     this.animation = setInterval(this.animate, 250);
   }
-  componentWillUnmount(){
+  componentWillUnmount() {
     clearInterval(this.animation);
   }
   animate = () => {
-    this.setState((prevState) => {
+    this.setState(prevState => {
       return {
-        text: prevState.text.includes('...') ? 'Loading' : prevState.text + '.',
+        text: prevState.text.includes("...") ? "Loading" : prevState.text + "."
       };
     });
-  }
-  render(){
-    return <h2>{this.state.text}</h2>
+  };
+  render() {
+    return <h2 className="loading">{this.state.text}</h2>;
   }
 }
