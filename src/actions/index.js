@@ -21,9 +21,8 @@ export const fetchChar = () => {
       .then(res => {
         dispatch({
           type: SUCCESS,
-          payload: res.data,
+          payload: res.data.results,
         });
-        console.log(res);
       })
       .catch(err => {
         dispatch({
