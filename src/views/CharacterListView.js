@@ -1,7 +1,7 @@
-import React from "react";
-import { connect } from "react-redux";
+import React from 'react';
+import {connect} from 'react-redux';
 
-import { CharacterList } from "../components";
+import {CharacterList} from '../components';
 // import actions
 
 class CharacterListView extends React.Component {
@@ -16,6 +16,7 @@ class CharacterListView extends React.Component {
   render() {
     if (this.props.fetching) {
       // return something here to indicate that you are fetching data
+      <div> Loading...</div>;
     }
     return (
       <div className="CharactersList_wrapper">
@@ -31,5 +32,5 @@ export default connect(
   null /* mapStateToProps replaces null here */,
   {
     /* action creators go here */
-  }
+  },
 )(CharacterListView);
