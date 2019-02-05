@@ -22,14 +22,16 @@ body {
   align-items: center;
 }
 
-.next, .previous {
+.next,
+.previous {
   position: fixed;
   top: 50%;
   transform: translateY(-50%);
   font-size: 3rem;
   cursor: pointer;
 }
-.next:active, .previous:active {
+.next:active,
+.previous:active {
   transform: translateY(calc(-50% + 1px));
 }
 .previous {
@@ -37,4 +39,8 @@ body {
 }
 .next {
   right: 20px;
+}
+.loading {
+  margin-left: 20px;
+  margin-top: 20px;
 }
