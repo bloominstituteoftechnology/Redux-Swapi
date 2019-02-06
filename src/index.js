@@ -7,15 +7,15 @@ import { Provider } from "react-redux";
 // applyMiddleware from redux
 // thunk from redux-thunk
 // logger from redux-logger
-// rootReducer from ./reducers
+import rootReducer from './reducers';
 
 import { createStore, applyMiddleware } from "redux";
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
-import { someCoolReducer } from './reducers';
+// import { someCoolReducer } from './reducers';
 
 const store = createStore(
-  someCoolReducer,
+  rootReducer,
   /* applyMiddleware goes here */
   applyMiddleware(thunk, logger)
 );
