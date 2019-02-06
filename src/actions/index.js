@@ -20,7 +20,8 @@ export function fetchPeople() {
             })
             .catch(err => {
                 dispatch({
-                    type: FAILURE, payload: 'Api is not available.'
+                    type: FAILURE, 
+                    payload: 'Api is not available.'
                 });
             });
     }
