@@ -1,5 +1,5 @@
 import React from "react";
-import {connect} from 'react-redux'//connect
+import {connect} from 'react-redux';//connect
 import {GetCharacters} from '../actions';
 import Character from "./Character";
 
