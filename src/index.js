@@ -18,10 +18,9 @@ import thunk from 'redux-thunk';
 // logger from redux-logger good 2 go!
 // rootReducer from ./reducers good 2 go!
 
-const Middleware = applyMiddleware(ReduxThunk)(createStore);
 
 const store = createStore(
-  rootReducer, applyMiddleware(thunk, ...Middleware)
+  rootReducer, applyMiddleware(logger,thunk,ReduxThunk)
   /* applyMiddleware goes here */
 );
 
