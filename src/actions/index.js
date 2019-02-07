@@ -4,11 +4,26 @@ export const FETCHING = "FETCHING";
 export const SUCCESS = "SUCCESS";
 export const FAILED = "FAILED";
 
+
+// export function fetchData() {
+//     return function(dispatch) {
+//         dispatch({ type: FETCHING});
+//         axios.get("https://swapi.co/api/people/")
+//             .then((res) => {
+//                 console.log('Fetch Data Response:', res)
+//             })
+//             .catch((err) => {
+//                 console.log('Error from Fetch Data:', err)
+//             })
+//     }
+// }
+
+
 export const fetchData = () => dispatch => {
-    console.log('I am running')
-    dispatch({ type: FETCHING})
+    console.log('hello')
+    dispatch({ type: FETCHING});
     axios.get('https://swapi.co/api/people/')
-        .then(res => dispatch({ type: SUCCESS, payload: res.results }))
+        .then(({res}) => dispatch({ type: SUCCESS, payload: res.results }))
         .catch(err => dispatch({ type: FAILED, payload: err }))
 };
 

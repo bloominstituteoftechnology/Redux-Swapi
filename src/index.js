@@ -12,10 +12,7 @@ import App from "./App";
 
 import rootReducer from "./reducers";
 
-const store = createStore(
-  rootReducer,
-  applyMiddleware(thunk, logger)
-);
+const store = createStore( rootReducer, applyMiddleware(thunk, logger));
 
 ReactDOM.render(
   <Provider store={store}>
@@ -23,8 +20,6 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("root")
 );
-
-
 
 
 

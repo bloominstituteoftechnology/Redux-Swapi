@@ -7,7 +7,7 @@ const initialState = {
   // Array characters, Boolean fetching, null error.
 };
 
-export const charsReducer = (state = initialState, action) => {
+export function charsReducer(state = initialState, action) {
   console.log('reducer', action)
   console.log('state is', state)
   switch (action.type) {
