@@ -19,6 +19,7 @@ class CharacterListView extends React.Component {
     return (
       
       <div className="CharactersList_wrapper">
+     
         <CharacterList characters={this.props.characters} />
       </div>
     );
@@ -26,9 +27,10 @@ class CharacterListView extends React.Component {
 }
 
 const mstp = state => {
+  console.log(state)
   return {
-      characters: state.characters,
-      fetching: state.isFetching
+      characters: state.charsReducer.characters,
+      fetching: state.charsReducer.isFetching
   }
 }
 
