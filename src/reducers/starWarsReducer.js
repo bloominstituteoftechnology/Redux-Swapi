@@ -30,10 +30,11 @@ export const charsReducer = (state = initialState, action) => {
   return {
     ...state,
     fetching: false,
-    error: action.payload
-  };
-  
-    default:
-      return state;
+    error: action.payload,
   }
+default:
+  return {
+    ...state
+  };
+}
 };

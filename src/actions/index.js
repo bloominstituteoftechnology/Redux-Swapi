@@ -14,12 +14,18 @@ export const FAILURE = 'FAILURE';
 export const getCharacters = () => dispatch => {
     dispatch({type: FETCHING})
     Axios
-        .get('https://swapi.co/api/people')
+        .get('https://swapi.co/api/people/')
         .then(res => {
-            dispatch({type: SUCCESS, payload: res.data.results})
+            dispatch({
+                type: SUCCESS, 
+                payload: res.data.results
+            })
         })
         .catch(err =>{
-            dispatch({type: FAILURE, payload: err})
+            dispatch({
+                type: FAILURE, 
+                payload: err
+            })
         })
 }
 
