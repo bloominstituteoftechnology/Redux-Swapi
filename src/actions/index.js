@@ -1,6 +1,6 @@
 // we'll need axios
 
-import { axios } from 'axios';
+import axios from 'axios';
 
 // we'll need to create 3 different action types here.
 // one for fetching, one for success and one for failure
@@ -13,19 +13,16 @@ export const FETCHING = 'FETCHING';
 export const SUCCESS = 'SUCCESS';
 export const FAILURE = 'FAILURE';
 
-export function fetchCharacters(character) {
+export const fetchCharacters = () => {
     return dispatch => {
         dispatch({ type: FETCHING });
         axios
-            .get( `https://swapi.co/api/people/`)
+            .get(`https://swapi.co/api/people/`)
             .then(response => {
-                dispatch({
-                    type:SUCCESS,
-                    payload: response.data.message
-                });
+                dispatch({ type: SUCCESS, payload: response.data.message })
             })
-            .catch(err =>{
-                dispatch({type:error, payload:'Character not found'})
-            })
+            .catch(err => {
+                dispatch({ type: FAILURE, payload: 'Character not found' })
+            });
     }
 }
