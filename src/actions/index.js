@@ -26,8 +26,7 @@ export const getCharacters = () => (dispatch) => {
 		.catch((err) => {
 			dispatch({
 				type: ERROR,
-				payload: 'Data not found',
-				err
+				payload: 'Data not found'
 			});
 		});
 };

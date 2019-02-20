@@ -12,7 +12,7 @@ class CharacterListView extends React.Component {
 
 	componentDidMount() {
 		// call our action
-		this.props.getCharacters;
+		this.props.getCharacters();
 	}
 
 	render() {
@@ -37,4 +37,4 @@ const mapStateToProps = (state) => {
 };
 // our mapStateToProps needs to have two properties inherited from state
 // the characters and the fetching boolean
-export default connect(mapStateToProps)(CharacterListView);
+export default connect(mapStateToProps, { getCharacters })(CharacterListView);
