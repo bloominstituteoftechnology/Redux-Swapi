@@ -1,8 +1,24 @@
-// we'll need axios
+import axios from 'axios';
+// Import axios to obtain data from data feed
+export const FETCH = 'FETCH';
+export const SUCCESS = 'SUCCESS';
+export const FAIL = 'FAIL';
+//Assign actions a name while exporting them. Naming convention is pretty straight forward as to what they do. 
+export const charData = () => dispatch =>{
+  dispatch ({type: FETCH})
+  axios 
+  .get ('http://swapi.co/api/people/')
+  .then (res => {
+    dispatch ({
+      type: SUCCESS,
+      payload: res.data.results
+    })
+  })
+  .catch (error => {
+    dispatch({
+    type: FAIL,
+    payload:'The info requested has been hidden by the force'
+  })
+  });
+}
 
-// we'll need to create 3 different action types here.
-// one for fetching, one for success and one for failure
-
-// our action creator will be a function that returns a function
-// the url to fetch characters from is `https://swapi.co/api/people/`
-// remember that now we have controll over our thunk-based action creator
