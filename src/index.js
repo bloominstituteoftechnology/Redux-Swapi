@@ -12,7 +12,7 @@ import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 // importing the rootreducer which handles both index and starwars reducers
 import rootReducer from "./reducers";
-import charsReducer from "./reducers/starWarsReducer"
+
 
 // create the store
 const store = createStore(
