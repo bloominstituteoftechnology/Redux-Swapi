@@ -9,7 +9,7 @@ export const charsReducer = (state = initialState, action) => {
     case FETCHING:
       return {...state, fetching: true}
     case FETCHED:
-      return {...state, fetched: true}//update fetching as well as full state+payload
+      return {...state, chars: action.payload, fetched: true, fetching:false}//update fetching as well as full state+payload
     case ERROR:
       return {...state, fetching: false, error: 'error fetching data'}
     // Fill me in with the important reducers
