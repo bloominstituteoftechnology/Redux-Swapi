@@ -7,12 +7,15 @@ import { createStore, applyMiddleware } from "redux";
 import rootReducer from "./reducers";
 import logger from 'redux-logger';
 
+
 import thunk from 'redux-thunk';
 import { charsReducer } from './reducers';
 // applyMiddleware from redux
 const store = createStore(
 rootReducer, 
 applyMiddleware(thunk, logger),);
+
+
 
 ReactDOM.render(
   <Provider store={store}>
