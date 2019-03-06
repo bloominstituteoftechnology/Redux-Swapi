@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 import { CharacterList } from "../components";
 // import actions
+import {fetchCharacters} from '../actions/index'
 
 class CharacterListView extends React.Component {
   constructor() {
