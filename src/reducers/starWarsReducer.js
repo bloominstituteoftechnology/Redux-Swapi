@@ -4,7 +4,7 @@ import {
   FETCHING_CHARACTERS_FAILURE
 } from "../actions";
 const initialState = {
-  characters: []
+  characters: [],
   // Array characters, Boolean fetching, null error.
   fetching: false,
   error: null
