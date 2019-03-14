@@ -7,7 +7,7 @@ import {
 const initialState = {
   characters: [], 
   isFetching: false,
-  error: null
+  error: ''
   // Array characters, Boolean fetching, null error.
 };
 export const charsReducer = (state = initialState, action) => {
