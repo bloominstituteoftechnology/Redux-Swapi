@@ -7,12 +7,12 @@ export const FETCH_CHAR_FAILURE = 'FETCH_CHAR_FAILURE';
 // we'll need to create 3 different action types here.
 // one for fetching, one for success and one for failure
 
-export const getChar = () => dispatch => {
-    dispatch({ type:FETCH_CHAR_START });
+export const getChars = () => dispatch => {
+    dispatch({ type: FETCH_CHAR_START });
     axios
         .get(`https://swapi.co/api/people/`)
-        .then(repsonse => 
-            dispatch({ type: FETCH_CHAR_SUCCESS, payload: repsonse.data })
+        .then(response => 
+            dispatch({ type: FETCH_CHAR_SUCCESS, payload: response.data.results })
         )
         .catch(error => dispatch({ type: FETCH_CHAR_FAILURE, payload: error }));
 };
