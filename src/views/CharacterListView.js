@@ -1,14 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
-
 import { CharacterList } from "../components";
 import { getCharacters } from '../actions';
 
 
+
 class CharacterListView extends React.Component {
-  constructor() {
-    super();
-  }
+  
 
   componentDidMount() {
     this.props.getCharacters();
