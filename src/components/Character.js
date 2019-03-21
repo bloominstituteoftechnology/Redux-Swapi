@@ -1,30 +1,26 @@
 import React from "react";
-// import styled from 'styled-components';
-
-// const CharsWrapper = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   border: 1px solid red;
-//   border-radius: 5px;
-//   color: doggerblue;
-// `;
-
-// const Title = styled.div`
-//   font-size: 1em;
-// `;
 
 const Character = props => {
-  return
-    <li>        
+  return (
+    <li>    
       {props.character.name}
+      <br/> 
       {props.character.height}
+      <br/> 
       {props.character.mass}
+      <br/> 
       {props.character.gender}
+      <br/> 
       {props.character.species}
+      <br/> 
       {props.character.birth_year}
+      <br/> 
       {props.character.films}
+      <br/> 
       {props.character.starships}
+      <br/> 
     </li>
+  )
 };
 
 export default Character;
