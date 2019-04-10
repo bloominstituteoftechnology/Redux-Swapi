@@ -4,6 +4,7 @@ import axios from "axios";
 	export const FETCHED_SUCCESS = "FETCHED_SUCCESS";
 	export const LOADING = "LOADING";
 	export const ERROR = "ERROR";
+	
 	export const fetchChars = () => dispatch => {
 	  dispatch({ type: LOADING });
 	  axios

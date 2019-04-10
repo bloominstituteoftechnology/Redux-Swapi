@@ -3,7 +3,7 @@ import { LOADING, ERROR, FETCHED_SUCCESS } from "../actions";
 	
 const initialState = {
   characters: [],
- loading: false,
+ loading: true,
   error: null
   // Array characters, Boolean fetching, null error.
 };
