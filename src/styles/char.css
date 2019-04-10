@@ -1,0 +1,12 @@
+.charWrapper {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid red;
+    border-radius: 5px;
+    color: doggerblue;
+  }
+  
+  .title {
+    font-size: 1rem;
+  }
+  
