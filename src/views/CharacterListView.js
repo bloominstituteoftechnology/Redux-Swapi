@@ -15,6 +15,7 @@ class CharacterListView extends React.Component {
 
   render() {
     if (this.props.fetching) {
+      console.log('fetching characters')
       // return something here to indicate that you are fetching data
     }
     return (
