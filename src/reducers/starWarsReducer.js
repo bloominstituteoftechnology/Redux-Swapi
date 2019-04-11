@@ -1,11 +1,16 @@
-import /* we need our action types here*/ "../actions";
+/* we need our action types here*/
+import { FETCHING_CHARACTERS, FETCHING_CHARACTERS_SUCCESS, FETCHING_CHARACTERS_FAILURE } from "../actions";
+
+
 const initialState = {
-  characters: []
+  characters: [],
+  fetching: true,
+  error: null
   // Array characters, Boolean fetching, null error.
 };
 export const charsReducer = (state = initialState, action) => {
   switch (action.type) {
-     case FETCHING_CHARACTERS: 
+    case FETCHING_CHARACTERS: 
       return {
         ...state,
         fetching: true,
@@ -19,7 +24,7 @@ export const charsReducer = (state = initialState, action) => {
         error: ''
       };
     case FETCHING_CHARACTERS_FAILURE: 
-    return {
+      return {
       ...state,
       fetching: false,
       error: action.payload
