@@ -10,3 +10,18 @@ export const FETCH_CHARACTER_START = "FETCH_CHARACTER_START";
 export const FETCH_CHARACTER_SUCCESS = "FETCH_CHARACTER_SUCCESS";
 export const FETCH_CHARACTER_FAILURE = "FETCH_CHARACTER_FAILURE";
 
+export const getCharacter = () => dispatch => {
+    dispatch( {type: FETCH_CHARACTER_START})
+axios
+.get("https://swapi.co/api/people/")
+    .then(response => dispatch(
+        { type: FETCH_CHARACTER_SUCCESS, 
+        payload: response.data }))
+    .catch(error => dispatch(
+        { type: FETCH_CHARACTER_FAILURE, 
+        payload: error }));
+};
+
+
+
+
