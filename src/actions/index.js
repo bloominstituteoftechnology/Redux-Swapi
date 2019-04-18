@@ -13,7 +13,7 @@ export const FETCH_CHARACTER_FAILURE = "FETCH_CHARACTER_FAILURE";
 export const getCharacter = () => dispatch => {
     dispatch( {type: FETCH_CHARACTER_START})
 axios
-.get("https://swapi.co/api/people/")
+.get("https://swapi.co/api/people")
     .then(response => dispatch(
         { type: FETCH_CHARACTER_SUCCESS, 
         payload: response.data }))

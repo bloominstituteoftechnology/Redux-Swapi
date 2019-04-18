@@ -6,11 +6,11 @@ from  "../actions";
 
 const initialState = {
   error: "",
-  isLoading: false,
+  isFetching: false,
   characters: []
   // Array characters, Boolean fetching, null error.
 };
-export const charsReducer = (state = initialState, action) => {
+export const charsReducers = (state = initialState, action) => {
   switch (action.type) {
     // Fill me in with the important reducers
     // action types should be FETCHING, SUCCESS and FAILURE
@@ -19,18 +19,21 @@ export const charsReducer = (state = initialState, action) => {
     return {
       ...state,
       error: "",
-      isLoading: true
+      isFetching: true,
     };
   case FETCH_CHARACTER_SUCCESS:
     return {
       ...state,
-      isLoading: false,
+      isFetching: false,
       characters: action.payload
      
     };
   case FETCH_CHARACTER_FAILURE:
     return {
-      state,
+     ...state,
+     isFetching: false,
+     error: action.payload
+    
     };
   default:
     return state;
