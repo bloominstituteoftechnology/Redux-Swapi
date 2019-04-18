@@ -25,14 +25,14 @@ export const charsReducers = (state = initialState, action) => {
     return {
       ...state,
       isFetching: false,
-      characters: action.payload
-     
+      characters: action.payload,
+      error: "",
     };
   case FAILURE:
     return {
      ...state,
      isFetching: false,
-     error: action.payload
+     error: action.payload,
     
     };
   default:
