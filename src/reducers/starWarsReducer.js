@@ -1,9 +1,11 @@
-import {FETCH_SUCCESS, FETCH_FAIL, FETCH_START}} "../actions";
+import {FETCH_SUCCESS, FETCH_FAIL, FETCH_START} from "../actions";
+
 const initialState = {
   characters: [],
   fetching: bool,
   error: null,
 };
+
 export const charsReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_START:
@@ -16,7 +18,7 @@ export const charsReducer = (state = initialState, action) => {
       fetching: false,
       error: null,
       ...initialState,
-      ...characters, payload.data.characters
+      ...characters, characters: payload.data.characters
     }
     case FETCH_FAIL:
     return {
