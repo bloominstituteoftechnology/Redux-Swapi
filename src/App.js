@@ -8,7 +8,7 @@ class App extends Component {
     return(
       <div>
         <h1>Starwars</h1>
-     <CharacterListView />
+     {/* <CharacterListView /> */}
      </div>
     )
   }
