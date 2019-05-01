@@ -5,7 +5,12 @@ import "./styles/App.css";
 
 class App extends Component {
   render() {
-    return <CharacterListView />;
+    return(
+      <div>
+        <h1>Starwars</h1>
+     <CharacterListView />
+     </div>
+    )
   }
 }
 
