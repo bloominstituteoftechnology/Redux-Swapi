@@ -2,4 +2,19 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-image: url('./sw-bg.jpg');
+  background-size: cover;
+}
+
+.char-div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.char-card {
+  width: 320px;
+  margin: 1%;
+  text-align: center;
+  opacity: .7;
 }
