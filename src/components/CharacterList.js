@@ -1,5 +1,4 @@
 import React from "react";
-
 import Character from "./Character";
 
 const CharacterList = props => {
@@ -9,6 +8,7 @@ const CharacterList = props => {
         return <Character key={character.name} character={character} />;
       })}
     </ul>
+    // <div></div>
   );
 };
 
