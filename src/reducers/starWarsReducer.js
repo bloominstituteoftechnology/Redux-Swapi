@@ -28,7 +28,6 @@ export const charsReducer = (state = initialState, action) => {
       error: action.payload
     }
     case FETCHING: 
-    console.log(action.payload)
       return {
         ...state,
         isloading: true,

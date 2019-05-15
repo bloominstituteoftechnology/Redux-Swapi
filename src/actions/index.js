@@ -18,7 +18,7 @@ dispatch({ type: FETCHING });
 axios
   .get('https://swapi.co/api/peoples')
   .then(res => {
-
+    console.log(res)
     dispatch({ type: SUCCESS, payload: res.data.results });
   })
   .catch(err => {
