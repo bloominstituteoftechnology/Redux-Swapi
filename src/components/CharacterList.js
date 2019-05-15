@@ -3,6 +3,7 @@ import React from "react";
 import Character from "./Character";
 
 const CharacterList = props => {
+  console.log(props)
   return (
     <ul>
       {props.characters.map(character => {
