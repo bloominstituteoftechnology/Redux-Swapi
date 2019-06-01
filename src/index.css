@@ -3,3 +3,44 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+.list-container {
+  padding-top: 50px;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.list-container div {
+  width: 25%;
+  height: 100px;
+  border: 1px solid #222;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.next,
+.previous {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 3rem;
+  cursor: pointer;
+}
+.next:active,
+.previous:active {
+  transform: translateY(calc(-50% + 1px));
+}
+.previous {
+  left: 20px;
+}
+.next {
+  right: 20px;
+}
+.loading {
+  margin-left: 20px;
+  margin-top: 20px;
+}
