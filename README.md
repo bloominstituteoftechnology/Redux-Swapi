@@ -1,3 +1,4 @@
+Sascha Majewsky
 # Redux Swapi
 
 ---
