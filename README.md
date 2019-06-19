@@ -2,7 +2,7 @@
 
 # Student: Andrew Brudnak ⛵
 
----
+![Image of Redux Swapi - Star Wars / React Wars](https://i.imgur.com/upRsUF3.png)
 
 ## Topics
 
