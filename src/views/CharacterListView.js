@@ -9,7 +9,11 @@ const CharacterListView = props => {
   }, []);
 
   if (props.fetching) {
-    return <h2>Loading yo...</h2>;
+    return (
+      <div className='progress blue lighten-4'>
+        <div className='indeterminate blue' />
+      </div>
+    );
   }
   return (
     <div className='CharactersList_wrapper'>
