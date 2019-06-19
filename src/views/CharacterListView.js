@@ -3,20 +3,28 @@ import { connect } from "react-redux";
 
 import { CharacterList } from "../components";
 // import actions
+import  { getChars } from '../actions';
+import Loader from 'react-loader-spinner';
+
 
 class CharacterListView extends React.Component {
   constructor() {
     super();
+   console.log(this.props)
   }
 
   componentDidMount() {
     // call our action
+    this.props.getChars()
   }
 
   render() {
-    if (this.props.fetching) {
+      {this.props.isLoading && (
+        <p>Loading...</p>
+      )}
       // return something here to indicate that you are fetching data
-    }
+      
+      {this.props.error && <p>{this.props}</p>}
     return (
       <div className="CharactersList_wrapper">
         <CharacterList characters={this.props.characters} />
@@ -27,9 +35,15 @@ class CharacterListView extends React.Component {
 
 // our mapStateToProps needs to have two properties inherited from state
 // the characters and the fetching boolean
-export default connect(
-  null /* mapStateToProps replaces null here */,
-  {
-    /* action creators go here */
+
+const mtsp = state => {
+  console.log(state)
+  return{
+    characters: state.charsReducer.characters,
+    error: state.charsReducer.error,
+    isLoading: state.charsReducer.isLoading 
   }
-)(CharacterListView);
+}
+
+export default connect(
+  mtsp, { getChars })(CharacterListView);
