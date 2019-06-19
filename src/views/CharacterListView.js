@@ -1,15 +1,29 @@
 import React from "react";
 import { connect } from "react-redux";
-
+import styled from "styled-components";
+import Loader from "react-loader-spinner";
 import { CharacterList } from "../components";
-// import actions
 import { fetchData } from "../actions";
 
+const Container = styled.div`
+margin: 0 auto;
+`;
+const Card = styled.div`
+background-color: rgba(103, 128, 159, 1);
+opacity: 0.5;
+width: 50%;
+margin: 1rem auto;
+padding: .5rem;
+`;
+const Header = styled.div`
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
+font-family: 'Press Start 2P', cursive;
+  font-size: 2rem;
+  font-weight: lighter;
+  padding: 0 0 0 1rem;
+  margin: 0 0 3rem 0;
+`;
 class CharacterListView extends React.Component {
-  // constructor() {
-  //   super();
-  // }
-
   componentDidMount() {
     // call our action
     console.log("======", this.props);
@@ -19,12 +33,13 @@ class CharacterListView extends React.Component {
   render() {
     if (this.props.fetching) {
       // return something here to indicate that you are fetching data
-      return <div>Loading</div>
+      return <Loader type="Puff" color="#00BFFF" height="100" width="100" />;
     }
     return (
-      <div className="CharactersList_wrapper">
+      <Container>
+      <Card><Header>Star Wars</Header></Card>
         <CharacterList characters={this.props.characters} />
-      </div>
+      </Container>
     );
   }
 }
