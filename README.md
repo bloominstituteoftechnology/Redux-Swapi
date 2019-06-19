@@ -85,7 +85,7 @@ ReactDOM.render(
 - This would look a lot like this.
 
 ```
-function myCleverAction = () => dispatch => {
+function myCleverAction = (>) = dispatch => {
   const request = axios.get('https://someRadUrlAPI.com/api/coolness);
   request.then(({data}) => {
     dispatch({type: GET_COOL_THING, payload: data.things});
