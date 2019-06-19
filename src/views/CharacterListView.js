@@ -33,7 +33,9 @@ class CharacterListView extends React.Component {
   render() {
     if (this.props.fetching) {
       // return something here to indicate that you are fetching data
-      return <Loader type="Puff" color="#00BFFF" height="100" width="100" />;
+      return (<Container>
+<Loader type="Circles" color="green" height="100" width="100" />;
+      </Container>);
     }
     return (
       <Container>
@@ -48,7 +50,8 @@ class CharacterListView extends React.Component {
 // the characters and the fetching boolean
 function mapStateToProps(state) {
   return {
-    characters: state.people.characters
+    characters: state.people.characters,
+    fetching: state.people.fetching
   };
 }
 export default connect(

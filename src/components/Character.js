@@ -3,7 +3,10 @@ import React from "react";
 const Character = props => {
   return (
   <li>
-  <div>{props.character.name}</div>
+  <div>
+  <p>{props.character.name}</p>
+  <p>{props.character.gender}</p>
+  </div>
   </li>
   );
 };
