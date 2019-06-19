@@ -1,5 +1,7 @@
 # Redux Swapi
 
+# Student: Andrew Brudnak ⛵
+
 ---
 
 ## Topics
