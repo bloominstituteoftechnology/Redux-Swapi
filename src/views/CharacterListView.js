@@ -1,32 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-
 import { CharacterList } from '../components';
-// import actions
 import { getData } from '../actions';
 
-class CharacterListView extends React.Component {
-  constructor(props) {
-    super(props);
-    console.log(props + ' Some props from.... CharLiVw');
-  }
+const CharacterListView = props => {
+  useEffect(() => {
+    props.getData();
+  }, []);
 
-  componentDidMount() {
-    // call our action
-    this.props.getData();
+  if (props.fetching) {
+    return <h2>Loading yo...</h2>;
   }
-
-  render() {
-    if (this.props.fetching) {
-      return <h2>Loading yo...</h2>;
-    }
-    return (
-      <div className='CharactersList_wrapper'>
-        <CharacterList characters={this.props.characters} />
-      </div>
-    );
-  }
-}
+  return (
+    <div className='CharactersList_wrapper'>
+      <CharacterList characters={props.characters} />
+    </div>
+  );
+};
 
 // our mapStateToProps needs to have two properties inherited from state
 const mapStateToProps = state => {
