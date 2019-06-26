@@ -3,6 +3,7 @@
 ---
 
 ## Topics
+## Topics
 
 - Middleware and applyMiddleware
 - redux-thunk
