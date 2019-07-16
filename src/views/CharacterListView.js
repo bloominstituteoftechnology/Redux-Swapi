@@ -7,6 +7,10 @@ import { CharacterList } from "../components";
 class CharacterListView extends React.Component {
   constructor() {
     super();
+    this.state = {
+      characters: '',
+      isLoading: false
+    }
   }
 
   componentDidMount() {
@@ -26,15 +30,21 @@ class CharacterListView extends React.Component {
   }
 }
 
+
+const mapStateToProps = (state) => {
+  return {
+      characters: state.charsReducer.characters,
+      isLoading: state.charsReducer.isLoading
+  }
+}
+
 const mapDispatchToProps = {
   getData: getData
 }
+
 // our mapStateToProps needs to have two properties inherited from state
 // the characters and the fetching boolean
 export default connect(
-  null,
-  mapDispatchToProps /* mapStateToProps replaces null here */,
-  {
-    /* action creators go here */
-  }
+  mapStateToProps,
+  mapDispatchToProps 
 )(CharacterListView);

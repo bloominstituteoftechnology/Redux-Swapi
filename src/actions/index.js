@@ -18,12 +18,12 @@ export function getData() {
 
         dispatch({ type: FETCHING_DATA })
 
-        axios.get('https://swapi.co/api/people')
+        axios.get('https://swapi.co/api/people/')
             .then((response) => {
                 dispatch( { type: LOAD_SUCCESS, payload: response.data })
             })
             .catch((err) => {
-                dispatch( { type: LOAD_FAILURE, payload: err.response.data })
+                dispatch( { type: LOAD_FAILURE, payload: err.response })
             })
     }
 }

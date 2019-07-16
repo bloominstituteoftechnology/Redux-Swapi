@@ -21,7 +21,7 @@ export const charsReducer = (state = initialState, action) => {
 
     case LOAD_SUCCESS: {
       const newData = action.payload.results
-      
+
       return {
         ...state,
         isLoading: false,
@@ -32,7 +32,7 @@ export const charsReducer = (state = initialState, action) => {
     case LOAD_FAILURE: {
       return {
         ...state,
-        error: action.payload.message
+        error: action.payload
       }
     }
     
