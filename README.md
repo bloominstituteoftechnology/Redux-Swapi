@@ -118,7 +118,7 @@ applyMiddleware(thunk, logger);
 ## Project
 
 - Your project here is to build a `react-redux` application that will request some data from a 3rd party api.
-- [] go ahead and run an `npm install` or `yarn` to get what you need installed here.
+- [X] go ahead and run an `npm install` or `yarn` to get what you need installed here.
 - [X] **Start** in `src/index.js`. We'll need to pull in the appropriate packages.
 - [X] **Next** after you're all wired up in your `index` lets move over to work on your reducers.
 - [X] **Next** move into our `actions/index.js` file to build out the action that will be sending off the `axios` request to the `SWAPI` api, the URL is `https://swapi.co/api/people`.
