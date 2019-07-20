@@ -1,4 +1,9 @@
-import /* we need our action types here*/ "../actions";
+import {
+  FETCH_CHARACTER_START,
+  FETCH_CHARACTER_SUCCESS,
+  FETCH_CHARACTER_FAILURE
+} from"../actions";
+
 const initialState = {
   characters: [],
   isFetching: false,
@@ -16,7 +21,7 @@ export const charsReducer = (state = initialState, action) => {
         isFetching: true,
         error: ''
       };
-      
+
     case FETCH_CHARACTER_SUCCESS:
       return {
         ...state,
