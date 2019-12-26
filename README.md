@@ -54,7 +54,7 @@ You'll notice that we are using container and presentational components to separ
 import { applyMiddleware, createStore } from 'redux';
 ```
 
-- We're going to use `applyMiddleware` to inject middlware into the store, specifically we'll add the `redux-thunk` and `redux-logger` middleware packages.
+-   We're going to use `applyMiddleware` to inject middlware into the store, specifically we'll add the `redux-thunk` and `redux-logger` middleware packages.
 
 ## redux-thunk
 
