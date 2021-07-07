@@ -1,7 +1,7 @@
 # Redux Swapi
 
 ---
-
+intial commit
 ## Topics
 
 - Middleware and applyMiddleware
