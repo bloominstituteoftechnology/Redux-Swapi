@@ -9,7 +9,7 @@ import rootReducer from "./reducers";
 // applyMiddleware from redux
 // thunk from redux-thunk
 // logger from redux-logger
-// rootReducer from ./reducers
+// rootReducer from ./reducers !
 
 const store = createStore(
   rootReducer
